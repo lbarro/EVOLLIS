@@ -1,0 +1,9 @@
+============================
+     References
+============================
+
+http://www.siteduzero.com/tutoriel-3-75110-la-connexion-securisee-a-distance-avec-ssh.html
+
+http://www.siteduzero.com/tutoriel-3-58147-creer-un-serveur-subversion.html
+
+http://www.commentcamarche.net/forum/affich-474362-comment-creer-un-serveur-perso-sur-son-pc

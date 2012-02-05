@@ -9,7 +9,7 @@ all: $(LATEX_FILE)
 	$(PDF_PRODUCER) $(FILE).tex
 
 view: all
-	$(PDF_VIEWER) $(FILE).pdf &
+	nohup $(PDF_VIEWER) $(FILE).pdf &
 
 do_anyway: 
 

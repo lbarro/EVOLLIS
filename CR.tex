@@ -52,21 +52,20 @@ frameround=fttt;%
 
 %%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%
 \def\td{1}
-\def\eleves{BARRO Lissy ~~~ KANE Ilyass}
+\def\eleves{BARRO Lissy}
 \begin{document}
 
 %%%%%%%%%%%%%%%% Header %%%%%%%%%%%%%%%%
 \begin{center}
       {\bfseries \huge
-        Compte-rendu TD n°\td \\ 
-        Tests de couverture en langage C
+        Compte-rendu de la reunion du 27/01 et de la semaine du 1er au 3\\ 
       }
 \end{center}
 
 \vskip 10mm
 \noindent
 \fbox{\begin{tabular}{l}
-       {\bfseries \sffamily Elèves:
+       {\bfseries \sffamily Elève :
        } \\[2mm] 
        \eleves \\
    \end{tabular}}
@@ -74,149 +73,6 @@ frameround=fttt;%
 
 %%%%%%%%%%%%%%%% Main part %%%%%%%%%%%%%%%%
 \noindent
-\underline{\textbf{Note}}:{\it \footnotesize{Ne jamais utiliser assert dans les tests en langage C car ce dernier fait bloquer la suite de l'exécution du programme si une assertion n'est pas vraie.}}
-
-\section*{Test structurel / Couverture des noeuds}
-
-Considérons le code de la fonction \textsf{ppcm} qui retourne le plus pétit commun multiple de deux entiers passés en paramètre:  
- \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{ppcm.png}
- \end{figure}
-
-\newpage
-\noindent En combinant le programme \textsf{crystal} et les outils de \textsf{graphviz} nous obtenons le graphe de flôt de contrôle suivant du code:
-\begin{lstlisting}
-crystal ppcm.c emit dot && dot Tps o ppcm.ps ppcm.dot
-\end{lstlisting}
- \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{ppcm_1.png}
- \end{figure}
-
-\noindent Le système de test mis en place prend en paramètre trois entiers \texttt{x y z} dont \textsf{z} est le ppcm de \texttt{x} et \textsf{y} affiche \textsf{PASSED} ou \textsf{FAILED} selon que le test soit réussi ou non.
-\\
-\\
-Nous allons maintenant nous intéresser à la couverture des noeuds du code de la fonction \textsf{ppcm} après avoir compiler avec le programme avec l'option \texttt{--coverage}. Cette option provoque la génération deux fichiers .gcno et .gcda à chaque exécution du programme. Ces deux fichiers contenant les résultats de toutes les exécutions vont permettre à l'utilitaire \texttt{gcov} de nous fournir le taux de couverture des nœuds.
-\\
-\\
-Le jeu de test \textsf{(1 1 1)} donne un taux de couverture des nœuds de 33.33\% et ne passe pas donc à priori  le code n'est pas juste.
-\\
-\\
-Le jeu de test \textsf{(2 3 6)} donne un taux de couverture des nœuds à 100.00\%
-\\
-\\
-On a un taux de couverture des noeuds à 100.00\% qui pourrait amener à penser que le code a été suffisamment bien testé pour qu’il soit correct alors que manifestement le code ne fonctionne pas lorsque les valeurs données en entrée sont égales. Par exemple le jeu de test \textsf{(1 1 1)} n'est pas passé.
 
 
-\section*{Test structurel / Couverture plus complète}
-
-Nous proposons de corriger l'erreur précédente en rajoutant
-la ligne de code \\ \texttt{if(x == y) return x;} au début du code de la fonction \textsf{ppcm}.
-\\
-\\
-
-Le nouveau graphe de flot de contrôle correspondant est le suivant:
- \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{ppcm_2.png}
- \end{figure}
-\noindent
-Les jeux de test \textsf{(1 1 1)} et \textsf{(2 3 6)} permettent d'obtenir de nouveau le taux de couverture des nœuds à 100.00\% et cette fois-ci le jeu de test \textsf(1 1 1) passe. Le code semble mieux marcher que précédemment mais ceci ne veut pas dire qu'il est juste.   
-\\
-\\
-Nous allons maintenant nous intéresser à une autre couverture beaucoup plus complète qui est la couverture des branches. L'utilitaire \textsf{gcov} avec l'option \texttt{-b} nous donne une couverture des branches de 90.00\%. Cependant le jeu de test (3 2 6) nous permet d'atteindre une couverture des branches de 100.00\%.
-\\
-\\
-Malgré que les branches et nœuds sont couverts, lorsque le PPCM est égal à l’une des valeurs passée en paramètre. Par exemple le test \textsf{(2 4 4)} ne passe pas.
-\\
-Grâce à une analyse structurelle sur le graphe de contrôle, pour corriger ce bug nous proposons d'utiliser dans la condition de la boucle \texttt{while} des inégalités larges, c'est à qu'en lieu et place de \texttt{while ((p > x) \&\& (p >y)) \{...\}} on mettra \texttt{while ((p >= x) \&\& (p >=y)) \{...\}}
-\\
-\\
-Nous avons maintenant un jeu de test qui permet de couvrir les noeuds et les branches du code et même si le code réagit bien aux jeux de test, ceci ne veut pas dire que le code est juste.
-\\
-\\
-On pourrait penser à un autre mode de couverture beaucoup plus complexe qui est la couverture des chemins. En exhibant un jeu de test pour chaque chemin d'exécution on a pu détecter trois jeux de test qui ne passaient pas: \textsf{(0 2 0)}, \textsf{(2 0 0)} et \textsf{(0 0 0)}. 
-\\
-\\
-Les deux premiers ne passent pas à cause d'un problème d'initialisation et le troisième fait planter le programme parce qu'il provoquera une division par zéro.
-\\
-\\
-Pour corriger ce bug, au début du code on vérifie si l'un des paramètre est nul on renvoie 0.\[\texttt{if(a == 0 || b == 0) return 0;}\]
-\\
-\\
-Tout semble bien marché mais il ne faut garder à l'esprit que les tests permettent de détecter les bug mais ne disent pas qu'il n'y a pas de bug.  
-
-\newpage
-\section*{Test fonctionnel vs. test structurel}
-
-Considérons le code de la fonction \textsf{mul} qui permet de calculer le produit de deux entiers a et b, sans faire
-appel directement à d’autres multiplications que des multiplications et des divisions par 2:  
- \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.4]{mul.png}
- \end{figure}
-
-\newpage
-\noindent En combinant le programme \textsf{crystal} et les outils de \textsf{graphviz} nous obtenons le graphe de flôt de contrôle suivant du code:
-\begin{lstlisting}
-crystal mul.c emit dot && dot Tps o mul.ps mul.dot
-\end{lstlisting}
- \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.5]{mul_init.png}
- \end{figure}
-
-\noindent
-Les jeux de test \textsf{(2 3 6)} et \textsf{(3 4 12)} permettent d’obtenir une couverture des noeuds et des branches de 100\% facilement vérifiable avec l'utilitaire \textsf{gcov} alors qu'aucun test n'est passé. Cependant le programme \textsf{lcov} permet de générer une sortie \textsf{HTML} plus attrayante que \textsf{gcov} pour visualiser les couvertures obtenues. La sortie \textsf{HTML} de l'utilitaire \textsf{lcov} appliqué sur le code de la fonction \textsf{mul} est à l'emplacement \texttt{BARRO\_KANE/mul/html}.
-\\
-\\
-En utilisant l'approche structurelle on a facilement atteint la couverture de 100\% sans que la fonction ne soit entièrement correcte. Il devient alors nécessaire d’appliquer des méthodes de test fonctionnel.
-\newpage
-En se référant à la spécification et selon que les paramètres soient des entiers relatifs, nous avons défini les classes d'équivalence suivantes sur les paramètres de la fonction mul:
-\begin{itemize}
-\item $\mathbf{N^+} \times \mathbf{N^+}$
-\item $\mathbf{N^+} \times \mathbf{N^-}$
-\item $\mathbf{N^+} \times \{0\}$
-\item $\mathbf{N^-} \times \mathbf{N^+}$
-\item $\mathbf{N^-} \times \mathbf{N^-}$
-\item $\mathbf{N^-} \times \{0\}$
-\item $\{0\} \times \mathbf{N^+}$
-\item $\{0\} \times \mathbf{N^-}$
-\item $\{0\} \times \{0\}$\\
-\end{itemize}
-Où $\mathbf{N^+}$ est l'ensemble des entiers positifs non nuls,  $\mathbf{N^{-}}$ l'ensemble des entiers négatifs non nuls.
-\\
-\\
-À partir de ces classes d'équivalence nous avons exhibé un ensemble de 9 jeux de test qui permet de faire de tester de façon exaustif  le programme mul conformément à la spécification. Chaque jeu de teste illustre le comportement du programme pour un classe d'équivalence et cela permet de réduire considérablement le nombre de testes à effectuer.
-\\
-\\
-\underline{Jeu de test}:
- (2 3 6), (-4, -1, 4), (4, -3, -12), (-2, 5, -10), (0, 2, 0), (2, 0, 0), (-4, 0, 0), (0, -4, 0), (O, 0, 0).\\
-Les deux premier éléments du triplet correspondent aux paramètre de la fonction mul et le troisième au résultat attendu.\\
-\\
-Nous avons corrigé le programme de sorte à ce que ces 9 jeux de test passent ce qui est une condition necéssaire pour espérer que le programme répond bien à la spécification.
-
-\section{Test boîte noire}
- 
-Il est possible d'effectuer des testes en se basant uniquement sur la spécification. De ce fait nous ne connaissons pas la structure du programme.
-\\
-\\ 
-En fonction des entrées du programme nous devons nous assurer que les sorties sont conforment avec la spécification. Cependant cette façon de faire peut être problématique car cela demande un choix judicieux de jeux de test pour pouvoir tirer une conclusion positive (répond à la spécification). Il faut se baser le plus possible sur la spécification pour générer les jeux de test. 
-\\
-\\
-Notons que le fait de ne pas détecter des erreurs ne signifie pas qu'il en existe pas.
-\\
-\\
-\underline{Exemple}:
-\begin{enumerate} 
- \item Nous avons réussi  détecter une erreur dans la fonction «uppercase» dans le fichier \texttt{up.c} avec le jeu de test suivant:
-   \begin{enumerate}
-               \item uppercase("alpha et omega") renvoie la chaîne "Alpha Et Omega" ce qui est juste selon la spécification.
- 
-         \item uppercase("Alpha Et Omega") renvoie un résultat un résultat qui ne respecte pas la spécification.
-\end{enumerate}
-
-   \item Nous n'avons avons pas reussi à detecter des erreurs dans la fonction «translate» mais cela ne signifie pas qu'il en existe pas donc à priori cette fonction répond à la spécification.
-\end{enumerate}
 \end{document}

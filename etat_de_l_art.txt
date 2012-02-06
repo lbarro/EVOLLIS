@@ -1,0 +1,19 @@
+==============
+ETAT DE L'ART
+==============
+
+Introduction
+^^^^^^^^^^^^
+Le noSQL est une denomination désignant une catégorie de gestionnaire de bases de données geantes. Ces gestionnaires
+noSQL optent pour la simplicité dans le but au detriment de certaines fonctionnalités classiques des SGBD relationnels 
+pour plus de performance et une meilleure scalabilité.
+
+Qques noSQL
+^^^^^^^^^^^
+* BigTable (google)
+* Dynamo (Amazon)
+* Cassandra, HBase (facebook)
+* MongoDB (source forge)
+* CouchDB (Ubuntu One)
+* Project Voldemort (LinkedIn)
+* 

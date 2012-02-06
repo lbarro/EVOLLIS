@@ -1,1 +1,5 @@
 => Pour la thèse, M. de Marignan est plutôt interessé par l'interaction entre le monde sql et le monde nosql
+
+=> Quelles bases est la mieux adaptées pour EVOLLIS?
+
+=> Les raisons qui ont poussé EVOLLIS a opté pour mongoDB au detriment des autres bases noSQL open source

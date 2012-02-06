@@ -1,0 +1,7 @@
+======================
+   All about mongoDB
+======================
+
+Mongodb est un gestionnaire de base de données noSql open source. Les source sont hebergé sous github. 
+MongodB est princimalement debveloppé en C++. Et il existe des drivers pour pouvoir utiliser mongoDb 
+dans diverses applicatyions developpées en de langages differents.

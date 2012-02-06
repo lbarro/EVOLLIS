@@ -1,0 +1,1 @@
+=> Pour la thèse, M. de Marignan est plutôt interessé par l'interaction entre le monde sql et le monde nosql

@@ -1,8 +1,0 @@
-==================
-   Git
-==================
-Au même titre que SVN et CVS, git est un protocole de gestion de version sous licence libre.
-Git est non officiellement supporté sous windows. Une alternative pour utiliser git sur windows est
-msysgit developpé par des volontaires.
-
-Contrairement à SVN, git est un gestionnaire de depot decentralisé. 

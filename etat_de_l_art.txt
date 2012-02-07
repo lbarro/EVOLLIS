@@ -11,10 +11,7 @@ pour les opérations transactionnelles. Cependant leur mise en place stricte est
 modeste par rapport à l'infrastructure matérielle.
 
 Il n'existe pas de solution théorique permettant d'assurer des transactions totalement ACID dans un environnement 
-distribué, mais différents travaux universitaires, dont l'un des principaux est le protocole PRAXOS.
-
-Le theoreme CAP ou théoreme de brewer: Dans un environnement distribué, il est impossible de garantir à la fois : 
-                                       La consistance(la cohérence) La disponibilité La tolérance aux pannes 
+distribué, mais différents travaux universitaires, dont l'un des principaux est le protocole PRAXOS
 
 
 Ces bases de données proposent une nouvelle représentation de l’information. En s’affranchissant des contraintes 

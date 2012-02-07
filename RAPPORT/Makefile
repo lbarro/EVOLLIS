@@ -1,17 +1,21 @@
 PDF_PRODUCER=pdflatex
-LATEX_FILE=rapport.tex
+LATEX_FILE=rapport
 PDF_VIEWER=evince
+VERSION=00.00.00
 
-PHONY: all clean view do_anyway
+all: $(LATEX_FILE)$(VERSION).tex
+	$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
+	$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex 
 
-all: $(LATEX_FILE)
-	$(PDF_PRODUCER) $(LATEX_FILE)
-	$(PDF_PRODUCER) $(LATEX_FILE) 
+$(LATEX_FILE)$(0VERSION).tex:
+	cp $(LATEX_FILE).tex $(LATEX_FILE)_$(VERSION).tex
 
-view: all
-	$(PDF_VIEWER) *.pdf > ~/trash.out 2>&1 &
+PHONY: clean view do_anyway
 
 do_anyway: 
+
+view: do_anyway
+	$(PDF_VIEWER) $(LATEX_FILE)_$(VERSION).pdf > ~/trash.out 2>&1 &
 
 clean: do_anyway
 	@rm -rf *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm

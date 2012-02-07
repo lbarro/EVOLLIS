@@ -1,0 +1,45 @@
+===============
+ ETAT DE L'ART
+===============
+
+Introduction
+^^^^^^^^^^^^
+Le noSQL est une denomination désignant une catégorie de gestionnaire de bases de données geantes. Ces gestionnaires
+noSQL optent pour la simplicité dans le but au detriment de certaines fonctionnalités classiques des SGBD relationnels 
+pour plus de performance et une meilleure scalabilité. Les SGBD relationnels repondent au propriétés ACID très utiles 
+pour les opérations transactionnelles. Cependant leur mise en place stricte est très couteuse et donne des performances
+modeste par rapport à l'infrastructure matérielle.
+
+Il n'existe pas de solution théorique permettant d'assurer des transactions totalement ACID dans un environnement 
+distribué, mais différents travaux universitaires, dont l'un des principaux est le protocole PRAXOS
+
+
+Ces bases de données proposent une nouvelle représentation de l’information. En s’affranchissant des contraintes 
+ACID (atomicité, cohérence, isolation, durabilité - cf. article de Wikipedia "Transaction Informatique") 
+du modèle SQL, elles ont le très gros avantage de fournir une architecture technique où il suffit de rajouter des 
+serveurs pour gagner en performance sans trop se poser de questions.
+
+Les différents types de noSQL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+* Clé - valeur  : La représentation la plus simple. Cette structure est très adaptée à la gestion de caches ou pour 
+  fournir un accès rapide aux informations. Elle fonctionne comme un grand tableau associatif et retourne une valeur 
+  dont elle ne connaît pas la structure.
+
+* Document : Ajoute au modèle clé-valeur, l’association d’une valeur à structure non plane, c’est-à-dire qui 
+  nécessiterait un ensemble de jointures en logique relationnelle. 
+
+* Colonne  : Autre évolution du modèle clé-valeur, il permet de disposer d'un très grand nombre de valeurs sur une même 
+  ligne, permettant ainsi de stocker les relations de type one-to-many. Contrairement au système Clé-Valeur, celui-ci 
+  permet d’effectuer des requêtes par clé.
+
+* Graphe : Permet la modélisation, le stockage et la manipulation de données complexes liées par des relations 
+  non-triviales ou variables.
+
+Qques noSQL
+^^^^^^^^^^^
+* BigTable (google)
+* Dynamo (Amazon)
+* Cassandra, HBase (facebook)
+* MongoDB (source forge)
+* CouchDB (Ubuntu One)
+* Project Voldemort (LinkedIn)

@@ -1,0 +1,15 @@
+======================
+   All about mongoDB
+======================
+
+Mongodb est un gestionnaire de base de données noSql open source. Les source sont hebergé sous github. 
+MongodB est princimalement debveloppé en C++. Et il existe des drivers pour pouvoir utiliser mongoDb 
+dans diverses applicatyions developpées en de langages differents.
+
+=>   "Check and take" a developpé sa solution en php mais EVOLLIS utilise les serveurs tomcat et appache
+   apriori il serait raisonnable de developper le pilote en java.
+
+=>   Dans un premier temps utiliser les drivers déjà en place et faire juste une conversion requête sql en requête
+     mongoDB.
+
+=>   Penser à un compilateur qui va permettre de passer de requêtes postgre en requête mongoDB.

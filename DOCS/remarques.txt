@@ -8,4 +8,6 @@
    Le theoreme CAP ou théoreme de brewer: Dans un environnement distribué, il est impossible de garantir à la fois : 
                                        La consistance(la cohérence) La disponibilité La tolérance aux pannes 
 
-=>
+=> Donner un nom au projet.
+
+=> Le logo d'EVOLLIS

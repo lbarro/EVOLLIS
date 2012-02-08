@@ -19,6 +19,12 @@ ACID (atomicité, cohérence, isolation, durabilité - cf. article de Wikipedia 
 du modèle SQL, elles ont le très gros avantage de fournir une architecture technique où il suffit de rajouter des 
 serveurs pour gagner en performance sans trop se poser de questions.
 
+ ce qui les rend attractifs sur le marché des
+SGBD. Les auteurs décrivent leurs produits comme n'étant pas des SGBD,
+mais plutôt des logiciels de stockage de données
+
+On reproche à NoSQL de sacrifier le principe ACID (Atomicity, Consistency, Isolation, Durability) , atomicité, consistence, isolation, durabilité, donc d'offrir une moins grande sureté dans l'accès aux donnée.s
+
 Les différents types de noSQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Clé - valeur  : La représentation la plus simple. Cette structure est très adaptée à la gestion de caches ou pour 

@@ -12,6 +12,7 @@ http://www.commentcamarche.net/contents/internet/dns.php3
 
 /// latex Bibliographie ////////
 http://fr.wikipedia.org/wiki/BibTeX
+http://www.trustonme.net/didactels/251.html
 
 ///lien forum mongoDB //////////
 http://www.frxoops.org/modules/newbb/viewtopic.php?topic_id=34579

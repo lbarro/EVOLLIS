@@ -1,4 +1,5 @@
 PDF_PRODUCER=pdflatex
+BIB_PRODUCER=bibtex
 LATEX_FILE=rapport
 PDF_VIEWER=evince
 #VERSION=`date | tr -s ' ' '_' | tr -d ','`
@@ -9,6 +10,8 @@ PHONY: all view clean
 	#$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
 	#$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
 all: $(LATEX_FILE).tex
+	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	$(BIB_PRODUCER) $(LATEX_FILE)
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
 

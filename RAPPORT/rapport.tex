@@ -85,6 +85,7 @@ frameround=fttt;%
 \newcommand{\tuple}[1]{\ensuremath{\langle #1 \rangle}}
 
 \begin{document}
+
 %%%% Page de titre %%%%
 \input{src/title}
 
@@ -119,8 +120,6 @@ frameround=fttt;%
 \section{L'environnement de travail}
 \section{L'équipe de travail}
 
-\hypersetup{linkcolor=red,citecolor=red}
-
 \part{Déroulement de mon stage}
 \chapter{État de l'art}
 \input{src/etat_de_l_art}
@@ -135,10 +134,13 @@ frameround=fttt;%
 \addcontentsline{toc}{chapter}{Conclusion}
 %\input{src/conclusion}
 
-\input{src/bibliographie}
+\nocite{wikiNoSQL}
+
+%\bibliographystyle{unsrt}
+\bibliography{bibliographie}
 
 %%%%%% Liste des annexes %%%%%%%%%%
 \part{Annexes}
 \appendix
-%% \input{src/annexeA}
+\input{src/annexeA}
 \end{document}

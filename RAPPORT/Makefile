@@ -10,6 +10,7 @@ PHONY: all view clean
 	#$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
 all: $(LATEX_FILE).tex
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	$(PDF_PRODUCER) $(LATEX_FILE).tex
 
 #$(LATEX_FILE)_$(VERSION).tex:
 #	@cp $(LATEX_FILE).tex $(LATEX_FILE)_$(VERSION).tex

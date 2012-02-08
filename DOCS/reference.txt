@@ -20,3 +20,4 @@ http://www.developpez.net/forums/d905036/club-professionnels-informatique/actual
 
 //// NoSQL en general /////////
 http://www.kernix.com/developpement/98-les-bases-de-donnees
+http://fr.wikipedia.org/wiki/NoSQL

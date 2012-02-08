@@ -1,4 +1,4 @@
-============================
+http://www.kernix.com/developpement/98-les-bases-de-donnees============================
      References
 ============================
 
@@ -18,3 +18,5 @@ https://github.com/mongodb/mongo
 
 http://www.developpez.net/forums/d905036/club-professionnels-informatique/actualites/developpeurs-offrent-methode-dutilisation-nosql-cette-technologie-must-mode/
 
+//// NoSQL en general /////////
+http://www.kernix.com/developpement/98-les-bases-de-donnees

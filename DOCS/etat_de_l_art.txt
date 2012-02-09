@@ -25,6 +25,8 @@ mais plutôt des logiciels de stockage de données
 
 On reproche à NoSQL de sacrifier le principe ACID (Atomicity, Consistency, Isolation, Durability) , atomicité, consistence, isolation, durabilité, donc d'offrir une moins grande sureté dans l'accès aux donnée.s
 
+Le NoSQL regroupe de nombreuses bases de données, récentes pour la plupart, qui se caractérisent par une logique de représentation de données non relationnelle et qui n’offrent donc pas une interface de requêtes en SQL.
+
 Les différents types de noSQL
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * Clé - valeur  : La représentation la plus simple. Cette structure est très adaptée à la gestion de caches ou pour 

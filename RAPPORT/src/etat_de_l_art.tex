@@ -1,4 +1,6 @@
-\section{Le NoSQL}
+je ne suis rien
+
+\section{Le \textsf{NoSQL}}
 
 Le NoSQL signifiant littéralement « \textsf{Not only SQL} » est une
 dénomination désignant une catégorie de gestionnaire de bases de
@@ -17,7 +19,7 @@ retour aux non-relationnels est essentiellement motivé par les
 nouvelles demandes en rapport avec les sites web de grande audience
 apparus dans les années 2000. La plupart des logiciels \textsf{NoSQL}
 sont destinés à être utilisés dans les dispositifs en répartition de
-charge des grands services \textsf{Internet}. Ceci dit le
+charge des grands services \textsf{Internet}. Ceci dit que le
 \textsf{NoSQL} a pour ambition d'apporter une solution face à la
 montée en charges des bases de données dans le monde de
 l'\textsf{Internet}.  \\ \\ La conférence meet-up de 2009 à
@@ -33,7 +35,7 @@ quantités de données qui se mesurent en centaines de
 est de remarquer que les solutions \textsf{NoSQL} sont seulement
 adaptées pour certains besoins comme ceux des applications \texttt{Web
   2.0}.  \\\\ On reproche à la mouvance \textsf{NoSQL} de sacrifier le
-principe \textsf{ACID}\footnote{voir l'annexe \ref{acid}} donc de ne
+principe \textsf{ACID}\footnote{voir annexe \ref{acid}} donc de ne
 pas pouvoir garantir une grande sûreté dans l'accès aux
 données. Cependant une nouvelle mouvance, le \textsf{NewSQL}, ten,te
 de conserver la structure classique en colonnes tout en faisant appel
@@ -41,11 +43,50 @@ de conserver la structure classique en colonnes tout en faisant appel
 larges volumes\cite{newSQL}.
 
 \subsection{Les différents types de bases de données \textsf{NoSQL}} 
+ 
+Dans la mouvance \textsf{NoSQL}, les données sont représentées de
+diverses manières. Ainsi définit-on des catégories de gestionnaire
+\textsf{NoSQL} en fonction de la manière de représenter les données.
+\\\\ 
+\textbf{Clé - valeur}: La représentation la plus simple. Cette
+structure est très adaptée à la gestion de caches ou pour fournir un
+accès rapide aux informations. Elle fonctionne comme un grand tableau
+associatif et retourne une valeur dont elle ne connaît pas la
+structure.  
+\\\\ 
+{\bf Document}: Ajoute au modèle clé-valeur,
+l’association d’une valeur à structure non plane, c’est-à-dire qui
+nécessiterait un ensemble de jointures en logique relationnelle.
+\\\\ 
+{\bf Colonne}: Autre évolution du modèle clé-valeur, il permet de
+disposer d'un très grand nombre de valeurs sur une même ligne,
+permettant ainsi de stocker les relations de type one-to-many. 
+Contrairement au système Clé-Valeur, celui-ci permet
+d’effectuer des requêtes par clé.
+\\\\
+{\bf Graphe}: Permet la modélisation, le stockage et la manipulation de données
+complexes liées par des relations non-triviales ou variables.
+\\
+\\
+\textbf{D'autres représentations}: \textsf{Xml}, \textsf{}, \textsf{}, \textsf{}, 
 
 \subsection{Quelques exemples de \textsf{NoSQL}}
 
-\section{SQL vs NoSQL}
+Les logiciels n'utilisant pas le modèle relationnel classique est en
+nombre croissant et les exemples de \textsf{NoSQL} correspondent aux
+\textsf{NoSQL} en open source les plus connus excepté le dernier
+exemple \textsf{cubeLaBRI}.
 
-\section{Échange de données SQL/NoSQL}
+{\sf MongoDB}    
 
-\section{Rootage intelligent entre SQL et NoSQL}
+\textsf{BigTable}    
+
+\textsf{Cassandra}
+
+\textsf{cubeLaBRI}    
+
+\section{\sf SQL vs NoSQL}
+
+\section{Échange entre \textsf{SQL} et \textsf{NoSQL}}
+
+\section{Système de Rootage intelligent entre {\sf SQL} et {\sf NoSQL}}

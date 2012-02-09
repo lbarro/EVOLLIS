@@ -26,4 +26,6 @@ clean:
 	@rm -rf *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm
 	@rm -rf src/*~ img/#*
 
+delpdf: clean
+	@rm -rf rapport.*.pdf 
 

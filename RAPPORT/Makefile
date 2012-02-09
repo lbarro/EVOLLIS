@@ -1,31 +1,23 @@
 PDF_PRODUCER=pdflatex
 BIB_PRODUCER=bibtex
 LATEX_FILE=rapport
+SRC=rapport.tex bibliographie.bib src/*.tex
 PDF_VIEWER=evince
-#VERSION=`date | tr -s ' ' '_' | tr -d ','`
 
-PHONY: all view clean
+all: $(LATEX_FILE).pdf view
 
-#all: $(LATEX_FILE)_$(VERSION).tex
-	#$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
-	#$(PDF_PRODUCER) $(LATEX_FILE)_$(VERSION).tex
-all: $(LATEX_FILE).tex
+$(LATEX_FILE).pdf: $(SRC)
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
 	$(BIB_PRODUCER) $(LATEX_FILE)
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
 	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	@rm -rf *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm
 
-#$(LATEX_FILE)_$(VERSION).tex:
-#	@cp $(LATEX_FILE).tex $(LATEX_FILE)_$(VERSION).tex
+.PHONY: clean
 
-view: 	
-	#$(PDF_VIEWER) $(LATEX_FILE)_$(VERSION).pdf > ~/trash.out 2>&1 &
+view: $(LATEX_FILE).pdf
 	$(PDF_VIEWER) $(LATEX_FILE).pdf > ~/trash.out 2>&1 &
 
 clean: 
-	@rm -rf *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm
 	@rm -rf src/*~ img/#*
-
-delpdf: clean
-	@rm -rf rapport.*.pdf 
-
+	@rm -rf rapport.pdf

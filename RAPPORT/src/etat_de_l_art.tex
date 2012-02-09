@@ -46,42 +46,51 @@ Dans la mouvance \textsf{NoSQL}, les données sont représentées de
 diverses manières. Ainsi définit-on des catégories de gestionnaire
 \textsf{NoSQL} en fonction de la manière de représenter les données.
 \\\\ 
-\textbf{Clé - valeur}: La représentation la plus simple. Cette
+\textsf{Clé - valeur}: La représentation la plus simple. Cette
 structure est très adaptée à la gestion de caches ou pour fournir un
 accès rapide aux informations. Elle fonctionne comme un grand tableau
 associatif et retourne une valeur dont elle ne connaît pas la
 structure.  
 \\\\ 
-{\bf Document}: Ajoute au modèle clé-valeur,
+{\sf Document}: Ajoute au modèle clé-valeur,
 l’association d’une valeur à structure non plane, c’est-à-dire qui
 nécessiterait un ensemble de jointures en logique relationnelle.
 \\\\ 
-{\bf Colonne}: Autre évolution du modèle clé-valeur, il permet de
+{\sf Colonne}: Autre évolution du modèle clé-valeur, il permet de
 disposer d'un très grand nombre de valeurs sur une même ligne,
-permettant ainsi de stocker les relations de type one-to-many. 
-Contrairement au système Clé-Valeur, celui-ci permet
-d’effectuer des requêtes par clé.
-\\\\
-{\bf Graphe}: Permet la modélisation, le stockage et la manipulation de données
-complexes liées par des relations non-triviales ou variables.
-\\
-\\
-\textbf{D'autres représentations}: \textsf{Xml}, \textsf{}, \textsf{}, \textsf{}, 
+permettant ainsi de stocker les relations de type one-to-many.
+Contrairement au système Clé-Valeur, celui-ci permet d’effectuer des
+requêtes par clé.  
+\\\\ 
+{\sf Graphe}: Permet la modélisation, le
+stockage et la manipulation de données complexes liées par des
+relations non-triviales ou variables.  
+\\ \\ 
+{\sf La représentation utilisée par cubeLaBRI}: encore inconnu 
+\\ \\ 
+\textsf{D'autres représentations}: \textsf{Xml}, \textsf{bases de données objet},
+\textsf{les bases de données hiérarchiques ou encore les datagrids}
+...
 
 \subsection{Quelques exemples de \textsf{NoSQL}}
 
 Les logiciels n'utilisant pas le modèle relationnel classique est en
 nombre croissant et les exemples de \textsf{NoSQL} correspondent aux
 \textsf{NoSQL} en open source les plus connus excepté le dernier
-exemple \textsf{cubeLaBRI}.
-
-{\sf MongoDB}    
-
-\textsf{BigTable}    
-
-\textsf{Cassandra}
-
-\textsf{cubeLaBRI}    
+exemple \textsf{cubeLaBRI}.  
+\\\\ 
+{\sf MongoDB}:
+\\\\ 
+\textsf{BigTable}: 
+\\\\ 
+\textsf{Cassandra}: une solution NoSQL d’Apache. 
+C’est une base de données orientée colonnes
+qui se veut être hautement extensible. C’est-à-dire qu’il est très
+simple d’ajouter ou d’enlever - c’est rare - un nœud du
+cluster. D’abord développé par Facebook, le code source est devenu
+Open-Source et repris par la fondation Apache\cite{cassandra}.
+\\\\ 
+\textsf{cubeLaBRI}: en attente de documentation.
 
 \section{\textsf{SQL} vs \textsf{NoSQL}}
 

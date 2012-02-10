@@ -1,0 +1,73 @@
+
+%%%% Page de titre %%%%
+\input{src/title}
+
+%%%%% terminologie %%%%%%%%%%
+\input{src/terminologie}
+
+%%%% resume %%%%%%%%%
+\begin{abstract}
+  \input{src/resume}
+\end{abstract}
+
+%%%% plan %%%%%
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+%%%% remerciement %%%%%%%
+\addcontentsline{toc}{chapter}{Remerciements}
+\input{src/remerciement}
+
+%%%%% corps du rapport %%%%%%%%%
+\addcontentsline{toc}{chapter}{Introduction}
+\input{src/introduction}
+
+\part{Présentation du cadre de mon stage}
+
+\chapter{Présentation de l'organisme d'acceuil: {\sf EVOLLIS}}
+\chapter{Présentation du projet \sf XXXXX}
+\section{Le contexte}
+\section{L'environnement de travail}
+\section{L'équipe de travail}
+
+\part{Déroulement de mon stage}
+
+\newpage
+~
+\vspace{7cm}
+\begin{center}
+  \textsf{Je suis entrain de développer } 
+\end{center}
+\newpage
+
+\chapter{État de l'art}
+\thispagestyle{plain}
+\input{src/etat_de_l_art}
+
+\chapter{Choix des \textsf{NoSQL} à tester}
+\section{Le \textsf{NoSQL mongoDB}}
+\input{src/mongoDB}
+\section{Le \textsf{NoSQL} \textsf{cubeLaBRI}}
+\input{src/cube}
+
+\chapter{Les tests de charge}
+\section{Tests de charge sur \textsf{mongoDB}}
+\section{Tests de charge sur \textsf{cubeLaBRI}}
+\section{Le choix final d'\textsf{EVOLLIS} de la solution \textsf{NoSQL}}
+
+\chapter{Pilote du \textsf{NoSQL} xxxx pour \sf  EVOLLIS}
+
+\addcontentsline{toc}{chapter}{Conclusion}
+%\input{src/conclusion}
+
+\printindex
+
+\nocite{NoSQLCmp}
+\nocite{NoSQLeurope}
+\bibliography{bibliographie}
+
+%%%%%% Liste des annexes %%%%%%%%%%
+\part{Annexes}
+\appendix
+\input{src/annexeA}

@@ -22,45 +22,36 @@
 \usepackage[Glenn]{fncychap}
 \usepackage{pdfpages}
 
+\usepackage{makeidx}
+\makeindex
+
 \usepackage[colorlinks=true]{hyperref}
-
-%% \hypersetup{
-%% backref=true,
-%% %permet d'ajouter des liens dans...
-%% pagebackref=true,%...les bibliographies
-%% hyperindex=true, %ajoute des liens dans les index.
-%% colorlinks=true, %colorise les liens
-%% breaklinks=true, %permet le retour à la ligne dans les liens trop longs
-%% urlcolor= blue, %couleur des hyperliens
-%% linkcolor= blue, %couleur des liens internes
-%% bookmarks=true, %créé des signets pour Acrobat
-%% bookmarksopen=true,
-%% %si les signets Acrobat sont créés,
-%% %les afficher complètement.
-%% pdftitle={Mon fabuleux livre}, %informations apparaissant dans
-%% pdfauthor={Pejvan BEIGUI},
-%% %dans les informations du document
-%% pdfsubject={Mac OS X}
-%% %sous Acrobat.
-%% }
-
-\hypersetup{urlcolor=blue,linkcolor=blue,citecolor=blue,colorlinks=true}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=blue,colorlinks=true}
 
 \usepackage{multicol}
 
-% entête et pied de page
-%% \usepackage{fancyhdr} 
+%entête et pied de page
+%% \usepackage{lastpage}
+%% \usepackage{fancyhdr}
 %% \pagestyle{fancy}
-%% \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-%% \renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
-%% \fancyhf{} \fancyhead[LE,RO]{\bfseries\thepage}
-%% \fancyhead[LO]{\bfseries\rightmark}
-%% \fancyhead[RE]{\bfseries\leftmark}
-%% \renewcommand{\headrulewidth}{0.5pt}
-%% \addtolength{\headheight}{0.5pt}
-%% \renewcommand{\footrulewidth}{0pt}
-%% \fancypagestyle{plain}{ \fancyhead{}
-%% \renewcommand{\headrulewidth}{0pt}} 
+
+%% \fancyhead[LE,RO]{\slshape \rightmark}
+%% \fancyhead[LO,RE]{\slshape \leftmark}
+
+%%  \lfoot{Lissy BARRO}
+%%  \lhead{\leftmark}
+%%  \rhead{\rightmark}
+%%  \cfoot{Rapport de projet de fin d'étude}
+%%  \lfoot{Lissy BARRO}
+%%  \rfoot{\thepage/\pageref{LastPage}}
+%% \renewcommand{\chaptermark}[1]{% 
+%% \markboth{\MakeUppercase{% 
+%% \chaptername\ \thechapter.% 
+%% \ #1}}{}} 
+%% \thispagestyle{plain}
+
+%%\renewcommand{\headrulewidth}{0.4pt}
+%%\renewcommand{\footrulewidth}{0.4pt}
 
 % pour inclure du code par exemple
 \usepackage{listings}
@@ -106,67 +97,5 @@ frameround=fttt;%
 \newcommand{\tuple}[1]{\ensuremath{\langle #1 \rangle}}
 
 \begin{document}
-
-%%%% Page de titre %%%%
-\input{src/title}
-
-%%%%% terminologie %%%%%%%%%%
-\input{src/terminologie}
-
-%%%% resume %%%%%%%%%
-\begin{abstract}
-  \input{src/resume}
-\end{abstract}
-
-%%%% plan %%%%%
-\tableofcontents
-%\listoffigures
-%\listoftables
-
-%%%% remerciement %%%%%%%
-\addcontentsline{toc}{chapter}{Remerciements}
-\input{src/remerciement}
-
-%%%%% corps du rapport %%%%%%%%%
-\addcontentsline{toc}{chapter}{Introduction}
-\input{src/introduction}
-
-\part{Présentation du cadre de mon stage}
-
-\chapter{Présentation de l'organisme d'acceuil: {\sf EVOLLIS}}
-\chapter{Présentation du projet \sf XXXXX}
-\section{Le contexte}
-\section{L'environnement de travail}
-\section{L'équipe de travail}
-
-\part{Déroulement de mon stage}
-
-\chapter{État de l'art}
-\input{src/etat_de_l_art}
-
-\chapter{Choix des \textsf{NoSQL} à tester}
-\section{Le \textsf{NoSQL mongoDB}}
-\input{src/mongoDB}
-\section{Le \textsf{NoSQL} \textsf{cubeLaBRI}}
-\input{src/cube}
-
-\chapter{Les tests de charge}
-\section{Tests de charge sur \textsf{mongoDB}}
-\section{Tests de charge sur \textsf{cubeLaBRI}}
-\section{Le choix final d'\textsf{EVOLLIS} de la solution \textsf{NoSQL}}
-
-\chapter{Pilote du \textsf{NoSQL} xxxx pour \sf  EVOLLIS}
-
-\addcontentsline{toc}{chapter}{Conclusion}
-%\input{src/conclusion}
-
-\nocite{NoSQLCmp}
-\nocite{NoSQLeurope}
-%\bibliographystyle{unsrt}
-\bibliography{bibliographie}
-
-%%%%%% Liste des annexes %%%%%%%%%%
-\part{Annexes}
-\appendix
-\input{src/annexeA}
+\input{src/plan}
 \end{document}

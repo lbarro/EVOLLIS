@@ -1,0 +1,41 @@
+\textsf{NoSQL} ne veut pas dire « \textsf{No SQL} » mais plutôt «
+  \textsf{Not Only SQL} ». On pourrait penser que la mouvance
+\textsf{NoSQL} soit là pour remplacer les \textsf{BDD}
+relationnelles classiques. Mais ceci est difficilement imaginable de
+nos jours. L’intérêt pour le \textsf{NoSQL} s'est considérablement
+accru dans le monde des entreprises à l'issu des annonces d’adoption 
+de ces technologies par les grands acteurs d'\textsf{Internet} tels 
+\textsf{Google} et \textsf{Facebook} qui se sont multipliées. Son bon 
+fonctionnement dans des conditions extrêmes lui confère une certaine fiabilité.
+\\
+\\
+Ci-dessous quelques traitements auxquels le modèle relationnel classique ne répond pas
+et qui pourrait motiver le recours aux technologies \textsf{NoSQL}\index{Limites du \textsf{SQL}}:
+
+\paragraph{Indexation d'une quantité de documents:}
+Un problème se pose quant à l'indexation d'une quantité importante de données. Par exemple pour le \textsf{SGBD} \textsf{SQL Server}, la version $2008$ supporte au plus $999$ indexes et chaque index, chaque index peut couvrir au maximum 16 colonnes et la somme des tailles des colonnes couvertes ne doit pas excéder $900\ octets$\cite{SQLserver} 
+
+\paragraph{Sites à fort trafic:} Pour faire face à des volumes importants de données et y avoir accès à de différents endroit0s du monde, il faut pouvoir répliquer ces données sur différentes machines physiques et le \textsf{SGBD} relationnel classique montre des limites dans un environnement distribué. 
+
+\paragraph{Données de taille variables selon les enregistrements:} Les \textsf{BDD} relationnelles classiques prévoient un schéma statique à l'avance où dans une table donnée, les lignes sont identiques en type et en nombre de colonnes donc offre un environnement non dynamique pour les enregistrements.
+
+\paragraph{Réécritures fréquentes:} le modèle classique prévoit plus de lectures que d'écritures.
+
+\paragraph{Extensibilité de la base:} Comme signaler plus haut, \textsf{Cassandra} qui est un \textsf{NoSQL} offre la possibilité d'ajouter facilement des serveurs pour gagner en performance sans modifier la structure de la base. Les \textsf{SGBD} relationnels classiques n'offrent pas cette possibilité.
+\\ \\ 
+Sans doute, l'extensibilité requise et la grande quantité de données et de mises à jour rendent le modèle relationnel inefficace ce qui a obligé à trouver un nouveau modèle. 
+Face à ces encouragements en l'occurrence ceux énumérés ci-dessus, on serait tenter
+d'adopter sans équivoque le \textsf{NoSQL}. Cependant il est important
+de prendre ne considération quelques aspects au risque d'une mauvaise
+utilisation. « L’intérêt d’une base de données \textsf{NoSQL} pour un
+  projet ne dépend pas du volume de données qu’elle aura à
+  manipuler. Le choix de son utilisation doit être basé sur la
+  préférence d’un mode de représentation et non sur une forte
+  volumétrie »\cite{NoSQLeurope}. Aussi, Ne devrions-nous pas oublier
+que cette catégorie de produits, fait le compromis d'abandonner certaines fonctionnalités classiques
+des \textsf{SGBD} relationnels au profit de la performance. Par
+conséquent, il ne s’agit donc pas d’une solution miracle pour tout
+type de stockage de données.  La tentative de reproduire dans une base
+de données \textsf{NoSQL} une représentation ou un comportement
+habituellement offert par un \textsf{SGBD} relationnels aboutira
+probablement à une solution peu efficace.

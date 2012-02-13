@@ -1,3 +1,10 @@
+=> Entête et pied de page <<<Exemple d'un rapport precedent>>>
+
+=> Envoyer un mail à Fred pour savoir pourquoi le choix de MonghoDB 
+
+=> Voir le cours de persistence pour les niveaux d'acidité, concernant la
+   commodité
+
 => Pour la thèse, M. de Marignan est plutôt interessé par
 l'interaction entre le monde sql et le monde nosql
 

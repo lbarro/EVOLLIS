@@ -1,2 +1,29 @@
-Pour profiter des performances d'un NoSQL, il est essentiel de définir
-à l'avance la représentation qu'on fera des données. On peut sans doute faire
+Pour profiter des performances d'un \textsf{NoSQL}, il est essentiel
+de définir à l'avance la représentation qu'on fera des
+données. L'utilité et le choix du \textsf{NoSQL} doit principalement
+dépendre de la représentation des données. Adopter le \textsf{NoSQL} à
+cause de la volumétrie en faisant juste une traduction par équivalence
+entre des \textsf{BDDs} relationnelle et non-relationnelle ne garantit
+pas la performance et surtout on risque de perdre en intégrité des
+données. Et cette pensée de \textsf{Ted Dziuba} illustre bien le risque que
+courent les entreprises qui migrent d'une solution \textsf{MySQL} vers  une 
+solution \textsf{NoSQL}: ceci reviendrait à « {\sf échanger une liste de limitations 
+et de bugs connus pour [...] une liste de limitations et de bugs inconnus} »\cite{DieNosql}.
+\\ \\ Les « \textsf{NoSQL} » offrent juste une autre façon
+de représenter les données pour faciliter les accès et mise à jour des
+données afin de gagner en performance. Ceux-ci n'offrent pas forcement
+une meilleure performance quand les données sont représentées de la
+même manière. À priori imaginer un échange naïf entre \textsf{SQL} et
+\textsf{NoSQL} de reproduction à l'identique sans modification de la
+représentation n'est d'aucun intérêt pour la performance. Cependant
+certaine solution \textsf{NoSQL} à l'exemple de \textsf{MongoDB} ont
+exhibé une charte de correspondance entre les composants d'une
+\textsf{BDD} relationnel\footnote{Database, Table, Index, colonne, clé
+  primaire ...} et leurs composants. \textsf{MongoDB} a également mis
+en place une charte de traduction requête \textsf{SQL} / requête
+\textsf{MongoDB}\footnote{Pour plus de détails
+  \url{http://www.mongodb.org/display/DOCS/SQL+to+Mongo+Mapping+Chart}}.
+\\
+\\
+\textsf{SQL} d'une part, \textsf{NoSQL} d'autre part, l'un n'exclut pas l'autre
+tout dépend de l'usage qu'on compte en faire ou du profit qu'on souhaite en tirer. L'idéal serait de les faire cohabiter et de stocker les données dans l'un ou dans l'autre en fonction de leurs caractéristiques. C'est ce que fait d'ailleurs \textsf{Google} qui même après avoir mis en place sa solution propriétaire \textsf{BigTable} utilise les \textsf{BDD} relationnelles notamment pour son  programme publicitaire \textsf{AdWords}, sa principale source de revenue et qui utilise d'énormes quantités de données. Cependant imaginer un protocole d'échange entre \textsf{SQL} et \textsf{NoSQL} peut s'avérer très fastidieux dans la mesure où les deux ont des représentations de données très différentes.  

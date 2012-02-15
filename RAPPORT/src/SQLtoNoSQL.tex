@@ -26,4 +26,18 @@ en place une charte de traduction requête \textsf{SQL} / requête
 \\
 \\
 \textsf{SQL} d'une part, \textsf{NoSQL} d'autre part, l'un n'exclut pas l'autre
-tout dépend de l'usage qu'on compte en faire ou du profit qu'on souhaite en tirer. L'idéal serait de les faire cohabiter et de stocker les données dans l'un ou dans l'autre en fonction de leurs caractéristiques. C'est ce que fait d'ailleurs \textsf{Google} qui même après avoir mis en place sa solution propriétaire \textsf{BigTable} utilise les \textsf{BDD} relationnelles notamment pour son  programme publicitaire \textsf{AdWords}, sa principale source de revenue et qui utilise d'énormes quantités de données. Cependant imaginer un protocole d'échange entre \textsf{SQL} et \textsf{NoSQL} peut s'avérer très fastidieux dans la mesure où les deux ont des représentations de données très différentes.  
+tout dépend de l'usage qu'on compte en faire ou du profit qu'on
+souhaite en tirer. L'idéal serait de les faire cohabiter et de stocker
+les données dans l'un ou dans l'autre en fonction de leurs
+caractéristiques. C'est ce que fait d'ailleurs \textsf{Google} qui
+même après avoir mis en place sa solution
+propriétaire \textsf{BigTable} utilise les \textsf{BDD} relationnelles
+notamment pour son programme publicitaire \textsf{AdWords}, sa
+principale source de revenue et qui utilise d'énormes quantités de
+données. Cependant imaginer un protocole d'échange entre \textsf{SQL}
+et \textsf{NoSQL} peut s'avérer très fastidieux dans la mesure où les
+deux ont des représentations de données très différentes.
+\\
+\\
+Il existe une solution \textsf{Open Source} permettant des échanges entre \textsf{SQL} et \textsf{NoSqL}:\textsf{Sqoop} ou « SQL To Hadoop ». \textsf{Hadoop}\index{Sqoop} est un assemblage de plusieurs sous-projet avec à 
+la base  un système de fichier \textsf{HDFS}\footnote{Hadoop Distributed File System} et \textsf{HBASE}\footnote{\textsf{SGBD} non-relationnelle orienté colonnes} pour le stockage. Développé en \textsf{java}, il est destiné aux applications distribuées et à la gestion intensive des données. \textsf{Sqoop} charge une table ou toute la base en système de fichiers \textsf{HDFS} en fonction des options d'importation spécifiées et génère aussi des classes \textsf{java} correspondantes aux tables de la bases, ainsi que des objets correspondants aux lignes pour permettre d'interagir avec les données importées.

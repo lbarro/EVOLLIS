@@ -26,4 +26,5 @@ des autres bases noSQL open source
 => Une base SQL n'a qu'un seul point d'accès. Il y a plutôt la notion
 de pool de connexion qui correspond à des sessions de connexions.
 
-=> 
+//////////////Echange entre NoSQL et SQL ///////////////////////////////
+=> Microsoft SQL Server Connector for Apache Hadoop

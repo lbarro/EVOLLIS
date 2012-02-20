@@ -38,3 +38,6 @@ http://www.search-this.com/2007/07/24/an-introduction-to-memcached/
 // Livres /////
 http://www.amazon.fr/Definitive-Guide-Mongodb-Database-Computing/dp/1430230517/ref=sr_1_4?ie=UTF8&qid=1329237431&sr=8-4
 http://www.amazon.fr/Professional-NoSQL-Shashank-Tiwari/dp/047094224X/ref=sr_1_1?ie=UTF8&qid=1329238429&sr=8-1
+
+////
+///:::

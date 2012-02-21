@@ -31,6 +31,7 @@ http://www.mkhelif.fr/2010/10/01/nosql-premiers-pas-avec-cassandra.html
 blog.xebia.fr/2010/04/21/nosql-europe-tour-dhorizon-des-bases-de-donnees-nosql/
 http://davidmasclet.gisgraphy.com/post/2010/06/09/10-minutes-pour-comprendre...NoSQL
 http://www.thoughtworks.com/articles/nosql-comparison
+http://nosql-database.org/
 
 //// Memcached ////
 http://www.search-this.com/2007/07/24/an-introduction-to-memcached/
@@ -38,6 +39,3 @@ http://www.search-this.com/2007/07/24/an-introduction-to-memcached/
 // Livres /////
 http://www.amazon.fr/Definitive-Guide-Mongodb-Database-Computing/dp/1430230517/ref=sr_1_4?ie=UTF8&qid=1329237431&sr=8-4
 http://www.amazon.fr/Professional-NoSQL-Shashank-Tiwari/dp/047094224X/ref=sr_1_1?ie=UTF8&qid=1329238429&sr=8-1
-
-////
-///:::

@@ -32,6 +32,7 @@ blog.xebia.fr/2010/04/21/nosql-europe-tour-dhorizon-des-bases-de-donnees-nosql/
 http://davidmasclet.gisgraphy.com/post/2010/06/09/10-minutes-pour-comprendre...NoSQL
 http://www.thoughtworks.com/articles/nosql-comparison
 http://nosql-database.org/
+http://www.linuxjournal.com/article/10770
 
 //// Memcached ////
 http://www.search-this.com/2007/07/24/an-introduction-to-memcached/

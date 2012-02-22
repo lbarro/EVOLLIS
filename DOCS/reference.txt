@@ -35,6 +35,7 @@ http://nosql-database.org/
 http://www.linuxjournal.com/article/10770
 http://www.lemondeinformatique.fr/actualites/lire-newsql-pour-combiner-le-meilleur-de-sql-et-nosql-34475-page-1.html
 http://www.legrandbi.com/2011/09/newsql/
+http://koala01.free.fr/index.php?section=1&soussection=6&page=4
 
 //// Memcached ////
 http://www.search-this.com/2007/07/24/an-introduction-to-memcached/

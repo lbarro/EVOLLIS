@@ -1,116 +1,11 @@
 \section{Le \textsf{NoSQL}}
-
-Le \textsf{NoSQL} signifiant littéralement « \textsf{Not only SQL} » est une
-dénomination désignant une catégorie de gestionnaire de bases de
-données massives. Les SGBD relationnel ont toujours implementer les propriétés transactionnelles et le choix d'une SGDB par rapport à un autre était basé sur ses propriétés ACID. Pour certains cas d'utilisations un gestionnaire n'a pas forcement bésoin des propriés ACID. Les gestionnaires \textsf{NoSQL} optent pour la
-simplicité au détriment des fonctionnalités classiques des
-\textsf{SGBD}\footnote{Système de Gestion de Base de Données}
-relationnels pour plus de performance et une meilleure
-scalabilité. Cependant, les \textsf{SGBD} non-relationnels
-sont plus anciens que les \textsf{SGBD} relationnels et sont répandus
-sur les mainframes et les logiciels d'annuaire. Par exemple, le
-stockage d'information à l'aide de tableaux associatifs existe depuis
-le début de l'histoire des bases de données dans les années bien avant les bases de données non rélationnelles qui sont quant à elles apparues en 1970.  \\ \\ 
-Les
-\textsf{SGBD} non-relationnels ont connu une nouvelle jeunesse avec le
-\textsf{NoSQL} dans le domaine des services \textsf{Internet}. La conférence meet-up\index{Meet-up 2009 à
-  San-Francisco} de 2009 à \textsf{San-Francisco} considérée comme
-l'inauguration de la communauté des développeurs de logiciels
-\textsf{NoSQL}. Ce
-retour aux non-relationnels est essentiellement motivé par les
-nouvelles demandes de performance et de scalabilité face à la montée en charge des sites web de grande audience
-apparus dans les années 2000. La plupart des logiciels \textsf{NoSQL}
-sont ainsi destinés à être utilisés dans les dispositifs en répartition de
-charge des grands services \textsf{Internet}.  
-\\ \\ 
-Les leaders de la communauté \textsf{NoSQL} qui sont en générale des \textsf{start-up} de développeurs sont critiqués de ne pas avoir les moyens d'acheter les
-\textsf{SGBD} de Oracle. Il est important de noter que
-la communauté \textsf{NoSQL} a effectivement mis en place des produits
-capables de manipuler de très grandes quantités de données qui se
-mesurent en centaines de \texttt{Téraoctets} et offrent une meilleure
-scalabilité mais force est de remarquer que les solutions
-\textsf{NoSQL} sont seulement adaptées pour certains besoins comme
-ceux des applications \texttt{Web 2.0} qui necessite pas de manoeuvres dans la gestion des données. En effet le \textsf{Web 2.0} designe l'ensemble des fonctionnalités nouvelles et usages nouveaux du World Wide Web
-permettant aux internautes ayant peu de connaissances techniques d’être actif sur la toile, àl’image des réseaux sociaux.
-\footnote{terminologie }.  \\\\ On reproche à la
-mouvance \textsf{NoSQL} de sacrifier le principe
-\textsf{ACID}\footnote{voir annexe \ref{acid}} \index{ACID} donc de ne
-pas pouvoir garantir une grande sûreté dans l'accès aux
-données. Cependant une nouvelle mouvance, le \textsf{NewSQL}\index{NewSQL}, tente de
-conserver la structure classique en colonnes tout en faisant appel à
-différents procédés dans le but de conserver la rapidité même sur de
-larges volumes\cite{newSQL}.
+\input{src/noSQL}
 
 \subsection{Les différents types de bases de données \textsf{NoSQL}} 
- 
-Dans la mouvance \textsf{NoSQL}, les données sont représentées de
-diverses manières. Ainsi définit-on des catégories de gestionnaire
-\textsf{NoSQL} en fonction de la manière de représenter les données.
-\\\\ \textsf{Clé - valeur}\index{NoSQL!Orienté clé - valeur}: La
-représentation la plus simple. Cette structure est très adaptée à la
-gestion de caches ou pour fournir un accès rapide aux
-informations. Comme pour une table de hashage, chaque clé est associée
-à une seule valeur dont elle ne connaît pas la structure. Ce postulat
-permet en général d’atteindre des performances bien supérieures dans
-la mesure où les lectures et écritures sont réduites à un accès disque
-simple. Cette catégorie trouve sa légitimité dans le constat que les
-applications présentent de nombreux accès à la base de données qui ne
-sont que de simples lectures ou écritures à partir d’un
-identifiant\cite{cleValeur}.  \\\\ {\sf Document}:
-Ajoute\index{NoSQL!Orienté document} au modèle clé-valeur,
-l’association d’une valeur à structure non plane, c’est-à-dire qui
-nécessiterait un ensemble de jointures en logique relationnelle.  la
-valeur est sous la forme d'un document contenant des données
-organisées de manière hiérarchique à l’image de ce que permettent
-\textsf{XML} ou \textsf{JSON}.  \\\\ {\sf Colonne}\index{NoSQL!Orienté
-  Colonne}: Autre évolution du modèle clé-valeur, il permet de
-disposer d'un très grand nombre de valeurs sur une même ligne,
-permettant ainsi de stocker les relations de type one-to-many. Les
-lignes peuvent avoir des types de colonnes différents et également des
-nombres de colonnes différents. On dispose également d'une hiérarchie
-entre les colonnes. Contrairement au système Clé-Valeur, celui-ci
-permet d’effectuer des requêtes par clé.  \\\\ {\sf
-  Graphe}\index{NoSQL!Orienté graphe}: très adapté pour la modélisation, le
-stockage et la manipulation des relations non-triviales ou variables
-entre les données. Un cas classique d'utilisation de cette catégorie
-est le stockage des informations des réseaux sociaux. Ces informations
-sont difficilement modélisables dans une base de données
-relationnelle.  \\ \\ {\color{red} {\sf La représentation utilisée par
-    cubeLaBRI}: encore inconnu} \\ \\ \textsf{D'autres
-  représentations}: \textsf{Xml}, \textsf{bases de données objet},
-\textsf{les bases de données hiérarchiques ou encore les datagrids}
-...
+\input{src/differentsNoSQL} 
 
 \subsection{Quelques exemples de \textsf{NoSQL}}
-
-Les logiciels n'utilisant pas le modèle relationnel classique est en
-nombre croissant et les exemples de \textsf{NoSQL} ci-dessous correspondent à ceux en open source, assez connus exceptés
-\textsf{BigTable} et \textsf{cubeLaBRI} qui sont propriétaires.
-\\\\ {\sf MongoDB}: MongoDB est une base de données « \textsf{orientée
-    document} » totalement open-source développée en
-\textsf{C++}. MongoDB stocke les données sous forme de \textsf{JSON}
-dont la structure reste libre et dynamique.  En effet, aucun schéma de
-\textsf{BDD}\footnote{Base De Données} à respecter n'est défini à
-l'avance.\cite{mongoDB} \\\\ \textsf{Cassandra}: \index{Cassandra} une
-solution \textsf{NoSQL} d’\textsf{Apache}.  C’est une \textsf{BDD} orientée colonnes
-qui se veut être hautement extensible. C’est-à-dire qu’il est très
-simple d’ajouter ou d’enlever - c’est rare - un nœud du
-cluster. D’abord développé par \textsf{Facebook}, le code source est devenu
-« \textsf{Open-Source} » et repris par la fondation \textsf{Apache}\cite{cassandra}.  La
-technologie est encore peu maîtrisée mais elles revienne régulièrement
-dans l’actualité du fait des régulières annonces de migrations de
-quelques entreprises \textsf{web} renommées\cite{cassandra2}.
-\\\\ \textsf{BigTable}: \index{Bigtable} système de gestion de base de
-données propriétaire, développé et exploité par Google qui ne
-distribue pas sa base de données mais propose une utilisation publique
-via sa plateforme d'application \textsf{Google App Engine}. Son
-développement a commencé en $2004$ et est aujourd'hui utilisé par les
-applications \textsf{Google} telles que \textsf{Google Earth},
-\textsf{Blogger.com}, \textsf{Google Code hosting}, \textsf{YouTube},
-\textsf{Gmail} ... D'autres projets libres tels que \textsf{HBase},
-\textsf{Cassandra} ou \textsf{Hypertable} s'en sont
-inspirés.\\\\ {\color{red} \textsf{cubeLaBRI}: en
-  attente de documentation.}
+\input{src/exempleNoSQL}
 
 \section{\textsf{SQL} vs \textsf{NoSQL}}
 \input{src/SQLvsNoSQL}

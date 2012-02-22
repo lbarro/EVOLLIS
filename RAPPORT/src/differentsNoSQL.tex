@@ -1,0 +1,37 @@
+Dans la mouvance \textsf{NoSQL}, les données sont représentées de
+diverses manières. Ainsi définit-on des catégories de gestionnaire
+\textsf{NoSQL} en fonction de la manière de représenter les données.
+\\\\ \textsf{Clé - valeur}\index{NoSQL!Orienté clé - valeur}: La
+représentation la plus simple. Cette structure est très adaptée à la
+gestion de caches ou pour fournir un accès rapide aux
+informations. Comme pour une table de hashage, chaque clé est associée
+à une seule valeur dont elle ne connaît pas la structure. Ce postulat
+permet en général d’atteindre des performances bien supérieures dans
+la mesure où les lectures et écritures sont réduites à un accès disque
+simple. Cette catégorie trouve sa légitimité dans le constat que les
+applications présentent de nombreux accès à la base de données qui ne
+sont que de simples lectures ou écritures à partir d’un
+identifiant\cite{cleValeur}.  \\\\ {\sf Document}:
+Ajoute\index{NoSQL!Orienté document} au modèle clé-valeur,
+l’association d’une valeur à structure non plane, c’est-à-dire qui
+nécessiterait un ensemble de jointures en logique relationnelle.  la
+valeur est sous la forme d'un document contenant des données
+organisées de manière hiérarchique à l’image de ce que permettent
+\textsf{XML} ou \textsf{JSON}.  \\\\ {\sf Colonne}\index{NoSQL!Orienté
+  Colonne}: Autre évolution du modèle clé-valeur, il permet de
+disposer d'un très grand nombre de valeurs sur une même ligne,
+permettant ainsi de stocker les relations de type one-to-many. Les
+lignes peuvent avoir des types de colonnes différents et également des
+nombres de colonnes différents. On dispose également d'une hiérarchie
+entre les colonnes. Contrairement au système Clé-Valeur, celui-ci
+permet d’effectuer des requêtes par clé.  \\\\ {\sf
+  Graphe}\index{NoSQL!Orienté graphe}: très adapté pour la modélisation, le
+stockage et la manipulation des relations non-triviales ou variables
+entre les données. Un cas classique d'utilisation de cette catégorie
+est le stockage des informations des réseaux sociaux. Ces informations
+sont difficilement modélisables dans une base de données
+relationnelle.  \\ \\ {\color{red} {\sf La représentation utilisée par
+    cubeLaBRI}: encore inconnu} \\ \\ \textsf{D'autres
+  représentations}: \textsf{Xml}, \textsf{bases de données objet},
+\textsf{les bases de données hiérarchiques ou encore les datagrids}
+...

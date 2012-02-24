@@ -1,28 +1,64 @@
 Dans la mouvance \textsf{NoSQL}, les données sont représentées de
-diverses manières. Les gestionnaires \textsf{NoSQL} sont ainsi classés par catégorie en fonction de la représentation des données. Ci-dessous les 4 principales catégories: 
-\\\\ 
-\textsf{Clé - valeur}\index{NoSQL!Orienté clé - valeur}: Représentation la plus simple limitée à un mapping entre un ensemble de clé et un ensemble de valeurs. À chaque clé est associée une seule valeur dont elle ne connaît pas la structure. Ce postulat s'applique aux cas d'utilisation où les lectures et écritures sont réduites à un accès disque simple, c'est à dire que le système se charge uniquement de stocker et de restituer sans effectuer des opérations ni sur la structuration des valeurs stockées, ni sur les rélations entre elles. Cette catégorie trouve sa légitimité dans le constat que les applications accèdent à la base de données pour les mêmes informations. Les bases << clé-valeur » fonctionnent généralement en parallèle avec une autre base considérée comme la principale. Elles vont servir à stocker les résultats des requêtes récurrentes pour éviter de répéter les mêmes opérations dans la base principale\cite{cleValeur}.  
+diverses manières. Les gestionnaires \textsf{NoSQL} sont ainsi classés
+par catégorie en fonction de la représentation des données. Ci-dessous
+les 4 principales catégories:
+\\
+\\
+\textsf{Clé - valeur}\index{NoSQL!Orienté clé - valeur}: 
+Représentation la plus simple, limitée à un mapping entre un ensemble
+de clé et un ensemble de valeurs. À chaque clé est associée une seule
+valeur dont elle ne connaît pas la structure. Ce postulat s'applique
+aux cas d'utilisation où les lectures et écritures sont réduites à un
+accès disque simple, c'est à dire que le système se charge uniquement
+de stocker et de restituer sans effectuer des opérations, ni sur la
+structuration des valeurs stockées, ni sur les relations entre
+elles. Cette catégorie trouve sa légitimité dans le constat que les
+applications accèdent à la base de données pour les mêmes
+informations. Les bases << clé-valeur » fonctionnent généralement en
+parallèle avec une autre base considérée comme la principale. Elles
+vont servir à stocker les résultats des requêtes récurrentes pour
+éviter de répéter les mêmes opérations dans la base
+principale\cite{cleValeur}.
 \\
 \\ 
-{\sf Document}:
-Ajoute\index{NoSQL!Orienté document} au modèle \textsf{clé-valeur} une valeur à structure non plane qui nécessiterait un ensemble de jointures en logique relationnelle. La valeur est sous la forme d'un document contenant des données organisées de manière hiérarchique à l’image de ce que permettent
-\textsf{XML} ou \textsf{JSON}\footnote{Java Script Object Notation}. La principale différence avec le modèle \textsf{clé-valeur} réside dans le fait que les valeurs stockée sont désormais structurée. Cette propriété permet un accès beaucoup plus élaboré, non limité à une lecture ou écriture par clé, à la base de données. Cependant des opérations d'\textit{hoverhead} supplémentaires notamment pour vérifier la structuration des valeurs stockées diminuent sa performance par rapport au modèle \textsf{clé-valeur} en terme d'accès et écriture des données. 
+{\sf Document}: Ajoute\index{NoSQL!Orienté document} au
+modèle \textsf{clé-valeur} une valeur à structure non plane qui
+nécessiterait un ensemble de jointures en logique relationnelle. La
+valeur est sous la forme d'un document contenant des données
+organisées de manière hiérarchique, à l’image de ce que permettent
+\textsf{XML} ou \textsf{JSON}\footnote{Java Script Object Notation}. 
+La principale différence avec le modèle \textsf{clé-valeur} réside
+dans le fait que les valeurs stockée sont désormais structurées. Cette
+propriété permet un accès beaucoup plus élaboré, non limité à une
+lecture ou écriture par clé, à la base de données. Cependant des
+opérations d'\textit{hoverhead} supplémentaires notamment pour
+vérifier la structuration des valeurs stockées, diminuent sa
+performance par rapport au modèle \textsf{clé-valeur} en terme de
+lecture et écriture des données.
 \\
 \\ 
-{\sf Colonne}\index{NoSQL!Orienté Colonne}: Autre évolution du modèle clé-valeur, il permet de
-disposer d'un très grand nombre de valeurs sur une même ligne,
-permettant ainsi de stocker les relations de type one-to-many. Les
-lignes peuvent avoir des types de colonnes différents et également des
-nombres de colonnes différents. On dispose également d'une hiérarchie
-entre les colonnes. Contrairement au système Clé-Valeur, celui-ci
-permet d’effectuer des requêtes par clé.  \\\\ {\sf
-  Graphe}\index{NoSQL!Orienté graphe}: très adapté pour la modélisation, le
-stockage et la manipulation des relations non-triviales ou variables
-entre les données. Un cas classique d'utilisation de cette catégorie
-est le stockage des informations des réseaux sociaux. Ces informations
-sont difficilement modélisables dans une base de données
-relationnelle.  \\ \\ {\color{red} {\sf La représentation utilisée par
-    cubeLaBRI}: encore inconnu} \\ \\ \textsf{D'autres
-  représentations}: \textsf{Xml}, \textsf{bases de données objet},
-\textsf{les bases de données hiérarchiques ou encore les datagrids}
-...
+{\sf Colonne}\index{NoSQL!Orienté Colonne}: Autre évolution du modèle
+clé-valeur, il permet de disposer d'un très grand nombre de valeurs
+sur une même ligne, permettant ainsi de stocker les relations de type
+one-to-many. Les lignes peuvent avoir des types de colonnes différents
+et également des nombres de colonnes différents. Il y a également une
+hiérarchie entre les colonnes. Cette configuration permet d’effectuer
+des requêtes par clé ou des opérations d'ensemble par enregistrement.
+Ceci n'est
+pas réalisable avec le modèle \textsf{clé-valeur} ou le
+modèle \textsf{document} dans la mesure où il y a une seule valeur par
+clé.
+\\
+\\
+{\sf Graphe}\index{NoSQL!Orienté graphe}: très adapté à la
+modélisation, au stockage et à la manipulation des relations
+non-triviales ou variables entre les données. À l'image de la gestion
+des liens d'amitié sur les réseaux sociaux comme \textsf{Facebook}. 
+Ces informations sont difficilement
+modélisables dans une base de données relationnelle.
+\\
+\\ 
+Le site \url{http://nosql-database.org/} recense $122$
+solutions \textsf{NoSQL} réparties en $9$ catégories dont les
+principales sont celles citées ci-dessus. Pour une
+illustration de celles-ci sur un exemple concret, se référer à l'annexe \ref{data}.

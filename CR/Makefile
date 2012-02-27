@@ -1,17 +1,28 @@
 PDF_PRODUCER=pdflatex
-FILE=CR
+BIB_PRODUCER=bibtex
+INDEX_PRODUCER=makeindex
+FORMAT_FILE=../RAPPORT/myIndexFormat
+LATEX_FILE=CR
+SRC=CR.tex ../RAPPORT/bibliographie.bib ../RAPPORT/myIndexFormat.ist ../RAPPORT/src/*.tex
 PDF_VIEWER=evince
+TRASH= *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm *.idx *.ilg *.ind
 
-PHONY: all clean view do_anyway
+all: $(LATEX_FILE).pdf view
 
-all: $(LATEX_FILE)
-	$(PDF_PRODUCER) $(FILE).tex
-	$(PDF_PRODUCER) $(FILE).tex
+$(LATEX_FILE).pdf: $(SRC)
+	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	$(BIB_PRODUCER) $(LATEX_FILE)
+	$(INDEX_PRODUCER) -s $(FORMAT_FILE) $(LATEX_FILE)
+	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	$(PDF_PRODUCER) $(LATEX_FILE).tex
+	@rm -rf $(TRASH)
 
-view: all
-	nohup $(PDF_VIEWER) $(FILE).pdf &
+.PHONY: clean
 
-do_anyway: 
+view: $(LATEX_FILE).pdf
+	$(PDF_VIEWER) $(LATEX_FILE).pdf > ~/trash.out 2>&1 &
 
-clean: do_anyway
-	@rm -rf *.toc *~ *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm
+clean: 
+	@rm -rf $(TRASH)
+	@rm -rf ../RAPPORT/src/*~ ../RAPPORT/src/#* ../RAPPORT/img/#*
+	@rm -rf CR.pdf

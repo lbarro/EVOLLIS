@@ -24,6 +24,9 @@
 \usepackage[french]{varioref}
 \usepackage[Glenn]{fncychap}
 
+\usepackage{makeidx}
+\makeindex
+
 \usepackage{listings}
 
 \lstset{%configuration de listings
@@ -66,11 +69,18 @@ frameround=fttt;%
 \begin{document}
 \maketitle
 \thispagestyle{empty}
-
+  
 \section*{Le NoSQL}
 \input{../RAPPORT/src/noSQL}
 
 \section*{Les différents types de bases de données NoSQL}
 \input{../RAPPORT/src/categorieNoSQL}
 
+\section*{Des exemples de NoSQL}
+\input{../RAPPORT/src/exempleNoSQL}
+
+\printindex
+
+\bibliographystyle{unsrt}
+\bibliography{../RAPPORT/bibliographie}
 \end{document}

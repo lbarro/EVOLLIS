@@ -6,4 +6,4 @@ then
     rm -i rapport.pdf
 else
     echo "file rapport.pdf missing"
-fi 
+fi

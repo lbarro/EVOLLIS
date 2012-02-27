@@ -1,23 +1,53 @@
-Sur le site \url{nosql-database.org}, sont recensés $122$
+Comme mentionné à la section précédente, le
+site \url{http://nosql-database.org} recense $122$
 solutions \textsf{NoSQL}.  J'en présenterai seulement 5. Un exemple
-par catégorie. Lesquelles catégories qui sont au nombre de 4, ont été
-citées à la section \ref{categorie}. Je m'intéresserai
+par catégorie énumérée précédemment. Je m'intéresserai
 particulièrement aux solutions « \textsf{Open Source} » très
-utilisées. Je parlerai aussi d'une solution
-propriétaire \textsf{BigTable} qui est considérée comme la première de
-la mouvance \textsf{NoSQL}. Dans l'ordre, je parlerai de \textsf{Riak} une solution \textsf{clé-valeur}, de \textsf{MongoDB} une solution \textsf{document}, de \textsf{cassandra} une solution \textsf{colonne}, de \textsf{Néo4j} une solution \textsf{graphe} et enfin de la solution \textsf{BigTable}.
+utilisées. Je parlerai aussi de la solution propriétaire \textsf{BigTable}
+qui est considérée comme la première de la
+mouvance \textsf{NoSQL}. Dans l'ordre, \textsf{Membase} une solution
+orientée \textsf{clé-valeur}, \textsf{MongoDB} une solution
+orientée \textsf{document}, \textsf{cassandra} une solution
+orientée \textsf{colonne}, \textsf{Néo4j} une solution
+orientée \textsf{graphe} et \textsf{BigTable} une solution
+propriétaire orientée \textsf{colonne}.
+\\
+\\
+\textsf{Membase}: \textsf{Membase} Solution \textsf{NoSQL} orientée \textsf{clé-valeur}, Open Source et diffusée sous la licence Apache 2.0. Écrit en \textsf{C++/Erlang}, il est soutenu par l'entreprise du même nom \textsf{Membase}\cite{RickCattell}. Il a été développé par les leaders du projet \textsf{Memcached} qui est un
+autre système de stockage \textsf{clé-valeur}. Ce dernier permet la
+gestion de mémoire cache distribuée, utilise la \textsf{RAM} et n'est
+donc pas persistant. \textsf{Memcached} fut à l'origine développé
+par \textsf{Brad Fitzpatrick} pour le \textsf{LiveJournal} en $2003$
+et est aujourd'hui utilisé part de nombreux sites
+tels \textsf{Wikipedia, Flickr, Bebo, Twitter, Typepad, Yellowbot,
+Youtube, Digg, WordPress.com, Craigslist,
+Mixi} \footnote{\url{http://memcached.org/about}}. \textsf{Membase}
+rajoute au système \textsf{Memcached} la propriété de persistance sur
+le disque, la réplication des données pour assurer la résistance aux
+pannes et le clustering. Il est compatible avec les applications
+memcached existantes.
 \\
 \\ 
-{\sf MongoDB}: MongoDB est une base de données « \textsf{orientée
-    document} » totalement open-source développée en
-\textsf{C++}. MongoDB stocke les données sous forme de \textsf{JSON}
-dont la structure reste libre et dynamique.  En effet, aucun schéma de
-\textsf{BDD} à respecter n'est défini à
-l'avance.\cite{mongoDB} 
+{\sf MongoDB}: \index{MongoDB} Solution \textsf{NoSQL} orientée \textsf{document},
+Open Source et diffusée sous la licence \textsf{GPL}. Écrit
+en \textsf{C++}, il est soutenu
+par \textsf{10gen}\cite{RickCattell}. Son développement a débuté en Octobre $2007$ et sa prémière version public est sortie en Février $2009$\footnote{\url{http://blog.mongodb.org/post/434865639/state-of-mongodb-march-2010}}. Sur son
+site \url{http://www.10gen.com/what-is-mongodb}, \textsf{10gen} écrit
+que le but de \textsf{MongoDB} est de combiner le
+modèle \textsf{clé-valeur}, rapide et scalable, et le modèle
+relationnel qui permet des opérations complexes comme les jointures et
+l'indexation. \textsf{MongoDB} stocke les données sous le format
+binaire \textsf{BSON} de \textsf{JSON}\footnote{Ces notions sont
+expliquées plus en détail à la section \ref{mongoDB} du présent
+document} dont la structure reste libre et dynamique.  En effet, aucun
+schéma de \textsf{BDD} à respecter n'est prédéfini\cite{mongoDB}. Le
+site web «\textsf{ChinaVisual}», la plus grande média en ligne
+chinoise\footnote{D'après \url{http://www.aboutus.org/ChinaVisual.com}},
+a annoncé en début d'année $2009$ sa migration de \textsf{MySQL}
+vers \textsf{MongoDB}\cite{GUYunhua} alors que \textsf{10gen} venait juste de publier la prémière version stable. Aujourd'hui, \textsf{MongoDB} est utilisé par de grands acteurs de la toile comme \textsf{Buddy Media, Craigslist, Disney, Forbes, foursquare, Intuit, MTV Networks, Shutterfly, Traackr, Wordnik}\footnote{Le site \url{http://www.10gen.com/customers} donne des explications sur les motivations de ses différents clients}.
 \\
 \\ 
-\textsf{Cassandra}: \index{Cassandra} une
-solution \textsf{NoSQL} d’\textsf{Apache}.  C’est une \textsf{BDD}
+\textsf{Cassandra}: \index{Cassandra} Solution \textsf{NoSQL} orientée \textsf{colonnes} d’\textsf{Apache}.  C’est une \textsf{BDD}
 orientée colonnes qui se veut être hautement extensible. C’est-à-dire
 qu’il est très simple d’ajouter ou d’enlever - c’est rare - un nœud du
 cluster. D’abord développé par \textsf{Facebook}, le code source est
@@ -27,7 +57,10 @@ peu maîtrisée mais elles revienne régulièrement dans l’actualité du
 fait des régulières annonces de migrations de quelques
 entreprises \textsf{web} renommées\cite{cassandra2}.
 \\
-\\ 
+\\
+\textsf{Néo4j}: \index{Néo4j}
+\\
+\\
 \textsf{BigTable}: \index{Bigtable} système de gestion de base de
 données propriétaire, développé et exploité par Google qui ne
 distribue pas sa base de données mais propose une utilisation publique

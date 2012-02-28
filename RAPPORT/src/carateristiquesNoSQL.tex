@@ -1,0 +1,42 @@
+Originally motivated by Web 2.0 applications, these
+systems are designed to scale to thousands or millions
+of users doing updates as well as reads, in contrast to
+traditional DBMSs and data warehouses.
+
+These systems typically sacrifice some of
+these dimensions, e.g. database-wide transaction
+consistency, in order to achieve others, e.g. higher
+availability and scalability
+
+Here are the six key features of a \textsf{NoSQL}:
+
+1. the ability to horizontally scale “simple
+operation” throughput over many servers,
+
+2. the ability to replicate and to distribute (partition)
+data over many servers,
+
+3. a simple call level interface or protocol (in
+contrast to a SQL binding),
+
+4. a weaker concurrency model than the ACID
+transactions of most relational (SQL) database
+systems,
+
+5. efficient use of distributed indexes and RAM for
+data storage, and
+
+6. the ability to dynamically add new attributes to
+data records
+
+The NoSQL systems described here generally do not
+provide ACID transactional properties: updates are
+eventually propagated, but there are limited guarantees
+on the consistency of reads. Some authors suggest a
+“BASE” acronym in contrast to the “ACID” acronym:
+• BASE = Basically Available, Soft state,
+Eventually consistent
+• ACID = Atomicity, Consistency, Isolation, and
+Durability
+The idea is that by giving up ACID constraints, one
+can achieve much higher performance and scalability

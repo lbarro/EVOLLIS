@@ -7,7 +7,7 @@
 
 %%%% resume %%%%%%%%%
 \begin{abstract}
-  \input{\DIR/src/resume}
+%  \input{\DIR/src/resume}
 \end{abstract}
 
 %%%% plan %%%%%
@@ -17,7 +17,7 @@
 
 %%%% remerciement %%%%%%%
 \addcontentsline{toc}{chapter}{Remerciements}
-\input{\DIR/src/remerciement}
+%\input{\DIR/src/remerciement}
 
 %%%%% corps du rapport %%%%%%%%%
 \addcontentsline{toc}{chapter}{Introduction}
@@ -25,32 +25,32 @@
 
 \part{Présentation du cadre de mon stage}
 
-\chapter{Présentation de l'organisme d'acceuil: {\sf EVOLLIS}}
-\chapter{Présentation du projet \textsf{ZéNoSQL}}
-\section{Le contexte}
-\input{\DIR/src/contexte}
-\section{L'environnement de travail}
-\section{L'équipe de travail}
+%\chapter{Présentation de l'organisme d'acceuil: {\sf EVOLLIS}}
+%\chapter{Présentation du projet \textsf{ZéNoSQL}}
+%\section{Le contexte}
+%\input{\DIR/src/contexte}
+%\section{L'environnement de travail}
+%\section{L'équipe de travail}
 
 \part{Déroulement de mon stage}
 
-\newpage
-~
-\vspace{7cm}
-\begin{center}
-  \textsf{Mon} 
-\end{center}
-\newpage
+%\newpage
+%~
+%\vspace{7cm}
+%\begin{center}
+%  \textsf{Mon} 
+%\end{center}
+%\newpage
 
 \chapter{État de l'art}
 
-\input{\DIR/src/etat_de_l_art}
+%\input{\DIR/src/etat_de_l_art}
 
 \section{Le \textsf{NoSQL}}
 \input{\DIR/src/noSQL}
 
 \section{Les caractéristiques d'une base de données \textsf{NoSQL}}
-\input{\DIR/src/carateristiquesNoSQL}
+%\input{\DIR/src/carateristiquesNoSQL}
 
 \subsection{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
 \input{\DIR/src/categorieNoSQL} 
@@ -59,19 +59,19 @@
 \input{\DIR/src/exempleNoSQL}
 
 \section{\textsf{SQL} vs \textsf{NoSQL}}
-\input{\DIR/src/SQLvsNoSQL}
+%\input{\DIR/src/SQLvsNoSQL}
 
 \section{Échange entre \textsf{SQL} et \textsf{NoSQL}}
-\input{\DIR/src/SQLtoNoSQL}
+%\input{\DIR/src/SQLtoNoSQL}
 
 \section{Système de Rootage intelligent entre \textsf{SQL} et \textsf{NoSQL}}
-\input{\DIR/src/rootage}
+%\input{\DIR/src/rootage}
 
 \chapter{Choix des \textsf{NoSQL} à tester}
 \section{Le \textsf{NoSQL mongoDB}}\label{mongoDB}
-\input{\DIR/src/mongoDB}
+%\input{\DIR/src/mongoDB}
 \section{Le \textsf{NoSQL} \textsf{cubeLaBRI}}
-\input{\DIR/src/cube}
+%\input{\DIR/src/cube}
 
 \chapter{Les tests de charge}
 \section{Tests de charge sur \textsf{mongoDB}}
@@ -81,15 +81,10 @@
 \chapter{Pilote du \textsf{NoSQL} xxxx pour \sf  EVOLLIS}
 
 \addcontentsline{toc}{chapter}{Conclusion}
-\input{\DIR/src/conclusion}
+%\input{\DIR/src/conclusion}
 
 \printindex
 
-\nocite{cassandra2}
-\nocite{cassandra}
-\nocite{NoSQLCmp}
-\nocite{NoSQLeurope}
-\nocite{NoSQLvsSQL}
 \bibliographystyle{unsrt}
 \bibliography{\DIR/bibliographie}
 
@@ -98,4 +93,3 @@
 \appendix
 \input{\DIR/src/annexeA}
 \input{\DIR/src/annexeB}
-\input{\DIR/src/TODO}

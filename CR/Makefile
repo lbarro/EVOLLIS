@@ -3,7 +3,7 @@ BIB_PRODUCER=bibtex
 INDEX_PRODUCER=makeindex
 FORMAT_FILE=../RAPPORT/myIndexFormat
 LATEX_FILE=CR
-SRC=CR.tex ../RAPPORT/bibliographie.bib ../RAPPORT/myIndexFormat.ist ../RAPPORT/src/*.tex
+SRC=CR.tex plan.tex ../RAPPORT/bibliographie.bib ../RAPPORT/myIndexFormat.ist ../RAPPORT/src/*.tex
 PDF_VIEWER=evince
 TRASH= *.toc *~ *.lot *.lof *.aux  *.log *.out *.bbl *.blg *.nav *.snm *.idx *.ilg *.ind
 

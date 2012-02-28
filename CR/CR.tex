@@ -1,12 +1,9 @@
-\documentclass[11pt]{article}
-\usepackage[usenames]{color}
-
+\documentclass[12pt]{report}
 \usepackage[francais]{babel}
 \usepackage{lmodern}
 \usepackage[a4paper]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-
+\usepackage[utf8]{inputenc}  
 \usepackage{moreverb}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -23,10 +20,40 @@
 \usepackage[nottoc, notlof, notlot]{tocbibind}
 \usepackage[french]{varioref}
 \usepackage[Glenn]{fncychap}
+\usepackage{pdfpages}
 
 \usepackage{makeidx}
 \makeindex
 
+\usepackage[colorlinks=true]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=blue,colorlinks=true}
+
+\usepackage{multicol}
+
+%entête et pied de page
+%% \usepackage{lastpage}
+%% \usepackage{fancyhdr}
+%% \pagestyle{fancy}
+
+%% \fancyhead[LE,RO]{\slshape \rightmark}
+%% \fancyhead[LO,RE]{\slshape \leftmark}
+
+%%  \lfoot{Lissy BARRO}
+%%  \lhead{\leftmark}
+%%  \rhead{\rightmark}
+%%  \cfoot{Rapport de projet de fin d'étude}
+%%  \lfoot{Lissy BARRO}
+%%  \rfoot{\thepage/\pageref{LastPage}}
+%% \renewcommand{\chaptermark}[1]{% 
+%% \markboth{\MakeUppercase{% 
+%% \chaptername\ \thechapter.% 
+%% \ #1}}{}} 
+%% \thispagestyle{plain}
+
+%%\renewcommand{\headrulewidth}{0.4pt}
+%%\renewcommand{\footrulewidth}{0.4pt}
+
+% pour inclure du code par exemple
 \usepackage{listings}
 
 \lstset{%configuration de listings
@@ -40,7 +67,7 @@ extendedchars=true, %
 showspaces=false, %
 showstringspaces=false, %
 numbers=left, %
-numberstyle=\tiny, %1
+numberstyle=\tiny, %
 breaklines=true, %
 breakautoindent=true, %
 captionpos=b,%
@@ -51,39 +78,25 @@ frameround=fttt;%
 }
 
 %%%%%%%%%%%%%%%% Lengths %%%%%%%%%%%%%%%%
-%\setlength{\textwidth}{15.5cm}
-%\setlength{\evensidemargin}{0.5cm}
-%\setlength{\oddsidemargin}{0.5cm}
 \geometry{a4paper,twoside,left=2cm,right=2cm,marginparwidth=1.2cm,marginparsep=3mm,top=1.7cm,bottom=1.5cm}
-%%%%%%%%%%%%%%%% Variables %%%%%%%%%%%%%%%%
-\def\eleves{Lissy BARRO}
-\def\titre{Projet ZéNoSQL}
 
-%%%%%%%%%%%%%%%% Header %%%%%%%%%%%%%%%%
-\title{\color{blue}\titre}
-\author{\eleves}
-\date{\today}
+\newcommand{\stamp}{{\tt \textit{Stamp }}}
+\newcommand{\class}{{\tt \textit{class }}}
+\newcommand{\initarg}{{\tt \textit{Initarg }}}
+\urlstyle{sf}
 
-\pagestyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{vcenterpage}
+{\newpage\vspace*{\fill}}
+{\vspace*{\fill}\par\pagebreak}
+
+\newtheorem{ex}{Exemple}%[section]
+\newtheorem{theo}{Theorem}
+\newcommand{\tuple}[1]{\ensuremath{\langle #1 \rangle}}
+
+\def\DIR{../RAPPORT}
 
 \begin{document}
-\maketitle
-\thispagestyle{empty}
-  
-\section*{Le NoSQL}
-\input{../RAPPORT/src/noSQL}
-
-\section*{Les différents types de bases de données NoSQL}
-\input{../RAPPORT/src/categorieNoSQL}
-
-\section*{Des exemples de NoSQL}
-\input{../RAPPORT/src/exempleNoSQL}
-
-\section*{SQL vs NoSQL}
-\input{../RAPPORT/src/SQLvsNoSQL}
-
-\printindex
-
-\bibliographystyle{unsrt}
-\bibliography{../RAPPORT/bibliographie}
+\input{plan}
 \end{document}

@@ -1,4 +1,4 @@
-Comme mentionné à la section précédente, le
+Comme je l'ai mentionné à la section précédente, le
 site \url{http://nosql-database.org} recense $122$
 solutions \textsf{NoSQL}.  J'en présenterai seulement 5. Un exemple
 par catégorie énumérée précédemment. Je m'intéresserai
@@ -13,7 +13,7 @@ orientée \textsf{graphe} et \textsf{BigTable} une solution
 propriétaire orientée \textsf{colonne}.
 \\
 \\
-\textsf{Membase}: \textsf{Membase} Solution \textsf{NoSQL} orientée \textsf{clé-valeur}, Open Source et diffusée sous la licence Apache 2.0. Écrit en \textsf{C++/Erlang}, il est soutenu par l'entreprise du même nom \textsf{Membase}\cite{RickCattell}. Il a été développé par les leaders du projet \textsf{Memcached} qui est un
+\textsf{Membase}: \index{Membase}\textsf{Membase} Solution \textsf{NoSQL} orientée \textsf{clé-valeur}, Open Source et diffusée sous la licence Apache 2.0. Écrit en \textsf{C++/Erlang}, il est soutenu par l'entreprise du même nom \textsf{Membase}\cite{RickCattell}. Il a été développé par les leaders du projet \textsf{Memcached} qui est un
 autre système de stockage \textsf{clé-valeur}. Ce dernier permet la
 gestion de mémoire cache distribuée, utilise la \textsf{RAM} et n'est
 donc pas persistant. \textsf{Memcached} fut à l'origine développé
@@ -24,8 +24,9 @@ Youtube, Digg, WordPress.com, Craigslist,
 Mixi} \footnote{\url{http://memcached.org/about}}. \textsf{Membase}
 rajoute au système \textsf{Memcached} la propriété de persistance sur
 le disque, la réplication des données pour assurer la résistance aux
-pannes et le clustering. Il est compatible avec les applications
-memcached existantes.
+pannes et le clustering. Le clustering consiste à rajouter une machine
+pour gagner en performance plutôt que d'augmenter la puissance d'une
+machine. Il est compatible avec les applications memcached existantes.
 \\
 \\ 
 {\sf MongoDB}: \index{MongoDB} Solution \textsf{NoSQL} orientée \textsf{document},
@@ -47,27 +48,46 @@ a annoncé en début d'année $2009$ sa migration de \textsf{MySQL}
 vers \textsf{MongoDB}\cite{GUYunhua} alors que \textsf{10gen} venait juste de publier la prémière version stable. Aujourd'hui, \textsf{MongoDB} est utilisé par de grands acteurs de la toile comme \textsf{Buddy Media, Craigslist, Disney, Forbes, foursquare, Intuit, MTV Networks, Shutterfly, Traackr, Wordnik}\footnote{Le site \url{http://www.10gen.com/customers} donne des explications sur les motivations de ses différents clients}.
 \\
 \\ 
-\textsf{Cassandra}: \index{Cassandra} Solution \textsf{NoSQL} orientée \textsf{colonnes} d’\textsf{Apache}.  C’est une \textsf{BDD}
-orientée colonnes qui se veut être hautement extensible. C’est-à-dire
-qu’il est très simple d’ajouter ou d’enlever - c’est rare - un nœud du
-cluster. D’abord développé par \textsf{Facebook}, le code source est
-devenu « \textsf{Open-Source} » et repris par la
-fondation \textsf{Apache}\cite{cassandra}.  La technologie est encore
-peu maîtrisée mais elles revienne régulièrement dans l’actualité du
-fait des régulières annonces de migrations de quelques
-entreprises \textsf{web} renommées\cite{cassandra2}.
+\textsf{Cassandra}: \index{Cassandra} Solution \textsf{NoSQL} orientée 
+\textsf{colonnes} de la fondation \textsf{Apache}, Open Source et diffusée sous la licence
+ Apache 2.0. Comme toutes les solutions \textsf{NoSQL}, \textsf{Cassandra} 
+met en avant le clustering. Il est écrit en 
+\textsf{Java}\cite{RickCattell}. Initialement développé par 
+\textsf{Facebook}, le code source est devenu « \textsf{Open-Source} » sur 
+\textsf{Google code} en juillet $2008$: 
+\url{http://code.google.com/p/the-cassandra-project/}
+\footnote{\url{http://perspectives.mvdirona.com/2008/07/12/FacebookReleasesCassandraAsOpenSource.aspx}}. En
+mars $2009$, \textsf{Cassandra} rentre dans l'incubateur de projets
+de la fondation \textsf{Apache}\index{Apache Incubator}, une passerelle de
+validation de projets désireux d'intégrer la fondation. En Février
+$2010$, \textsf{Cassandra} dévient un projet à part entière de la
+fondation
+\footnote{\url{http://www.mail-archive.com/cassandra-dev@incubator.apache.org/msg01518.html}}. \textsf{Facebook}
+scale \textsf{Cassandra} sur plus de $150$ machines. D'autre grands
+sites tels que \textsf{Twitter et SoftwareProjects}
+utilisent \textsf{Cassandra}. \textsf{SoftwareProjects} utilise 20
+nœuds \textsf{Cassandra} à travers 3 entrepôts de données pour
+alimenter leur plate-forme e-commerce électronique pour $3000$
+entreprises. Il utilise \textsf{Cassandra} pour stocker des données
+d'achat en temps réel et fournir des statistiques aux divers
+clients. \textsf{Cassandra} est leur magasin de données
+principal\footnote{\url{http://wiki.apache.org/cassandra/CassandraUsers}}.
 \\
 \\
-\textsf{Néo4j}: \index{Néo4j}
+\textsf{Neo4j}: \index{Néo4j} Solution \textsf{NoSQL} orientée 
+\textsf{gaphe} de l'entreprise \textsf{Neo Technology}, une entreprise suédoise\cite{MichaelFiguiereNeo4j}. Il est écrit en java\cite{GavinTerrill}. La Première version, \textsf{Neo4j 1.0} est sortie en Février $2010$\cite{Neo4jBlog}. 
+Sur le site \url{http://neo4j.org/}, j'ai pu lire que \textsf{Neo4j} est \textsf{Open Source} sous licence \textsf{AGPLv3}  et offre des performances $1000$ fois supérieures aux \textsf{BDDR} classiques. En effet \textsf{Neo4j} permet à une application de bénéficier de toute l'expressivité des graphes pour modéliser toutes les dépendances non triviales
+entre les données. Il permet aussi de bénéficier d'algorithmes très optimisées de recherche et d'ajout d'éléments dans un graphe. L'utilisation de graphe permet surtout de répondre efficacement à la question d'existence de relation entre les éléments: la connexité, la complétude, l'accessibilité ... \textsf{Neo4j} est utilisé par \textsf{Adobe, Viadeo, Deutsche Telecom, box, etc}\footnote{\url{http://neotechnology.com/customers/}}.  
 \\
 \\
-\textsf{BigTable}: \index{Bigtable} système de gestion de base de
-données propriétaire, développé et exploité par Google qui ne
-distribue pas sa base de données mais propose une utilisation publique
-via sa plateforme d'application \textsf{Google App Engine}. Son
-développement a commencé en $2004$ et est aujourd'hui utilisé par les
+\textsf{BigTable}: \index{Bigtable} Solution \textsf{NoSQL} orientée 
+\textsf{colonnes} propriétaire, développé et exploité par Google. Cette 
+\textsf{BDD} est proposée via la plate-forme d'application 
+\textsf{Google App Engine}. Son
+développement a commencé en $2004$ et \textsf{BigTable} est aujourd'hui 
+utilisé par les
 applications \textsf{Google} telles que \textsf{Google Earth},
 \textsf{Blogger.com}, \textsf{Google Code hosting}, \textsf{YouTube},
-\textsf{Gmail} ... D'autres projets libres tels que \textsf{HBase},
-\textsf{Cassandra} ou \textsf{Hypertable} s'en sont
-inspirés.
+\textsf{Gmail}. \textsf{BigTable} a servi d'inspiration à des projets 
+\textsf{Open Source} de solution \textsf{NoSQL} tels que \textsf{HBase},
+\textsf{Cassandra} ou \textsf{Hypertable}\cite{RickCattell}.

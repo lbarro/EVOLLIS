@@ -21,7 +21,7 @@ par \textsf{Brad Fitzpatrick} pour le \textsf{LiveJournal} en $2003$
 et est aujourd'hui utilisé part de nombreux sites
 tels \textsf{Wikipedia, Flickr, Bebo, Twitter, Typepad, Yellowbot,
 Youtube, Digg, WordPress.com, Craigslist,
-Mixi} \footnote{\url{http://memcached.org/about}}. \textsf{Membase}
+Mixi}\cite{memcached}. \textsf{Membase}
 rajoute au système \textsf{Memcached} la propriété de persistance sur
 le disque, la réplication des données pour assurer la résistance aux
 pannes et le clustering. Le clustering consiste à rajouter une machine
@@ -32,7 +32,7 @@ machine. Il est compatible avec les applications memcached existantes.
 {\sf MongoDB}: \index{MongoDB} Solution \textsf{NoSQL} orientée \textsf{document},
 Open Source et diffusée sous la licence \textsf{GPL}. Écrit
 en \textsf{C++}, il est soutenu
-par \textsf{10gen}\cite{RickCattell}. Son développement a débuté en Octobre $2007$ et sa prémière version public est sortie en Février $2009$\footnote{\url{http://blog.mongodb.org/post/434865639/state-of-mongodb-march-2010}}. Sur son
+par \textsf{10gen}\cite{RickCattell}. Son développement a débuté en Octobre $2007$ et sa prémière version public est sortie en Février $2009$\cite{blogmongodb}. Sur son
 site \url{http://www.10gen.com/what-is-mongodb}, \textsf{10gen} écrit
 que le but de \textsf{MongoDB} est de combiner le
 modèle \textsf{clé-valeur}, rapide et scalable, et le modèle
@@ -43,9 +43,11 @@ expliquées plus en détail à la section \ref{mongoDB} du présent
 document} dont la structure reste libre et dynamique.  En effet, aucun
 schéma de \textsf{BDD} à respecter n'est prédéfini\cite{mongoDB}. Le
 site web «\textsf{ChinaVisual}», la plus grande média en ligne
-chinoise\footnote{D'après \url{http://www.aboutus.org/ChinaVisual.com}},
+chinoise
+%\footnote{D'après \url{http://www.aboutus.org/ChinaVisual.com}}
+,
 a annoncé en début d'année $2009$ sa migration de \textsf{MySQL}
-vers \textsf{MongoDB}\cite{GUYunhua} alors que \textsf{10gen} venait juste de publier la prémière version stable. Aujourd'hui, \textsf{MongoDB} est utilisé par de grands acteurs de la toile comme \textsf{Buddy Media, Craigslist, Disney, Forbes, foursquare, Intuit, MTV Networks, Shutterfly, Traackr, Wordnik}\footnote{Le site \url{http://www.10gen.com/customers} donne des explications sur les motivations de ses différents clients}.
+vers \textsf{MongoDB}\cite{GUYunhua} alors que \textsf{10gen} venait juste de publier la prémière version stable. Aujourd'hui, \textsf{MongoDB} est utilisé par de grands acteurs de la toile comme \textsf{Buddy Media, Craigslist, Disney, Forbes, foursquare, Intuit, MTV Networks, Shutterfly, Traackr, Wordnik}\cite{10genClients}.
 \\
 \\ 
 \textsf{Cassandra}: \index{Cassandra} Solution \textsf{NoSQL} orientée 
@@ -56,14 +58,16 @@ met en avant le clustering. Il est écrit en
 \textsf{Facebook}, le code source est devenu « \textsf{Open-Source} » sur 
 \textsf{Google code} en juillet $2008$: 
 \url{http://code.google.com/p/the-cassandra-project/}
-\footnote{\url{http://perspectives.mvdirona.com/2008/07/12/FacebookReleasesCassandraAsOpenSource.aspx}}. En
+%\footnote{\url{http://perspectives.mvdirona.com/2008/07/12/FacebookReleasesCassandraAsOpenSource.aspx}}. 
+En
 mars $2009$, \textsf{Cassandra} rentre dans l'incubateur de projets
 de la fondation \textsf{Apache}\index{Apache Incubator}, une passerelle de
 validation de projets désireux d'intégrer la fondation. En Février
 $2010$, \textsf{Cassandra} dévient un projet à part entière de la
 fondation
-\footnote{\url{http://www.mail-archive.com/cassandra-dev@incubator.apache.org/msg01518.html}}. \textsf{Facebook}
-scale \textsf{Cassandra} sur plus de $150$ machines. D'autre grands
+%\footnote{\url{http://www.mail-archive.com/cassandra-dev@incubator.apache.org/msg01518.html}}. 
+\textsf{Facebook}
+scale \textsf{Cassandra} sur plus de $150$ machines. D'autres grands
 sites tels que \textsf{Twitter et SoftwareProjects}
 utilisent \textsf{Cassandra}. \textsf{SoftwareProjects} utilise 20
 nœuds \textsf{Cassandra} à travers 3 entrepôts de données pour
@@ -71,13 +75,27 @@ alimenter leur plate-forme e-commerce électronique pour $3000$
 entreprises. Il utilise \textsf{Cassandra} pour stocker des données
 d'achat en temps réel et fournir des statistiques aux divers
 clients. \textsf{Cassandra} est leur magasin de données
-principal\footnote{\url{http://wiki.apache.org/cassandra/CassandraUsers}}.
+principal\cite{apacheClients}.
 \\
 \\
 \textsf{Neo4j}: \index{Néo4j} Solution \textsf{NoSQL} orientée 
 \textsf{gaphe} de l'entreprise \textsf{Neo Technology}, une entreprise suédoise\cite{MichaelFiguiereNeo4j}. Il est écrit en java\cite{GavinTerrill}. La Première version, \textsf{Neo4j 1.0} est sortie en Février $2010$\cite{Neo4jBlog}. 
-Sur le site \url{http://neo4j.org/}, j'ai pu lire que \textsf{Neo4j} est \textsf{Open Source} sous licence \textsf{AGPLv3}  et offre des performances $1000$ fois supérieures aux \textsf{BDDR} classiques. En effet \textsf{Neo4j} permet à une application de bénéficier de toute l'expressivité des graphes pour modéliser toutes les dépendances non triviales
-entre les données. Il permet aussi de bénéficier d'algorithmes très optimisées de recherche et d'ajout d'éléments dans un graphe. L'utilisation de graphe permet surtout de répondre efficacement à la question d'existence de relation entre les éléments: la connexité, la complétude, l'accessibilité ... \textsf{Neo4j} est utilisé par \textsf{Adobe, Viadeo, Deutsche Telecom, box, etc}\footnote{\url{http://neotechnology.com/customers/}}.  
+Sur le site \url{http://neo4j.org/}, j'ai pu lire que \textsf{Neo4j}
+est \textsf{Open Source} sous licence \textsf{AGPLv3} et offre des
+performances $1000$ fois supérieures aux \textsf{BDDR} classiques. En
+effet \textsf{Neo4j} permet à une application de bénéficier de toute
+l'expressivité des graphes pour modéliser toutes les dépendances non
+triviales entre les données. Il permet aussi de bénéficier
+d'algorithmes très optimisées de recherche et d'ajout d'éléments dans
+un graphe. L'utilisation de graphe permet surtout de répondre
+efficacement à la question d'existence de relation entre les éléments:
+la connexité, la complétude, l'accessibilité ... \textsf{Neo4j} est
+utilisé par \textsf{Adobe, Viadeo, Deutsche Telecom, box,
+etc}\cite{neo4jClients}. 
+Il est important de noter que \textsf{Neo4j} répond aux enjeux traditionnels 
+d'une \textsf{BDD}, principalement l'\textsf{ACIDité} des transactions. 
+Il est considéré comme \textsf{NoSQL} juste parce qu'il n'utilise
+pas le schéma relationnel classique.
 \\
 \\
 \textsf{BigTable}: \index{Bigtable} Solution \textsf{NoSQL} orientée 

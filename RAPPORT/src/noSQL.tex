@@ -7,17 +7,18 @@ base de données relationnelle, les données sont structurées dans des
 tables à deux dimensions selon un modèle permettant de dresser une
 relation entre elles basée sur la théorie des ensembles et la logique
 mathématique\cite{BDDR}. Les \textsf{BDDR} classiques ont toujours cherché à
-implémenter les propriétés \textsf{ACID}\footnote{voir annexe
-  \ref{acid}}\index{ACID} qui sont nécessaires à la gestion des
+implémenter les propriétés \textsf{ACID}\footnote{Pour plus de détails, voir annexe
+  \ref{acid}}\index{ACID}\cite{DanielBartholomew} qui sont nécessaires à la gestion des
 transactions.  
 \\ 
 \\ 
 Pour certains cas d'utilisations comme la gestion des réseaux sociaux,
 un gestionnaire n'a pas forcement besoin des
 propriétés \textsf{ACID}. Le
-\textsf{MySQL} qui est un \textsf{SGBDR} non transactionnel en est la
-preuve par sa popularité. Il est proposé par plus de la moitié des
-hébergeurs \textsf{web}. Les utilisateurs de \textsf{BDD} n'ont pas
+\textsf{MySQL} en est la preuve par sa popularité. Ce dernier est un \textsf{SGBDR} qui n'est toujours  
+pas transactionnel en septembre $2010$ avec sa version $5.5.6$\cite{MySQLACID}. Cependant il est la \textsf{BDD} \textsf{Open Source} la
+plus utilisée avec plus de $65,000$ téléchargements par
+jour\cite{siteMySQL}. Les utilisateurs de \textsf{BDD} n'ont pas
 forcement pour intention de gérer des transactions. Pour cette raison,
 les gestionnaires \textsf{NoSQL} optent pour la simplicité, la
 performance et la scalabilité au détriment des propriétés
@@ -31,16 +32,15 @@ de \textsf{MIT}, << 96\% [des cycles machines de \textsf{MySQL} est] de
 l’\textit{overhead} » partagé entre la gestion de \textsf{buffer}, les
 verrous au niveau enregistrement, l’écriture des \textsf{logs} et
 le \textsf{multi-threading}. Donc seulement << 4\% [...] consacré au
-travail en lui-même »
-\footnote{\url{http://www.slideshare.net/Dataversity/newsql-vs-nosql-for-new-oltp-michael-stonebraker-voltdb}}.
+travail en lui-même »\cite{MichaelStonebraker}.
 \\ 
 \\ 
 Les \textsf{SGBD} non-relationnels existent depuis
 le début de l'histoire des bases de données dans les années $60$
 notamment avec les systèmes de gestion de fichiers plus ou moins
-sophistiqués. Ils sont de nos jours rependus sur les mainframes et les
+sophistiqués\cite{BDDR}. Ils sont de nos jours rependus sur les mainframes et les
 logiciels d'annuaire. Il sont plus anciens que les \textsf{SGBD}
-relationnels qui ont quant à eux fait leur apparition à partir de 1970. Les
+relationnels qui ont quant à eux fait leur apparition à partir de 1970\cite{BDDR}. Les
 \textsf{SGBD} non-relationnels ont connu une nouvelle jeunesse avec la
 mouvance \textsf{NoSQL}. La conférence meet-up de 2009
 à \textsf{San-Francisco} est considérée comme l'inauguration de la

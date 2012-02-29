@@ -43,42 +43,53 @@
 \newpage
 
 \chapter{État de l'art}
-
 \input{\DIR/src/etat_de_l_art}
 
-\section{Le \textsf{NoSQL}}
-\input{\DIR/src/noSQL}
+     \section{Le \textsf{NoSQL}}
+     \input{\DIR/src/noSQL}
 
-\section{Les caractéristiques d'une base de données \textsf{NoSQL}}
-\input{\DIR/src/carateristiquesNoSQL}
+               \subsection{Les caractéristiques d'une base de données \textsf{NoSQL}}
+               \input{\DIR/src/carateristiquesNoSQL}
 
-\subsection{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
-\input{\DIR/src/categorieNoSQL} 
+               \subsection{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
+               \input{\DIR/src/categorieNoSQL} 
 
-\subsection{Des exemples de \textsf{NoSQL}}
-\input{\DIR/src/exempleNoSQL}
+               \subsection{Des exemples de \textsf{NoSQL}}
+               \input{\DIR/src/exempleNoSQL}
 
-\section{\textsf{SQL} vs \textsf{NoSQL}}
-\input{\DIR/src/SQLvsNoSQL}
+     \section{\textsf{SQL} vs \textsf{NoSQL}}
+     \input{\DIR/src/SQLvsNoSQL}
 
-\section{Échange entre \textsf{SQL} et \textsf{NoSQL}}
-\input{\DIR/src/SQLtoNoSQL}
+     \section{Échange entre \textsf{SQL} et \textsf{NoSQL}}
+     \input{\DIR/src/SQLtoNoSQL}
 
-\section{Système de Rootage intelligent entre \textsf{SQL} et \textsf{NoSQL}}
-\input{\DIR/src/rootage}
+     \section{Système de Rootage intelligent entre \textsf{SQL} et \textsf{NoSQL}}
+     \input{\DIR/src/rootage}
 
-\chapter{Choix des \textsf{NoSQL} à tester}
-\section{Le \textsf{NoSQL mongoDB}}\label{mongoDB}
-\input{\DIR/src/mongoDB}
-\section{Le \textsf{NoSQL} \textsf{cubeLaBRI}}
-\input{\DIR/src/cube}
+\chapter{Choix des solutions à étudier}
+\input{\DIR/src/choixNoSQL}
+     
+     \section{Le \textsf{NoSQL Membase}}
+     \input{\DIR/src/mongoDB}
+
+     \section{Le \textsf{NoSQL mongoDB}}\label{mongoDB}
+     \input{\DIR/src/mongoDB}
+
+     \section{Le \textsf{cube} du laboratoire \textsf{LaBRI}}
+     \input{\DIR/src/cube}
+
+     \section{Bilan}
+     \input{\DIR/src/bilanChoixNoSQL}
 
 \chapter{Les tests de charge}
-\section{Tests de charge sur \textsf{mongoDB}}
-\section{Tests de charge sur \textsf{cubeLaBRI}}
-\section{Le choix final d'\textsf{EVOLLIS} de la solution \textsf{NoSQL}}
 
-\chapter{Pilote du \textsf{NoSQL} xxxx pour \sf  EVOLLIS}
+     \section{Tests de charge sur \textsf{mongoDB}}
+
+     \section{Tests de charge sur \textsf{cubeLaBRI}}
+     
+     \section{Le choix final de la solution \textsf{NoSQL}}
+
+\chapter{Pilote pour \textsf{EVOLLIS} de la solution \textsf{NoSQL} retenue}
 
 \addcontentsline{toc}{chapter}{Conclusion}
 \input{\DIR/src/conclusion}

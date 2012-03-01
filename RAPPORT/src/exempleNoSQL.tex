@@ -24,9 +24,7 @@ Youtube, Digg, WordPress.com, Craigslist,
 Mixi}\cite{memcached}. \textsf{Membase}
 rajoute au système \textsf{Memcached} la propriété de persistance sur
 le disque, la réplication des données pour assurer la résistance aux
-pannes et le clustering. Le clustering consiste à rajouter une machine
-pour gagner en performance plutôt que d'augmenter la puissance d'une
-machine. Il est compatible avec les applications memcached existantes.
+pannes et la scalabilité horizontale. Il est compatible avec les applications memcached existantes.
 \\
 \\ 
 {\sf MongoDB}: \index{MongoDB} Solution \textsf{NoSQL} orientée \textsf{document},
@@ -109,3 +107,8 @@ applications \textsf{Google} telles que \textsf{Google Earth},
 \textsf{Gmail}. \textsf{BigTable} a servi d'inspiration à des projets 
 \textsf{Open Source} de solution \textsf{NoSQL} tels que \textsf{HBase},
 \textsf{Cassandra} ou \textsf{Hypertable}\cite{RickCattell}.
+\\
+\\
+\textit{N.B}: certains \textsf{SGBD} comme \textsf{Neo4j} sont considérés comme \textsf{NoSQL} pour la seule et simple qu'il n'utilise
+pas le modèle relationnel de données représentées en tables. \textsf{Neo4j} implémente les propriétés \textsf{ACID}. Pour la suite, le terme 
+\textsf{NoSQL} désignera tous les \textsf{SGBD} qui ont délibérément fait fi de l'\textsf{ACIDité} pour plus de performance et de scalabilité.  

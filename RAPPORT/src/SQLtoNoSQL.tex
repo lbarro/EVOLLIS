@@ -41,3 +41,8 @@ deux ont des représentations de données très différentes.
 \\
 Il existe une solution \textsf{Open Source} permettant des échanges entre \textsf{SQL} et \textsf{NoSqL}:\textsf{Sqoop} ou « SQL To Hadoop ». \textsf{Hadoop}\index{Sqoop} est un assemblage de plusieurs sous-projet avec à 
 la base  un système de fichier \textsf{HDFS}\footnote{Hadoop Distributed File System} et \textsf{HBASE}\footnote{\textsf{SGBD} non-relationnelle orienté colonnes} pour le stockage. Développé en \textsf{java}, il est destiné aux applications distribuées et à la gestion intensive des données. \textsf{Sqoop} charge une table ou toute la base en système de fichiers \textsf{HDFS} en fonction des options d'importation spécifiées et génère aussi des classes \textsf{java} correspondantes aux tables de la bases, ainsi que des objets correspondants aux lignes pour permettre d'interagir avec les données importées.
+\\
+\\
+Enfin, chaque base de données NoSQL vient avec son propre langage de
+requête, rendant difficile la standardisation des interfaces entre les
+applications\cite{SergeLeblal}.

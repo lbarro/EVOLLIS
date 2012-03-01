@@ -1,56 +1,39 @@
-Originally motivated by Web 2.0 applications, these
-systems are designed to scale to thousands or millions
-of users doing updates as well as reads, in contrast to
-traditional DBMSs and data warehouses.
+Le seul dénominateur commun entre les solutions \textsf{NoSQL} est la
+non utilisation du modèle relationnel
+classique\cite{NealLeavitt}. Chaque solution a sa propre
+représentation des données et surtout son propre langage de
+requête\cite{SergeLeblal}. Cependant toute les
+solutions \textsf{NoSQL} reposent sur les mêmes principes. Ci-dessous,
+6 principales propriétés recherchées dans la
+mouvance \textsf{NoSQL}:
 
-These systems typically sacrifice some of
-these dimensions, e.g. database-wide transaction
-consistency, in order to achieve others, e.g. higher
-availability and scalability
+\begin{enumerate}
 
-Here are the six key features of a \textsf{NoSQL}:
+\item \textsf{Open Source}: la majeur partie des solutions \textsf{NoSQL} est \textsf{Open Source}
 
-1. the ability to horizontally scale “simple
-operation” throughput over many servers,
+\item \textsf{Scalabilité horizontale}: fonctionner sur plusieurs machines peu coûteuses plutôt que sur une seule machine puissante mais coûteuse\cite{NealLeavitt}. En d'autres termes, pour gagner en performance, il suffit de rajouter une machine plutôt que d'augmenter la puissance d'une machine. Cette propriété est surtout implémentée pour les 
+      opérations simples. Par ``opération simple'', il faut comprendre
+      la recherche par clé, lecture et écriture d'un enregistrement ou
+      d'un petit groupe d'enregistrements. À l'opposé d'opérations
+      complexes comme les jointures dans le modèle
+      relationnel\cite{RickCattell}.
 
-2. the ability to replicate and to distribute (partition)
-data over many servers,
+\item \textsf{Réplication et distribution des données}: les données sont répliquées et distribuées entre plusieurs serveurs pour améliorer l'accès et éviter les pertes de données en cas de panne. Une grande partie des solutions \textsf{NoSQL} effectue une mise à jour asynchrone. Cette notion est abordée plus en détail plus bas.
 
-3. a simple call level interface or protocol (in
-contrast to a SQL binding),
+\item \textsf{Un protocole simplifié}: les solutions \textsf{NoSQL} mettent en avant la facilité d'usage, notamment une installation et configuration faciles et un langage de requête bas niveau.
 
-4. a weaker concurrency model than the ACID
-transactions of most relational (SQL) database
-systems,
+\item \textsf{Une gestion de concurrence faible}: pour gagner en performance, les solutions \textsf{NoSQL} se focalisent moins sur l'intégrité des données et par conséquent sur la gestion des accès concourant aux données. Les solution \textsf{NoSQL} ne gèrent pas l'\textsf{ACIDité} des transactions. Cette est abordée plus en détail plus bas.
 
-5. efficient use of distributed indexes and RAM for
-data storage, and
-
-6. the ability to dynamically add new attributes to
-data records
-
-The NoSQL systems described here generally do not
-provide ACID transactional properties: updates are
-eventually propagated, but there are limited guarantees
-on the consistency of reads. Some authors suggest a
-“BASE” acronym in contrast to the “ACID” acronym:
-• BASE = Basically Available, Soft state,
-Eventually consistent
-• ACID = Atomicity, Consistency, Isolation, and
-Durability
-The idea is that by giving up ACID constraints, one
-can achieve much higher performance and scalability\\
-==================================================\\
-ACID et les NoSQL en introduisant BASE\\
-CAP et les NoSQL\\
-
-**************************************************
-Dans un prémier temps parler des points commun entre
-les nosql
-
-Maintenant je vais aborder la notion du théorème de brewer encore appelé
-le théorème de CAP en rapport avec les solutions \textsf{NoSQL}. 
-\textsf{Brewer} dit que dans un environnement distribué 
-une base de données ne paut avoir cohérent, disponible et resistant
-au morcellement. Ceci n'est qu'un petit rappelle sinon ce théorème 
-plus en détail à l'annexe \ref{cap} du présent document.  
+\item \textsf{Souplesse et dynamisme}: les \textsf{BDD NoSQL} se veulent libres de schémas et dynamiques. Ajout et suppression de colonnes sans arrêter le serveur et adaptation à n'importe quel type de données. Elles se démarquent du modèle relationnel stockent uniquement les données qui peuvent être distillées en tables.
+\end{enumerate}
+Après avoir survolé les valeurs défendues par la mouvance \textsf{NoSQL}, je vais maintenant aborder la notion d'\textsf{ACIDité} en rapport avec le \textsf{NoSQL}. Je l'ai tantôt dit, les \textsf{NoSQL} n'ont pas pour vocation d'être \textsf{ACID}. En rappel, les propriétés \textsf{ACID} garantissent que la \textsf{BDD} garde toujours un état cohérent\footnote{voir annexe \ref{acid} pour plus de détails}. Cependant, à défaut d'être \textsf{ACID}, les solutions \textsf{NoSQL} revendiquent d'être \textsf{BASE}\cite{RickCattell}, acronyme de \textsf{Basically Available, Soft state, Eventually consistency}. Avec un \textsf{BDD BASE}, il n'y a pas la garantie que les données soient à jour sur tous les nœuds du cluster d'où le « \textsf{Basically Available} ». Cependant, après un temps assez long où il n'y a pas de nouvelles mises à jour d'où le « \textsf{Soft state} », la \textsf{BDD} pourra atteindre son état cohérent d'où l'« \textsf{Eventually consistency} ». 
+\\
+\\
+Le \textsf{NoSQL} a donc abandonné la « consistance forte » pour de la « consistance éventuelle ». Il a pris pour alibi le théorème \textsf{CAP} qui postule que dans un environnement distribué, une \textsf{BDD} ne peut être à la fois consistent, disponible  et résistant au morcellement. Elle ne peut avoir que 2 de ces 3 propriétés. Ceci n'est qu'un petit rappelle sinon ce théorème 
+est plus en détail à l'annexe \ref{cap} du présent document\cite{MichaelStonebraker2}. Ce théorème laisse entendre donc que le \textsf{NoSQL}, en renonçant la « consistance forte », pourra préserver la \textsf{disponibilité}  et la \textsf{résistance au morcellement} dans un environnement distribué. 
+\\
+\\
+Ce choix est tout à fait justifié au regard des valeurs défendues par la mouvance. Les solutions \textsf{NoSQL} entendent fonctionner dans un environnement distribué et utilisent la méthode de réplication des données pour résister aux pannes logiciels et machines. Elles ont pour vocation d'apporter plus performantes que les \textsf{SGBDR} dans l'exécution des opérations simples. Elles ont donc intérêt a choisir entre les trois propriétés, la\textsf{disponibilité}  et la \textsf{résistance au morcellement}. Mais ceci n'est pas sans conséquences.
+\\
+\\
+Il est très simple de.

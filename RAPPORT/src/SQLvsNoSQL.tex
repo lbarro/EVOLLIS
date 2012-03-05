@@ -1,44 +1,54 @@
-On pourrait penser que la mouvance
-\textsf{NoSQL} soit là pour remplacer les \textsf{BDD}
-relationnelles classiques. Mais ceci est difficilement imaginable de
+Il serait tout à fait légitime de penser que le 
+\textsf{NoSQL} soit là pour remplacer les \textsf{BDDR}
+classiques. Mais ceci est difficilement imaginable de
 nos jours. L’intérêt pour le \textsf{NoSQL} s'est considérablement
-accru dans le monde des entreprises à l'issu des annonces d’adoption 
-de ces technologies par les grands acteurs d'\textsf{Internet} tels 
-\textsf{Google} et \textsf{Facebook} qui se sont multipliées. Son bon 
-fonctionnement dans des conditions extrêmes lui confère une certaine fiabilité.
+accru à l'issu des annonces d’adoption de ces technologies par les 
+grands acteurs d'\textsf{Internet} tels 
+\textsf{Google} et \textsf{Facebook} qui se sont multipliées. Ces acteurs
+n'ont pas pour autant abandonné \textsf{BDDR}. \textsf{Google} et 
+\textsf{Facebook} utilisent \textsf{MySQL}\cite{mysqlcustomers}.
 \\
 \\
 Ci-dessous quelques traitements auxquels le modèle relationnel
 classique ne répond pas et qui pourrait motiver le recours aux
 technologies \textsf{NoSQL}\index{Limites du \textsf{SQL}}:
 
-\paragraph{Indexation d'une quantité de documents:}
-Un problème se pose quant à l'indexation d'une quantité importante de
-données. Par exemple pour le \textsf{SGBD} \textsf{SQL Server}, la
-version $2008$ supporte au plus $999$ indexes et chaque index, chaque
-index peut couvrir au maximum 16 colonnes et la somme des tailles des
-colonnes couvertes ne doit pas excéder $900\ octets$\cite{SQLserver}
+%% \paragraph{Indexation d'une quantité de documents:}
+%% Un problème se pose quant à l'indexation d'une quantité importante de
+%% données. Par exemple pour le \textsf{SGBD} \textsf{SQL Server}, la
+%% version $2008$ supporte au plus $999$ indexes et chaque index, chaque
+%% index peut couvrir au maximum 16 colonnes et la somme des tailles des
+%% colonnes couvertes ne doit pas excéder $900\ octets$\cite{SQLserver}
 
-\paragraph{Sites à fort trafic:} Pour faire face à des volumes importants 
-de données et y avoir accès à de différents endroit0s du monde, il faut 
-pouvoir répliquer ces données sur différentes machines physiques et le 
-\textsf{SGBD} relationnel classique montre des limites dans un 
-environnement distribué. 
+\paragraph{Environnement distribué:} pour faire face à des volumes importants 
+de données, il est possible de les repartir sur différentes machines physiques. 
+Pour avoir plusieurs points d'accès aux données, il est nécessaire de les dupliquer
+sur différents serveurs. Toutes ces opérations constitue en la mise en place d'un 
+environnement distribué. Les \textsf{SGBDR} classiques montre des limites dans un 
+environnement distribué.\cite{} 
 
-\paragraph{Données de taille variables selon les enregistrements:} Les 
-\textsf{BDD} relationnelles classiques prévoient un schéma statique à 
-l'avance où dans une table donnée, les lignes sont identiques en type et 
-en nombre de colonnes donc offre un environnement non dynamique pour les 
-enregistrements.
+\paragraph{Données de tailles variables selon les enregistrements:} Les 
+\textsf{BDDR} classiques prévoient un schéma statique à 
+l'avance. Le schéma est organisé en tables de données où les lignes 
+contiennent les mêmes types et nombre de colonnes. Celles-ci n'offrent donc 
+pas un environnement dynamique pour les enregistrements.
 
-\paragraph{Réécritures fréquentes:} le modèle classique prévoit plus 
-de lectures que d'écritures.
+\paragraph{Réécritures fréquentes:}  en effet, les \textsf{SGBDR} classiques en générale
+appliquent la consistance forte et ce grâce aux propriétés \textsf{ACID}. 
+Je l'ai tantôt dit, ces opérations sont à l'origine d'\textit{overhead} 
+et sont appliquées même pour les opérations simples d'écriture dans la base. Ceci diminuera
+considérablement la performance en cas de réécritures fréquentes des données même pour
+les opérations simples.
+Les \textsf{BDDR} mettent en avant un système d'indexation très évolué. L'utilisation
+d'indexes est plutôt conseillée pour les systèmes où l'accès en écriture est
+beaucoup plus important que celui en écriture. Tout ceci laisse penser que le modèle relationnel
+classique prévoit plus de lectures que d'écritures. 
 
-\paragraph{Extensibilité de la base:} Comme signaler plus haut, 
-\textsf{Cassandra} qui est un \textsf{NoSQL} offre la possibilité 
-d'ajouter facilement des serveurs pour gagner en performance sans modifier 
-la structure de la base. Les \textsf{SGBD} relationnels classiques 
-n'offrent pas cette possibilité.
+\paragraph{Extensibilité de la base:} Comme signaler à la section \ref{carac}, 
+la scalabilité horizontale qui est l'une des caractéristiques principales 
+des solutions \textsf{NoSQL}, offre la possibilité 
+d'ajouter des nœuds au cluster pour gagner en performance. Les \textsf{SGBDR} classiques 
+n'ont pas cette propriété de scalabilité horizontale.
 \\ 
 \\ 
 Sans doute, l'extensibilité requise et la grande quantité de données

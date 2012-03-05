@@ -1,4 +1,3 @@
-
 %%%% Page de titre %%%%
 \input{\DIR/src/title}
 
@@ -29,7 +28,7 @@
 
       \chapter{Présentation du projet \textsf{ZéNoSQL}}
       
-                \section{Le contexte}
+                \section{Le contexte}\label{contexe}
                 \input{\DIR/src/contexte}
 
                 \section{L'environnement de travail}
@@ -44,14 +43,14 @@
                 \section{Le \textsf{NoSQL}}
                 \input{\DIR/src/noSQL}
 
-                        \subsection{Les caractéristiques d'une base de données \textsf{NoSQL}}
-                        \input{\DIR/src/caracteristiquesNoSQL}
-
                         \subsection{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
                         \input{\DIR/src/categorieNoSQL} 
 
                         \subsection{Des exemples de \textsf{NoSQL}}
                         \input{\DIR/src/exempleNoSQL}
+
+                        \subsection{Les caractéristiques d'une base de données \textsf{NoSQL}}
+                        \input{\DIR/src/caracteristiquesNoSQL}
 
                 \section{\textsf{SQL} vs \textsf{NoSQL}}
                 \input{\DIR/src/SQLvsNoSQL}
@@ -65,13 +64,13 @@
       \chapter{Choix des solutions à étudier}
       \input{\DIR/src/choixNoSQL}
      
-                \section{Le \textsf{NoSQL Membase}}
+                \section{Le \textsf{NoSQL Membase}}\label{membase}
                 \input{\DIR/src/membase}
 
-                \section{Le \textsf{NoSQL mongoDB}}\label{mongoDB}
+                \section{Le \textsf{NoSQL mongoDB}}\label{mongodb}
                 \input{\DIR/src/mongoDB}
 
-                \section{Le \textsf{cube} du laboratoire \textsf{LaBRI}}
+                \section{Le \textsf{cube} du laboratoire \textsf{LaBRI}}\label{cube}
                 \input{\DIR/src/cube}
 
                 \section{Bilan}

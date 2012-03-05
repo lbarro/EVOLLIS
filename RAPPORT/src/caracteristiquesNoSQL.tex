@@ -26,14 +26,43 @@ mouvance \textsf{NoSQL}:
 
 \item \textsf{Souplesse et dynamisme}: les \textsf{BDD NoSQL} se veulent libres de schémas et dynamiques. Ajout et suppression de colonnes sans arrêter le serveur et adaptation à n'importe quel type de données. Elles se démarquent du modèle relationnel stockent uniquement les données qui peuvent être distillées en tables.
 \end{enumerate}
-Après avoir survolé les valeurs défendues par la mouvance \textsf{NoSQL}, je vais maintenant aborder la notion d'\textsf{ACIDité} en rapport avec le \textsf{NoSQL}. Je l'ai tantôt dit, les \textsf{NoSQL} n'ont pas pour vocation d'être \textsf{ACID}. En rappel, les propriétés \textsf{ACID} garantissent que la \textsf{BDD} garde toujours un état cohérent\footnote{voir annexe \ref{acid} pour plus de détails}. Cependant, à défaut d'être \textsf{ACID}, les solutions \textsf{NoSQL} revendiquent d'être \textsf{BASE}\cite{RickCattell}, acronyme de \textsf{Basically Available, Soft state, Eventually consistency}. Avec un \textsf{BDD BASE}, il n'y a pas la garantie que les données soient à jour sur tous les nœuds du cluster d'où le « \textsf{Basically Available} ». Cependant, après un temps assez long où il n'y a pas de nouvelles mises à jour d'où le « \textsf{Soft state} », la \textsf{BDD} pourra atteindre son état cohérent d'où l'« \textsf{Eventually consistency} ». 
+Après avoir survolé les valeurs défendues par la
+mouvance \textsf{NoSQL}, je vais maintenant aborder la notion
+d'\textsf{ACIDité} en rapport avec le \textsf{NoSQL}. Je l'ai tantôt
+dit, les \textsf{NoSQL} n'ont pas pour vocation
+d'être \textsf{ACID}. En rappel, les propriétés \textsf{ACID}
+garantissent que la \textsf{BDD} garde toujours un état
+cohérent\footnote{voir annexe \ref{acid} pour plus de
+détails}. Cependant, à défaut d'être \textsf{ACID}, les
+solutions \textsf{NoSQL} revendiquent
+d'être \textsf{BASE}\cite{RickCattell}, acronyme de \textsf{Basically
+Available, Soft state, Eventually consistency}. Avec un \textsf{BDD
+BASE}, il n'y a pas la garantie que les données soient à jour sur tous
+les nœuds du cluster d'où le « \textsf{Basically Available}
+». Cependant, après un temps assez long où il n'y a pas de nouvelles
+mises à jour d'où le « \textsf{Soft state} », la \textsf{BDD} pourra
+atteindre son état cohérent d'où l'« \textsf{Eventually consistency}
+».
 \\
 \\
-Le \textsf{NoSQL} a donc abandonné la « consistance forte » pour de la « consistance éventuelle ». Il a pris pour alibi le théorème \textsf{CAP} qui postule que dans un environnement distribué, une \textsf{BDD} ne peut être à la fois consistent, disponible  et résistant au morcellement. Elle ne peut avoir que 2 de ces 3 propriétés. Ceci n'est qu'un petit rappelle sinon ce théorème 
-est plus en détail à l'annexe \ref{cap} du présent document\cite{MichaelStonebraker2}. Ce théorème laisse entendre donc que le \textsf{NoSQL}, en renonçant la « consistance forte », pourra préserver la \textsf{disponibilité}  et la \textsf{résistance au morcellement} dans un environnement distribué. 
+Le \textsf{NoSQL} a donc abandonné la « consistance forte » pour de la
+« consistance éventuelle ». Il a pris pour alibi le
+théorème \textsf{CAP} qui postule que dans un environnement distribué,
+une \textsf{BDD} ne peut être à la fois consistent, disponible et
+résistant au morcellement. Elle ne peut avoir que 2 de ces 3
+propriétés. Ceci n'est qu'un petit rappelle sinon ce théorème est plus
+en détail à l'annexe \ref{cap} du présent
+document\cite{MichaelStonebraker2}. Ce théorème laisse entendre donc
+que le \textsf{NoSQL}, en renonçant la « consistance forte », pourra
+préserver la \textsf{disponibilité} et la \textsf{résistance au
+morcellement} dans un environnement distribué.
 \\
 \\
-Ce choix est tout à fait justifié au regard des valeurs défendues par la mouvance. Les solutions \textsf{NoSQL} entendent fonctionner dans un environnement distribué et utilisent la méthode de réplication des données pour résister aux pannes logiciels et machines. Elles ont pour vocation d'apporter plus performantes que les \textsf{SGBDR} dans l'exécution des opérations simples. Elles ont donc intérêt a choisir entre les trois propriétés, la\textsf{disponibilité}  et la \textsf{résistance au morcellement}. Mais ceci n'est pas sans conséquences.
-\\
-\\
-Il est très simple de.
+Ce choix est tout à fait justifié au regard des valeurs défendues par
+la mouvance. Les solutions \textsf{NoSQL} entendent fonctionner dans
+un environnement distribué et utilisent la méthode de réplication des
+données pour résister aux pannes logicielles et machines. Elles ont pour
+vocation d'apporter plus performantes que les \textsf{SGBDR} dans
+l'exécution des opérations simples. Elles ont donc intérêt a choisir
+parmis les trois propriétés, la \textsf{disponibilité} et
+la \textsf{résistance au morcellement}.

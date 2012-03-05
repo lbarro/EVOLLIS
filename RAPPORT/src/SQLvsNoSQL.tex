@@ -70,4 +70,47 @@ Relational databases work best with structured data—such as a set of
 sales figures—which readily fits in well-organized tables. This is not
 the case with unstructured data, such as that found in word-processing
 documents and images\cite{NealLeavitt}.
+\newpage
+\noindent Précédemment, j'ai mentionné que le \textsf{NoSQL} a renoncé à la consistance
+pour plus de performances et de scalabilité. Ceci n'est pas sans compromis, notamment 
+la reprise sur erreurs. \textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreurs 
+les enjeux du choix
+des propriétés \textsf{CAP}\cite{MichaelStonebraker}. Je me limiterai seulement à
+3 cas. Le but étant de mettre en relief les limites d'une « \textsf{consistance éventuelle} »
+et d'exhiber deux situations qui rendent impossible la propriété \textsf{A} de \textsf{CAP}.
+%===========================================================
+%     Illustration enjeux du choix de AP dans CAP
+%===========================================================
+\def\exemple{We assume a typical hardware model of a
+collection of local processing and storage nodes assembled into a cluster using LAN networking.
+The clusters, in turn, are wired together using WAN networking.
+Let’s start with a discussion of what causes errors in databases. Je considère les trois cas d'erreur suivants:}
+
+\def\casa{Application errors. The application performed one or more incorrect updates. Generally, this is
+not discovered for minutes to hours thereafter. The database must be backed up to a point before the offending transaction(s), and subsequent activity redone.}
+
+\def\casb{Repeatable DBMS errors. The DBMS crashed at a processing node. Executing the same
+transaction on a processing node with a replica will cause the backup to crash. These errors have
+been termed Bohr bugs.}
+
+\def\casc{\sf A disaster. The local cluster is wiped out by a flood, earthquake, etc. The cluster no longer exists.}
+
+\begin{center}
+\begin{tabular}{p{1.7cm} p{12cm}}
+\multicolumn{2}{p{14cm}}{\sf \exemple}\\&\\  
+{\bf Cas 1}  & \textsf{\casa}\\~&~\\
+{\bf Cas 2}  & \textsf{\casb}\\~&~\\
+{\bf Cas 3}  & \textsf{\casc}\\
+\end{tabular}
+\end{center}
+\noindent
+First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
+scenarios, there is no way to keep going; i.e., availability is impossible to achieve. Also, replica
+consistency is meaningless; the current DBMS state is simply wrong. Error 7 will only be
+recoverable if a local transaction is only committed after the assurance that the transaction has
+been received by another WAN-connected cluster. Few application builders are willing to accept this kind of latency. Hence, eventual consistency cannot be guaranteed, because a transaction
+may be completely lost if a disaster occurs at a local cluster before the transaction has been
+successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
+loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.
+
 

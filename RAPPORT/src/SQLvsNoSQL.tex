@@ -25,13 +25,22 @@ de données, il est possible de les repartir sur différentes machines physiques
 Pour avoir plusieurs points d'accès aux données, il est nécessaire de les dupliquer
 sur différents serveurs. Toutes ces opérations constitue en la mise en place d'un 
 environnement distribué. Les \textsf{SGBDR} classiques montre des limites dans un 
-environnement distribué.\cite{} 
+environnement distribué. Ces {SGBD} ne sont pas destinés à fonctionner dans un
+environnement à données reparties du fait de l'opération de jointure
+qui est difficilement réalisable entre des tables réparties sur des systèmes différents\cite{RickCattell}.
+Les \textsf{SGBDR} classiques effectuent également des opérations impliquant de la distribution des données
+mais ces opérations ne sont pas du type « \textit{shared nothing} ». Les coeurs et les processus impliqués
+dans ces opérations se partagent mutuellement la \textsf{RAM} et l'espace disque mémoire.
 
-\paragraph{Données de tailles variables selon les enregistrements:} Les 
+\paragraph{Données à structure dynamique et libre:} Les 
 \textsf{BDDR} classiques prévoient un schéma statique à 
-l'avance. Le schéma est organisé en tables de données où les lignes 
-contiennent les mêmes types et nombre de colonnes. Celles-ci n'offrent donc 
-pas un environnement dynamique pour les enregistrements.
+l'avance. Le schéma est organisé en tables de données où les lignes
+contiennent les mêmes types et nombre de colonnes. Celles-ci n'offrent
+donc pas un environnement dynamique pour les enregistrements. Aussi
+les \textsf{SGBDR} fonctionnent avec des données structurées
+organisables en tables.  Ce n'est pas le cas avec des données non
+structurées, telles les données de traitement de texte et les images
+\cite{NealLeavitt}.
 
 \paragraph{Réécritures fréquentes:}  en effet, les \textsf{SGBDR} classiques en générale
 appliquent la consistance forte et ce grâce aux propriétés \textsf{ACID}. 
@@ -51,39 +60,30 @@ d'ajouter des nœuds au cluster pour gagner en performance. Les \textsf{SGBDR} c
 n'ont pas cette propriété de scalabilité horizontale.
 \\ 
 \\ 
-Sans doute, l'extensibilité requise et la grande quantité de données
-et de mises à jour rendent le modèle relationnel inefficace ce qui a
-obligé à trouver un nouveau modèle.  Face à ces encouragements en
-l'occurrence ceux énumérés ci-dessus, on serait tenter d'adopter sans
-équivoque le \textsf{NoSQL}. Cependant il est important de prendre ne
+L'extensibilité requise et la grande quantité de données
+et de mises à jour rendent le modèle relationnel inefficace, ce qui a
+obligé à trouver un nouveau modèle. Cependant il est important de prendre en
 considération quelques aspects au risque d'une mauvaise utilisation. «
 L’intérêt d’une base de données \textsf{NoSQL} pour un projet ne
 dépend pas du volume de données qu’elle aura à manipuler. Le choix de
 son utilisation doit être basé sur la préférence d’un mode de
 représentation et non sur une forte volumétrie
-»\cite{NoSQLeurope}. Aussi, Ne devrions-nous pas oublier que cette
-catégorie de produits, fait le compromis d'abandonner certaines
-fonctionnalités classiques des \textsf{SGBD} relationnels au profit de
-la performance. Par conséquent, il ne s’agit donc pas d’une solution
+»\cite{NoSQLeurope}. Il ne s’agit donc pas d’une solution
 miracle pour tout type de stockage de données.  La tentative de
 reproduire dans une base de données \textsf{NoSQL} une représentation
-ou un comportement habituellement offert par un \textsf{SGBD}
-relationnels aboutira probablement à une solution peu efficace.
+ou un comportement habituellement offert par la représentation en tables
+n'aboutira pas à une solution plus efficace car l'architecture des 
+\textsf{SGBDR} y est exclusivement destinée.
+%Dan McCreary a également convenu avec Michael Stonebraker que les
+%utilisateurs NoSQL ne partagent pas un langage de requête unifiée, ce
+%qui va ralentir l'adoption de NoSQL\cite{SergeLeblal}.
 \\
 \\
-Dan McCreary a également convenu avec Michael Stonebraker que les
-utilisateurs NoSQL ne partagent pas un langage de requête unifiée, ce
-qui va ralentir l'adoption de NoSQL\cite{SergeLeblal}.
-\\
-\\
-Relational databases work best with structured data—such as a set of
-sales figures—which readily fits in well-organized tables. This is not
-the case with unstructured data, such as that found in word-processing
-documents and images\cite{NealLeavitt}.
-\newpage
-\noindent Précédemment, j'ai mentionné que le \textsf{NoSQL} a renoncé à la consistance
+Aussi il est important de garder à l'esprit, comme mentionné avant, 
+que le \textsf{NoSQL} a renoncé à la consistance
 pour plus de performances et de scalabilité. Ceci n'est pas sans compromis, notamment 
-la reprise sur erreurs. \textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreurs 
+la reprise sur erreurs. 
+\textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreurs 
 les enjeux du choix
 des propriétés \textsf{CAP}\cite{MichaelStonebraker}. Je me limiterai seulement à
 3 cas. Le but étant de mettre en relief les limites d'une « \textsf{consistance éventuelle} »
@@ -94,7 +94,9 @@ et d'exhiber deux situations qui rendent impossible la propriété \textsf{A} de
 \def\exemple{We assume a typical hardware model of a
 collection of local processing and storage nodes assembled into a cluster using LAN networking.
 The clusters, in turn, are wired together using WAN networking.
-Let’s start with a discussion of what causes errors in databases. Je considère les trois cas d'erreur suivants:}
+Let’s start with a discussion of what causes errors in databases:}
+
+\def\exempleA{. Je considère les trois cas d'erreur suivants:}
 
 \def\casa{Application errors. The application performed one or more incorrect updates. Generally, this is
 not discovered for minutes to hours thereafter. The database must be backed up to a point before the offending transaction(s), and subsequent activity redone.}
@@ -105,6 +107,17 @@ been termed Bohr bugs.}
 
 \def\casc{\sf A disaster. The local cluster is wiped out by a flood, earthquake, etc. The cluster no longer exists.}
 
+\def\commentA{First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
+scenarios, there is no way to keep going; i.e., availability is impossible to achieve. Also, replica
+consistency is meaningless; the current DBMS state is simply wrong. Error 7 will only be
+recoverable if a local transaction is only committed after the assurance that the transaction has
+been received by another WAN-connected cluster. Few application builders are willing to accept this kind of latency. Hence, eventual consistency cannot be guaranteed, because a transaction
+may be completely lost if a disaster occurs at a local cluster before the transaction has been
+successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
+loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.}
+
+\def\comment{}
+
 \begin{center}
 \begin{tabular}{p{1.7cm} p{12cm}}
 \multicolumn{2}{p{14cm}}{\sf \exemple}\\&\\  
@@ -113,14 +126,6 @@ been termed Bohr bugs.}
 {\bf Cas 3}  & \textsf{\casc}\\
 \end{tabular}
 \end{center}
-\noindent
-First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
-scenarios, there is no way to keep going; i.e., availability is impossible to achieve. Also, replica
-consistency is meaningless; the current DBMS state is simply wrong. Error 7 will only be
-recoverable if a local transaction is only committed after the assurance that the transaction has
-been received by another WAN-connected cluster. Few application builders are willing to accept this kind of latency. Hence, eventual consistency cannot be guaranteed, because a transaction
-may be completely lost if a disaster occurs at a local cluster before the transaction has been
-successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
-loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.
+\noindent \comment
 
 

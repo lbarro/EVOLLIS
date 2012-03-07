@@ -79,33 +79,44 @@ n'aboutira pas à une solution plus efficace car l'architecture des
 %qui va ralentir l'adoption de NoSQL\cite{SergeLeblal}.
 \\
 \\
-Aussi il est important de garder à l'esprit, comme mentionné avant, 
+Aussi, il est important de garder à l'esprit, comme mentionné avant, 
 que le \textsf{NoSQL} a renoncé à la consistance
 pour plus de performances et de scalabilité. Ceci n'est pas sans compromis, notamment 
-la reprise sur erreurs. 
-\textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreurs 
+pour la reprise sur erreurs. 
+\textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreur,  
 les enjeux du choix
-des propriétés \textsf{CAP}\cite{MichaelStonebraker}. Je me limiterai seulement à
-3 cas. Le but étant de mettre en relief les limites d'une « \textsf{consistance éventuelle} »
+des propriétés \textsf{CAP}\cite{MichaelStonebraker2}. Je me limiterai seulement à
+3 cas d'erreur. Le but étant de mettre en relief les limites d'une « \textsf{consistance éventuelle} »
 et d'exhiber deux situations qui rendent impossible la propriété \textsf{A} de \textsf{CAP}.
 %===========================================================
 %     Illustration enjeux du choix de AP dans CAP
 %===========================================================
-\def\exemple{We assume a typical hardware model of a
+\def\exempleA{We assume a typical hardware model of a
 collection of local processing and storage nodes assembled into a cluster using LAN networking.
 The clusters, in turn, are wired together using WAN networking.
 Let’s start with a discussion of what causes errors in databases:}
 
-\def\exempleA{. Je considère les trois cas d'erreur suivants:}
+\def\exemple{Dans l'illustration qu'il a utilisé, \textsf{Michael Stonebraker} a considéré un ensemble de clusters interconnectés via un réseau \textsf{WAN}. 
+Les nœuds à l'intérieur d'un cluster utilisent le \textsf{LAN} pour échanger. Ci-dessous trois cas d'erreur possibles:}
 
-\def\casa{Application errors. The application performed one or more incorrect updates. Generally, this is
-not discovered for minutes to hours thereafter. The database must be backed up to a point before the offending transaction(s), and subsequent activity redone.}
+\def\casaA{Application errors. The application performed one or more incorrect updates. Generally, this is
+not discovered for minutes to hours thereafter. The database must be
+backed up to a point before the offending transaction(s), and
+subsequent activity redone.}
 
-\def\casb{Repeatable DBMS errors. The DBMS crashed at a processing node. Executing the same
-transaction on a processing node with a replica will cause the backup to crash. These errors have
-been termed Bohr bugs.}
+\def\casa{Erreur au niveau de la couche application. Une application effectue une ou plusieurs mises à jour incorrectes. De telles erreurs ne sont généralement pas détectées dans les minutes qui suivent afin de revenir sur une version précédente de la base avant les mises à jour incorrectes.}
 
-\def\casc{\sf A disaster. The local cluster is wiped out by a flood, earthquake, etc. The cluster no longer exists.}
+\def\casbA{Repeatable DBMS errors. The DBMS crashed at a processing node. Executing the same
+transaction on a processing node with a replica will cause the backup
+to crash. These errors have been termed Bohr bugs.}
+
+\def\casb{Les erreurs reproductibles. Par exemple, une transaction fait planter le serveur principal. 
+La même transaction fait tomber tous les autres serveurs copies qui vont servir de relais. 
+Ces erreurs sont connues sous le nom de « \textsf{Bohr bugs} ».}
+
+\def\cascA{\sf A disaster. The local cluster is wiped out by a flood, earthquake, etc. The cluster no longer exists.}
+
+\def\casc{\sf Une catastrophe. Un cluster local est entièrement détruit par une inondation ou un tremblement de terre.}
 
 \def\commentA{First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
 scenarios, there is no way to keep going; i.e., availability is impossible to achieve. Also, replica
@@ -116,16 +127,14 @@ may be completely lost if a disaster occurs at a local cluster before the transa
 successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
 loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.}
 
-\def\comment{}
+\def\comment{Les deux premiers cas d'erreur conduisent la base dans un état incohérent. Ils infectent la disponibilité des données. Dans de telles situations, il est impossible de garantir la disponibilité des données même après avoir renoncé à la consistance forte. Le troisième cas d'erreur montre les limites de
+la consistance éventuelle. Les données ne pourront être récupérées que si la transaction a été propagée sur un autre cluster avant la catastrophe. Le temps de latence imposé par la consistance éventuelle entre les mises à jour est donc problématique.}
 
 \begin{center}
 \begin{tabular}{p{1.7cm} p{12cm}}
 \multicolumn{2}{p{14cm}}{\sf \exemple}\\&\\  
-{\bf Cas 1}  & \textsf{\casa}\\~&~\\
-{\bf Cas 2}  & \textsf{\casb}\\~&~\\
-{\bf Cas 3}  & \textsf{\casc}\\
+{\bf Cas 1} & \textsf{\casa}\\~&~\\ {\bf Cas 2}
+& \textsf{\casb}\\~&~\\ {\bf Cas 3} & \textsf{\casc}\\
 \end{tabular}
 \end{center}
 \noindent \comment
-
-

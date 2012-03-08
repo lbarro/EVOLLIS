@@ -47,12 +47,12 @@ atteindre son état cohérent d'où l'« \textsf{Eventually consistency}
 \\
 Le \textsf{NoSQL} a donc abandonné la « consistance forte » pour de la
 « consistance éventuelle ». Il a pris pour alibi le
-théorème \textsf{CAP} qui postule que dans un environnement distribué,
+théorème \textsf{CAP}\cite{MichaelStonebraker2} qui postule que dans un environnement distribué,
 une \textsf{BDD} ne peut être à la fois consistent, disponible et
 résistant au morcellement. Elle ne peut avoir que 2 de ces 3
 propriétés. Ceci n'est qu'un petit rappelle sinon ce théorème est plus
 en détail à l'annexe \ref{cap} du présent
-document\cite{MichaelStonebraker2}. Ce théorème laisse entendre donc
+document. Ce théorème laisse entendre donc
 que le \textsf{NoSQL}, en renonçant la « consistance forte », pourra
 préserver la \textsf{disponibilité} et la \textsf{résistance au
 morcellement} dans un environnement distribué.

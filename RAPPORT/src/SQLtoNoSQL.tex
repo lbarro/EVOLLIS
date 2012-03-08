@@ -3,46 +3,64 @@ de définir à l'avance la représentation qu'on fera des
 données. L'utilité et le choix du \textsf{NoSQL} doit principalement
 dépendre de la représentation des données. Adopter le \textsf{NoSQL} à
 cause de la volumétrie en faisant juste une traduction par équivalence
-entre des \textsf{BDDs} relationnelle et non-relationnelle ne garantit
-pas la performance et surtout on risque de perdre en intégrité des
-données. Et cette pensée de \textsf{Ted Dziuba} illustre bien le risque que
-courent les entreprises qui migrent d'une solution \textsf{MySQL} vers  une 
-solution \textsf{NoSQL}: ceci reviendrait à « {\sf échanger une liste de limitations 
-et de bugs connus pour [...] une liste de limitations et de bugs inconnus} »\cite{DieNosql}.
-\\ \\ Les « \textsf{NoSQL} » offrent juste une autre façon
-de représenter les données pour faciliter les accès et mise à jour des
-données afin de gagner en performance. Ceux-ci n'offrent pas forcement
-une meilleure performance quand les données sont représentées de la
-même manière. À priori imaginer un échange naïf entre \textsf{SQL} et
-\textsf{NoSQL} de reproduction à l'identique sans modification de la
-représentation n'est d'aucun intérêt pour la performance. Cependant
-certaine solution \textsf{NoSQL} à l'exemple de \textsf{MongoDB} ont
+entre des \textsf{BDD} relationnelle et non-relationnelle ne garantit
+pas la performance et surtout la base perd l'intégrité qu'offre le modèle 
+rélationnel.  
+\\ \\ 
+Les « \textsf{NoSQL} » offrent juste une autre façon
+de représenter les données pour faciliter les accès      et mise à jour des
+données afin de gagner en performance. Pour la gestion des données 
+organisée en tables, la structure des \textsf{SGBDR} y est exclusivement
+consacrée. Le \textsf{NoSQL} n'est donc pas là pour remplacer systématiquement
+le  \textsf{SQL}. Cependant
+certaines solutions \textsf{NoSQL}, en exemple \textsf{MongoDB}, ont
 exhibé une charte de correspondance entre les composants d'une
-\textsf{BDD} relationnel\footnote{Database, Table, Index, colonne, clé
+\textsf{BDDR} \footnote{Database, Table, Index, colonne, clé
   primaire ...} et leurs composants. \textsf{MongoDB} a également mis
 en place une charte de traduction requête \textsf{SQL} / requête
-\textsf{MongoDB}\footnote{Pour plus de détails
-  \url{http://www.mongodb.org/display/DOCS/SQL+to+Mongo+Mapping+Chart}}.
+\textsf{MongoDB}.
 \\
 \\
-\textsf{SQL} d'une part, \textsf{NoSQL} d'autre part, l'un n'exclut pas l'autre
-tout dépend de l'usage qu'on compte en faire ou du profit qu'on
-souhaite en tirer. L'idéal serait de les faire cohabiter et de stocker
-les données dans l'un ou dans l'autre en fonction de leurs
-caractéristiques. C'est ce que fait d'ailleurs \textsf{Google} qui
+\textsf{SQL} d'une part, \textsf{NoSQL} d'autre part, l'un n'exclut pas l'autre.
+Tout dépend de l'usage qu'on compte en faire ou du profit qu'on
+souhaite en tirer. La bonne méthode est de les faire cohabiter et de stocker
+les données dans l'un ou dans l'autre en fonction des caractéristiques de 
+celles-ci. C'est ce que fait d'ailleurs \textsf{Google} qui
 même après avoir mis en place sa solution
-propriétaire \textsf{BigTable} utilise les \textsf{BDD} relationnelles
+propriétaire \textsf{BigTable} utilise \textsf{MySQL}
 notamment pour son programme publicitaire \textsf{AdWords}, sa
 principale source de revenue et qui utilise d'énormes quantités de
 données. Cependant imaginer un protocole d'échange entre \textsf{SQL}
 et \textsf{NoSQL} peut s'avérer très fastidieux dans la mesure où les
-deux ont des représentations de données très différentes.
+deux conçoivent les données très différemment.
 \\
 \\
-Il existe une solution \textsf{Open Source} permettant des échanges entre \textsf{SQL} et \textsf{NoSqL}:\textsf{Sqoop} ou « SQL To Hadoop ». \textsf{Hadoop}\index{Sqoop} est un assemblage de plusieurs sous-projet avec à 
-la base  un système de fichier \textsf{HDFS}\footnote{Hadoop Distributed File System} et \textsf{HBASE}\footnote{\textsf{SGBD} non-relationnelle orienté colonnes} pour le stockage. Développé en \textsf{java}, il est destiné aux applications distribuées et à la gestion intensive des données. \textsf{Sqoop} charge une table ou toute la base en système de fichiers \textsf{HDFS} en fonction des options d'importation spécifiées et génère aussi des classes \textsf{java} correspondantes aux tables de la bases, ainsi que des objets correspondants aux lignes pour permettre d'interagir avec les données importées.
+Il existe une solution \textsf{Open Source} permettant des échanges
+entre \textsf{SQL}/\textsf{NoSqL}:\textsf{Sqoop} ou « SQL To Hadoop
+». \textsf{Hadoop}\index{Sqoop} est un assemblage de plusieurs
+sous-projet avec à la base un système de
+fichier \textsf{HDFS}\footnote{Hadoop Distributed File System}
+et \textsf{HBASE}\footnote{\textsf{SGBD} non-relationnelle orienté
+colonnes} pour le stockage. Développé en \textsf{java}, il est destiné
+aux applications distribuées et à la gestion intensive des
+données. \textsf{Sqoop} charge une table ou toute la base en système
+de fichiers \textsf{HDFS} en fonction des options d'importation
+spécifiées et génère aussi des classes \textsf{java} correspondantes
+aux tables de la bases, ainsi que des objets correspondants aux lignes
+pour permettre d'interagir avec les données importées.
 \\
 \\
-Enfin, chaque base de données NoSQL vient avec son propre langage de
-requête, rendant difficile la standardisation des interfaces entre les
-applications\cite{SergeLeblal}.
+Mise à part \textsf{Scoop} qui est une solution pour \textsf{Hadoop}
+d'échange avec le \textsf{SQL}, le framework
+\textsf{spring} intègre des modules \textsf{Data access}\cite{springsource} permettant 
+de persister des objets \textsf{POJO} dans des \textsf{BDD NoSQL}. En exemple, 
+le module \textsf{Spring Data MongoDB} pour persister dans \textsf{MongoDB}. Avec \textsf{spring} il est alors possible
+d'effectuer une échange en deux temps:
+\begin{enumerate}
+\item D'abord transformer les données dans la \textsf{BDDR} en des objets \textsf{POJO} par le biais de module déjà existant comme \textsf{hibernate, toplink, iBatis}...
+\item Puis persister les objets \textsf{POJO} dans par le biais du module \textsf{Data access} dédie.    
+\end{enumerate} 
+Cependant il faut changer de module \textsf{Data access} à chaque fois
+qu'il faut changer de \textsf{BDD NoSQL}. Il est difficile de mettre
+en place une standardisation des interfaces dans la mesure où
+chaque \textsf{BDD NoSQL} vient avec son propre langage de requête.

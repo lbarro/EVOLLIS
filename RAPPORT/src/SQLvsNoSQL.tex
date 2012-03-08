@@ -32,7 +32,7 @@ Les \textsf{SGBDR} classiques effectuent également des opérations impliquant d
 mais ces opérations ne sont pas du type « \textit{shared nothing} ». Les coeurs et les processus impliqués
 dans ces opérations se partagent mutuellement la \textsf{RAM} et l'espace disque mémoire.
 
-\paragraph{Données à structure dynamique et libre:} Les 
+\paragraph{Données à structure dynamique et libre:} les 
 \textsf{BDDR} classiques prévoient un schéma statique à 
 l'avance. Le schéma est organisé en tables de données où les lignes
 contiennent les mêmes types et nombre de colonnes. Celles-ci n'offrent
@@ -53,7 +53,7 @@ d'indexes est plutôt conseillée pour les systèmes où l'accès en écriture e
 beaucoup plus important que celui en écriture. Tout ceci laisse penser que le modèle relationnel
 classique prévoit plus de lectures que d'écritures. 
 
-\paragraph{Extensibilité de la base:} Comme signaler à la section \ref{carac}, 
+\paragraph{Extensibilité de la base:} comme signaler à la section \ref{carac}, 
 la scalabilité horizontale qui est l'une des caractéristiques principales 
 des solutions \textsf{NoSQL}, offre la possibilité 
 d'ajouter des nœuds au cluster pour gagner en performance. Les \textsf{SGBDR} classiques 
@@ -138,3 +138,10 @@ la consistance éventuelle. Les données ne pourront être récupérées que si 
 \end{tabular}
 \end{center}
 \noindent \comment
+\\
+\\
+Pour finir, un paramètre à prendre en compte et pour ainsi reprendre la pensée de \textsf{Ted Dziuba},
+est que contrairement aux solutions \textsf{NoSQL}, les \textsf{SGBDR} sont matures et ont par conséquent 
+``une liste de limitations et de bugs connus''\cite{DieNosql}. L'utilisateur d'une \textsf{SGBDR} classique 
+est plus ou moins rassuré parce qu'il sait à quoi s'en tenir. 
+    

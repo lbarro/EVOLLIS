@@ -45,3 +45,8 @@ http://www.amazon.fr/Definitive-Guide-Mongodb-Database-Computing/dp/1430230517/r
 http://www.amazon.fr/Professional-NoSQL-Shashank-Tiwari/dp/047094224X/ref=sr_1_1?ie=UTF8&qid=1329238429&sr=8-1
 
 PRPB6-DW33R-KD9M3-BHGRG-R3MCF
+
+config = {_id: 'foo', members: [
+          	{_id: 0, host: '192.168.1.75'},
+			{_id: 0, host: '192.168.1.77'},
+               {_id: 0, host: '192.168.1.76'}]}

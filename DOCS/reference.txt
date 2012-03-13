@@ -16,8 +16,8 @@ http://www.trustonme.net/didactels/251.html
 
 ///lien forum mongoDB //////////
 http://www.frxoops.org/modules/newbb/viewtopic.php?topic_id=34579
-
 http://blog.soat.fr/2011/07/nosql-user-group-mongodb/
+http://blog.xebia.fr/2010/12/15/mongodb-en-pratique/
 
 ///// Source de mongoDb ////////
 https://github.com/mongodb/mongo
@@ -44,6 +44,11 @@ http://www.search-this.com/2007/07/24/an-introduction-to-memcached/
 http://www.amazon.fr/Definitive-Guide-Mongodb-Database-Computing/dp/1430230517/ref=sr_1_4?ie=UTF8&qid=1329237431&sr=8-4
 http://www.amazon.fr/Professional-NoSQL-Shashank-Tiwari/dp/047094224X/ref=sr_1_1?ie=UTF8&qid=1329238429&sr=8-1
 
-PRPB6-DW33R-KD9M3-BHGRG-R3MCF
-
 config = {_id: 'foo', members: [{_id: 0, host: '192.168.1.75'},	{_id: 0, host: '192.168.1.77'}, {_id: 0, host: '192.168.1.76'}]}
+
+//// Windows 7 /////////
+http://www.commentcamarche.net/faq/22916-special-netbook-creer-une-cle-usb-de-reparation-windows-7#preparation-de-la-cle-usb
+http://www.commentcamarche.net/faq/24278-creer-une-image-du-systeme-avec-windows-7
+
+//// DAO ////////
+http://desgeeksetdeslettres.com/blog/programmation-java/spring-hibernate-mise-en-place-dun-dao-generique

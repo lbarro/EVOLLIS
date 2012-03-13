@@ -21,7 +21,8 @@ en place une charte de traduction requête \textsf{SQL} / requête
 \\
 \textsf{SQL} d'une part, \textsf{NoSQL} d'autre part, l'un n'exclut pas l'autre.
 Tout dépend de l'usage qu'on compte en faire ou du profit qu'on
-souhaite en tirer. La bonne méthode est de les faire cohabiter et de stocker
+souhaite en tirer. Pour profiter à la fois du \textsf{NoSQL} et du \textsf{SQL}, il est très commun
+de les faire cohabiter et de stocker
 les données dans l'un ou dans l'autre en fonction des caractéristiques de 
 celles-ci. C'est ce que fait d'ailleurs \textsf{Google} qui
 même après avoir mis en place sa solution
@@ -49,21 +50,29 @@ que des objets correspondants aux lignes pour permettre d'interagir
 avec les données importées.
 \\
 \\
-Mise à part \textsf{Scoop} qui est une solution pour \textsf{Hadoop}
+{\color{red} Un schéma illustratif du fonctionnement de sqoop}
+\\
+\\
+Mise à part \textsf{Sqoop} qui est une solution pour \textsf{Hadoop}
 d'échange avec le \textsf{SQL}, le framework
 \textsf{spring} intègre des modules \textsf{Data access}\cite{springsource} permettant 
-de persister des objets \textsf{POJO} dans des \textsf{BDD NoSQL}. En
-exemple, le module \textsf{Spring Data MongoDB} pour persister
-dans \textsf{MongoDB}. Avec \textsf{spring} il est alors possible
+de faire persister des objets \textsf{POJO} dans des \textsf{BDD NoSQL}. En
+exemple, le module \textsf{Spring Data MongoDB} permet de faire persister
+les données dans \textsf{MongoDB}. Avec \textsf{spring} il est alors possible
 d'effectuer une échange en deux temps:
 \begin{enumerate}
 \item D'abord transformer les données dans la \textsf{BDDR} en des objets 
       \textsf{POJO} par le biais de module déjà existant
       comme \textsf{hibernate, toplink, iBatis}...
-\item Puis persister les objets \textsf{POJO} dans par le biais du module 
+\item Puis faire persister les objets \textsf{POJO} dans la base \textsf{NoSQL} par le biais du module 
       \textsf{Data access} dédié.    
 \end{enumerate} 
 Cependant il faut changer de module \textsf{Data access} à chaque fois
 qu'il faut changer de \textsf{BDD NoSQL}. Il est difficile de mettre
 en place une standardisation des interfaces dans la mesure où
 chaque \textsf{BDD NoSQL} vient avec son propre langage de requête.
+\\
+\\
+{\color{red} Un schéma illustratif du fonctionnement des \textsf{Data access}
+\\
+Mettre en évidence l'échange en deux temps et le fait que chaque \textsf{Techno NoSQL} a un \textsf{Data access} propre}

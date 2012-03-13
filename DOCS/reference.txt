@@ -46,7 +46,4 @@ http://www.amazon.fr/Professional-NoSQL-Shashank-Tiwari/dp/047094224X/ref=sr_1_1
 
 PRPB6-DW33R-KD9M3-BHGRG-R3MCF
 
-config = {_id: 'foo', members: [
-          	{_id: 0, host: '192.168.1.75'},
-			{_id: 0, host: '192.168.1.77'},
-               {_id: 0, host: '192.168.1.76'}]}
+config = {_id: 'foo', members: [{_id: 0, host: '192.168.1.75'},	{_id: 0, host: '192.168.1.77'}, {_id: 0, host: '192.168.1.76'}]}

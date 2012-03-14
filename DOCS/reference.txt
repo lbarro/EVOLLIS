@@ -52,3 +52,6 @@ http://www.commentcamarche.net/faq/24278-creer-une-image-du-systeme-avec-windows
 
 //// DAO ////////
 http://desgeeksetdeslettres.com/blog/programmation-java/spring-hibernate-mise-en-place-dun-dao-generique
+
+/// Git with eclipse /////
+http://www.vogella.de/articles/EGit/article.html

@@ -48,11 +48,13 @@ fonction des options d'importation spécifiées et génère aussi des
 classes \textsf{java} correspondantes aux tables de la bases, ainsi
 que des objets correspondants aux lignes pour permettre d'interagir
 avec les données importées.
-\\
-\\
-{\color{red} Un schéma illustratif du fonctionnement de sqoop}
-\\
-\\
+\begin {figure}[H]
+       \centering
+        \includegraphics[scale=0.2]{\DIR/img/sqoop.png}	
+        \caption{Fonctionnement de \textsf{SQOOP}}
+	\label{sqoop}
+  \end {figure}    
+\noindent
 Mise à part \textsf{Sqoop} qui est une solution pour \textsf{Hadoop}
 d'échange avec le \textsf{SQL}, le framework
 \textsf{spring} intègre des modules \textsf{Data access}\cite{springsource} permettant 
@@ -71,8 +73,9 @@ Cependant il faut changer de module \textsf{Data access} à chaque fois
 qu'il faut changer de \textsf{BDD NoSQL}. Il est difficile de mettre
 en place une standardisation des interfaces dans la mesure où
 chaque \textsf{BDD NoSQL} vient avec son propre langage de requête.
-\\
-\\
-{\color{red} Un schéma illustratif du fonctionnement des \textsf{Data access}
-\\
-Mettre en évidence l'échange en deux temps et le fait que chaque \textsf{Techno NoSQL} a un \textsf{Data access} propre}
+\begin {figure}[H]
+       \centering
+        \includegraphics[scale=0.2]{\DIR/img/spring.png}	
+        \caption{Possibilité d'échange \textsf{SQL/NoSQL} avec \textsf{spring}}
+	\label{spring}
+\end {figure}

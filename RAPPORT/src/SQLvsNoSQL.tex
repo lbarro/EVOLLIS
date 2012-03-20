@@ -79,14 +79,29 @@ n'aboutira pas à une solution plus efficace car l'architecture des
 %qui va ralentir l'adoption de NoSQL\cite{SergeLeblal}.
 \\
 \\
-À présent, je vais attirer l'attention sur une différence fondamentale entre ces deux familles de gestionnaires de données. Elles n'ont pas la même conception de la gestion des données. Le \textsf{SQL} impose un format de stockage le plus explicite possible à l'utilisateur pour permettre au gestionnaire d'avoir la maîtrise totale des données stockées afin d'en assurer l'intégrité. Le gestionnaire \textsf{SQL} ne se contente pas uniquement de répondre aux requêtes. Il effectue d'autres opérations qui consistent en l'entretien de la base à l'image de \textsf{MySQL} dont 96\% des cycles machines est de l'\textit{overhead}. Le \textsf{NoSQL} vise à éviter les opérations d'\textit{overhead} afin de consacrer toutes les ressources machines aux seules traitements des requêtes pour être plus rapide. Cependant la cohérence dans la \textsf{BDD} nécessite beaucoup d'apport extérieur pour palier à la très grande souplesse du système.
-Une illustration grotesque de cette différence philosophique entre 
-les deux familles de gestionnaires est la suivante:
-\\
-\\    
-{\color{red} Un schéma illustratif du compromis SQL/NoSQL}
-\\
-\\
+À présent, je vais attirer l'attention sur une différence fondamentale
+entre ces deux familles de gestionnaires de données. Elles n'ont pas
+la même conception de la gestion des données. Le \textsf{SQL} impose
+un format de stockage le plus explicite possible à l'utilisateur pour
+permettre au gestionnaire d'avoir la maîtrise totale des données
+stockées afin d'en assurer l'intégrité. Le gestionnaire \textsf{SQL}
+ne se contente pas uniquement de répondre aux requêtes. Il effectue
+d'autres opérations qui consistent en l'entretien de la base à l'image
+de \textsf{MySQL} dont 96\% des cycles machines est de
+l'\textit{overhead}. Le \textsf{NoSQL} vise à éviter les opérations
+d'\textit{overhead} afin de consacrer toutes les ressources machines
+aux seuls traitements des requêtes pour être plus rapide. Cependant
+la cohérence dans la \textsf{BDD} nécessite beaucoup d'apport
+extérieur pour palier à la très grande souplesse du système.  Une
+illustration grotesque de cette différence philosophique entre les
+deux familles de gestionnaires est la suivante:
+\begin {figure}[H]
+       \centering
+        \includegraphics[scale=0.3]{\DIR/img/SQLvsNoSQL.png}	
+        \caption{Répartitions des cycles machines \textsf{SQL} et \textsf{NoSQL}}
+	\label{sqlvsnoql}
+  \end {figure}    
+\noindent
 Toujours en quête de performance et comme mentionné à la section \ref{carac}, 
 le \textsf{NoSQL} a renoncé à de la « \textsf{consistance forte} » pour de la « \textsf{consistance éventuelle} ». Il justifie ce choix par le théorème de \textsf{CAP} pendant que les \textsf{SGBDR} défendent systématiquement toutes les propriétés \textsf{ACID} dont la \textsf{consistance forte} ». Ceci n'est pas sans compromis, notamment 
 pour la reprise sur erreurs. 
@@ -126,16 +141,24 @@ Ces erreurs sont connues sous le nom de « \textsf{Bohr bugs} ».}
 \def\casc{\sf Une catastrophe. Un cluster local est entièrement détruit par une inondation ou un tremblement de terre.}
 
 \def\commentA{First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
-scenarios, there is no way to keep going; i.e., availability is impossible to achieve. Also, replica
-consistency is meaningless; the current DBMS state is simply wrong. Error 7 will only be
-recoverable if a local transaction is only committed after the assurance that the transaction has
-been received by another WAN-connected cluster. Few application builders are willing to accept this kind of latency. Hence, eventual consistency cannot be guaranteed, because a transaction
-may be completely lost if a disaster occurs at a local cluster before the transaction has been
-successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
-loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.}
+scenarios, there is no way to keep going; i.e., availability is
+impossible to achieve. Also, replica consistency is meaningless; the
+current DBMS state is simply wrong. Error 7 will only be recoverable
+if a local transaction is only committed after the assurance that the
+transaction has been received by another WAN-connected cluster. Few
+application builders are willing to accept this kind of
+latency. Hence, eventual consistency cannot be guaranteed, because a
+transaction may be completely lost if a disaster occurs at a local
+cluster before the transaction has been successfully forwarded
+elsewhere. Put differently, the application designer chooses to suffer
+data loss when a rare event (such as a disaster) occurs, because the
+performance penalty for avoiding it is too high.}
 
 \def\comment{Les deux premiers cas d'erreur conduisent la base dans un état incohérent. Ils affectent la disponibilité des données. Dans de telles situations, il est impossible de garantir la disponibilité des données même après avoir renoncé à de la consistance forte. Le troisième cas d'erreur montre les limites de
-la consistance éventuelle. Les données ne pourront être récupérées que si la transaction a été propagée sur un autre cluster avant la catastrophe. Le temps de latence imposé par la consistance éventuelle entre les mises à jour est donc problématique.}
+la consistance éventuelle. Les données ne pourront être récupérées que
+si la transaction a été propagée sur un autre cluster avant la
+catastrophe. Le temps de latence imposé par la consistance éventuelle
+entre les mises à jour est donc problématique.}
 
 \begin{center}
 \begin{tabular}{p{1.7cm} p{12cm}}

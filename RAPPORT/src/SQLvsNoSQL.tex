@@ -79,15 +79,22 @@ n'aboutira pas à une solution plus efficace car l'architecture des
 %qui va ralentir l'adoption de NoSQL\cite{SergeLeblal}.
 \\
 \\
-Aussi, il est important de garder à l'esprit, comme mentionné avant, 
-que le \textsf{NoSQL} a renoncé à la consistance
-pour plus de performances et de scalabilité. Ceci n'est pas sans compromis, notamment 
+À présent, je vais attirer l'attention sur une différence fondamentale entre ces deux familles de gestionnaires de données. Elles n'ont pas la même conception de la gestion des données. Le \textsf{SQL} impose un format de stockage le plus explicite possible à l'utilisateur pour permettre au gestionnaire d'avoir la maîtrise totale des données stockées afin d'en assurer l'intégrité. Le gestionnaire \textsf{SQL} ne se contente pas uniquement de répondre aux requêtes. Il effectue d'autres opérations qui consistent en l'entretien de la base à l'image de \textsf{MySQL} dont 96\% des cycles machines est de l'\textit{overhead}. Le \textsf{NoSQL} vise à éviter les opérations d'\textit{overhead} afin de consacrer toutes les ressources machines aux seules traitements des requêtes pour être plus rapide. Cependant la cohérence dans la \textsf{BDD} nécessite beaucoup d'apport extérieur pour palier à la très grande souplesse du système.
+Une illustration grotesque de cette différence philosophique entre 
+les deux familles de gestionnaires est la suivante:
+\\
+\\    
+{\color{red} Un schéma illustratif du compromis SQL/NoSQL}
+\\
+\\
+Toujours en quête de performance et comme mentionné à la section \ref{carac}, 
+le \textsf{NoSQL} a renoncé à de la « \textsf{consistance forte} » pour de la « \textsf{consistance éventuelle} ». Il justifie ce choix par le théorème de \textsf{CAP} pendant que les \textsf{SGBDR} défendent systématiquement toutes les propriétés \textsf{ACID} dont la \textsf{consistance forte} ». Ceci n'est pas sans compromis, notamment 
 pour la reprise sur erreurs. 
 \textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreur,  
 les enjeux du choix
 des propriétés \textsf{CAP}\cite{MichaelStonebraker2}. Je me limiterai seulement à
 3 cas d'erreur. Le but étant de mettre en relief les limites d'une « \textsf{consistance éventuelle} »
-et d'exhiber deux situations qui rendent impossible la propriété \textsf{A} de \textsf{CAP}.
+et d'exhiber deux situations qui rendent impossible la propriété \textsf{A} de \textsf{CAP} défendue par la mouvance \textsf{NoSQL}.
 %===========================================================
 %     Illustration enjeux du choix de AP dans CAP
 %===========================================================
@@ -127,7 +134,7 @@ may be completely lost if a disaster occurs at a local cluster before the transa
 successfully forwarded elsewhere. Put differently, the application designer chooses to suffer data
 loss when a rare event (such as a disaster) occurs, because the performance penalty for avoiding it is too high.}
 
-\def\comment{Les deux premiers cas d'erreur conduisent la base dans un état incohérent. Ils infectent la disponibilité des données. Dans de telles situations, il est impossible de garantir la disponibilité des données même après avoir renoncé à la consistance forte. Le troisième cas d'erreur montre les limites de
+\def\comment{Les deux premiers cas d'erreur conduisent la base dans un état incohérent. Ils affectent la disponibilité des données. Dans de telles situations, il est impossible de garantir la disponibilité des données même après avoir renoncé à de la consistance forte. Le troisième cas d'erreur montre les limites de
 la consistance éventuelle. Les données ne pourront être récupérées que si la transaction a été propagée sur un autre cluster avant la catastrophe. Le temps de latence imposé par la consistance éventuelle entre les mises à jour est donc problématique.}
 
 \begin{center}
@@ -144,6 +151,3 @@ Pour finir, un paramètre à prendre en compte et pour ainsi reprendre la pensé
 est que contrairement aux solutions \textsf{NoSQL}, les \textsf{SGBDR} sont matures et ont par conséquent 
 ``une liste de limitations et de bugs connus''\cite{DieNosql}. L'utilisateur d'une \textsf{SGBDR} classique 
 est plus ou moins rassuré parce qu'il sait à quoi s'en tenir. 
-\\
-\\    
-{\color{red} Un schéma illustratif du compromis SQL/NoSQL}

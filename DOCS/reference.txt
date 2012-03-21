@@ -14,6 +14,9 @@ http://www.commentcamarche.net/contents/internet/dns.php3
 http://fr.wikipedia.org/wiki/BibTeX
 http://www.trustonme.net/didactels/251.html
 
+//// Latex theorem ///////
+http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/Theorems.html
+
 ///lien forum mongoDB //////////
 http://www.frxoops.org/modules/newbb/viewtopic.php?topic_id=34579
 http://blog.soat.fr/2011/07/nosql-user-group-mongodb/

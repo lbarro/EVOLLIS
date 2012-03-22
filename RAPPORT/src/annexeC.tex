@@ -1,1 +1,17 @@
 \chapter{Le théorème de \textsf{Brewer} ou le théorème \textsf{CAP}}\label{cap}
+Jusqu'en $2002$, le théorème n'était qu'une conjecture de énoncée par \textsf{Brewer}. 
+\newtheorem{theorem}{Théorème}[section]
+\begin{theorem}
+\emph{(de Brewer)}
+  Dans un environnement distribué, un système ne peut être doté qu'au plus de deux des trois propriétés suivantes:
+\begin{dinglist}{70}
+  \item Cohérence (\textsf{C}onsistency)
+  \item Disponibilité (\textsf{A}vailability)
+  \item Résistance au morcellement (\textsf{P}artition Tolerance)
+\end{dinglist}
+\end{theorem}
+\noindent
+\textsf{Cohérence: } toute opération effectuée sur un nœud est automatiquement visible sur tous les autres nœuds du système. Si j'écris sur un noeud et lis sur un autre, je dois    
+\textsf{Disponibilité: }
+\textsf{Résistance au morcellement: }
+\newpage

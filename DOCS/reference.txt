@@ -58,3 +58,7 @@ http://desgeeksetdeslettres.com/blog/programmation-java/spring-hibernate-mise-en
 
 /// Git with eclipse /////
 http://www.vogella.de/articles/EGit/article.html
+
+/// Tout sur GridFS ////
+https://groups.google.com/forum/#!msg/nosql-databases/Ya59xjD5RU0/c48OJPjCrUIJ
+http://desgeeksetdeslettres.com/blog/programmation-java/mysql-enregistrement-et-recuperation-dimages-pour-afficher-dans-une-jsp

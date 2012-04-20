@@ -23,8 +23,8 @@ technologies \textsf{NoSQL}\index{Limites du \textsf{SQL}}:
 \paragraph{Environnement distribué:} pour faire face à des volumes importants 
 de données, il est possible de les repartir sur différentes machines physiques. 
 Pour avoir plusieurs points d'accès aux données, il est nécessaire de les dupliquer
-sur différents serveurs. Toutes ces opérations constitue en la mise en place d'un 
-environnement distribué. Les \textsf{SGBDR} classiques montre des limites dans un 
+sur différents serveurs. Toutes ces opérations constituent en la mise en place d'un 
+environnement distribué. Les \textsf{SGBDR} classiques montrent des limites dans un 
 environnement distribué. Ces {SGBD} ne sont pas destinés à fonctionner dans un
 environnement à données reparties du fait de l'opération de jointure
 qui est difficilement réalisable entre des tables réparties sur des systèmes différents\cite{RickCattell}.
@@ -44,12 +44,12 @@ structurées, telles les données de traitement de texte et les images
 
 \paragraph{Réécritures fréquentes:}  en effet, les \textsf{SGBDR} classiques en générale
 appliquent la consistance forte et ce grâce aux propriétés \textsf{ACID}. 
-Je l'ai tantôt dit, ces opérations sont à l'origine d'\textit{overhead} 
+Ces opérations sont à l'origine d'\textit{overhead} 
 et sont appliquées même pour les opérations simples d'écriture dans la base. Ceci diminuera
 considérablement la performance en cas de réécritures fréquentes des données même pour
 les opérations simples.
 Les \textsf{BDDR} mettent en avant un système d'indexation très évolué. L'utilisation
-d'indexes est plutôt conseillée pour les systèmes où l'accès en écriture est
+d'index est plutôt conseillée pour les systèmes où l'accès en écriture est
 beaucoup plus important que celui en écriture. Tout ceci laisse penser que le modèle relationnel
 classique prévoit plus de lectures que d'écritures. 
 
@@ -61,7 +61,7 @@ n'ont pas cette propriété de scalabilité horizontale.
 \\ 
 \\ 
 L'extensibilité requise, la grande quantité de données
-et les mises à jour massivent rendent le modèle relationnel inefficace, ce qui a
+et les mises à jour massives rendent le modèle relationnel inefficace, ce qui a
 obligé à trouver un nouveau modèle. Cependant il est important de prendre en
 considération quelques aspects au risque d'une mauvaise utilisation. «
 L'intérêt d'une base de données \textsf{NoSQL} pour un projet ne
@@ -87,13 +87,13 @@ permettre au gestionnaire d'avoir la maîtrise totale des données
 stockées afin d'en assurer l'intégrité. Le gestionnaire \textsf{SQL}
 ne se contente pas uniquement de répondre aux requêtes. Il effectue
 d'autres opérations qui consistent en l'entretien de la base à l'image
-de \textsf{MySQL} dont 96\% des cycles machines est de
+de \textsf{MySQL} dont 96\% des cycles machines sont de
 l'\textit{overhead}. Le \textsf{NoSQL} vise à éviter les opérations
 d'\textit{overhead} afin de consacrer toutes les ressources machines
 aux seuls traitements des requêtes pour être plus rapide. Cependant
 la cohérence dans la \textsf{BDD} nécessite beaucoup d'apport
-extérieur pour palier à la très grande souplesse du système.  Une
-illustration grotesque de cette différence philosophique entre les
+extérieur pour pallier à la très grande souplesse du système.  Une
+illustration de cette différence philosophique entre les
 deux familles de gestionnaires est la suivante:
 \begin {figure}[H]
        \centering
@@ -103,7 +103,7 @@ deux familles de gestionnaires est la suivante:
   \end {figure}    
 \noindent
 Toujours en quête de performance et comme mentionné à la section \ref{carac}, 
-le \textsf{NoSQL} a renoncé à de la « \textsf{consistance forte} » pour de la « \textsf{consistance éventuelle} ». Il justifie ce choix par le théorème de \textsf{CAP} pendant que les \textsf{SGBDR} défendent systématiquement toutes les propriétés \textsf{ACID} dont la \textsf{consistance forte} ». Ceci n'est pas sans compromis, notamment 
+le \textsf{NoSQL} a renoncé à de la « \textsf{consistance forte} » pour de la « \textsf{consistance éventuelle} ». Il justifie ce choix par le théorème de \textsf{CAP} pendant que les \textsf{SGBDR} défendent systématiquement toutes les propriétés \textsf{ACID} dont la « \textsf{consistance forte} ». Ceci n'est pas sans compromis, notamment 
 pour la reprise sur erreurs. 
 \textsf{Michael Stonebraker} explique clairement sur 8 cas d'erreur,  
 les enjeux du choix
@@ -138,7 +138,7 @@ Ces erreurs sont connues sous le nom de « \textsf{Bohr bugs} ».}
 
 \def\cascA{\sf A disaster. The local cluster is wiped out by a flood, earthquake, etc. The cluster no longer exists.}
 
-\def\casc{\sf Une catastrophe. Un cluster local est entièrement détruit par une inondation ou un tremblement de terre.}
+\def\casc{\sf Une catastrophe. Un cluster local est entièrement détruit.}
 
 \def\commentA{First, note that errors 1 and 2 will cause problems with any high availability scheme. In these two
 scenarios, there is no way to keep going; i.e., availability is

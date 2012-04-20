@@ -28,7 +28,7 @@ celles-ci. C'est ce que fait d'ailleurs \textsf{Google} qui
 même après avoir mis en place sa solution
 propriétaire \textsf{BigTable} utilise \textsf{MySQL}
 notamment pour son programme publicitaire \textsf{AdWords}, sa
-principale source de revenue et qui utilise d'énormes quantités de
+principale source de revenue, et qui utilise d'énormes quantités de
 données. Cependant imaginer un protocole d'échange entre \textsf{SQL}
 et \textsf{NoSQL} peut s'avérer très fastidieux dans la mesure où les
 deux conçoivent les données très différemment.
@@ -58,8 +58,8 @@ avec les données importées.
 Mise à part \textsf{Sqoop} qui est une solution pour \textsf{Hadoop}
 d'échange avec le \textsf{SQL}, le framework
 \textsf{spring} intègre des modules \textsf{Data access}\cite{springsource} permettant 
-de faire persister des objets \textsf{POJO} dans des \textsf{BDD NoSQL}. En
-exemple, le module \textsf{Spring Data MongoDB} permet de faire persister
+de faire persister des objets \textsf{POJO}\footnote{Acronyme de \textsf{P}lain \textsf{O}ld \textsf{J}ava \textsf{O}bject désignant les objets java simples n'héritant d'aucune classe et n'implémentant aucune interface } dans des \textsf{BDD NoSQL}. 
+En exemple, le module \textsf{Spring Data MongoDB} permet de faire persister
 les données dans \textsf{MongoDB}. Avec \textsf{spring} il est alors possible
 d'effectuer une échange en deux temps:
 \begin{enumerate}

@@ -48,12 +48,11 @@ atteindre son état cohérent d'où l'« \textsf{Eventually consistency}
 Le \textsf{NoSQL} a donc abandonné la « consistance forte » pour de la
 « consistance éventuelle ». Il a pris pour alibi le
 théorème \textsf{CAP}\cite{MichaelStonebraker2} qui postule que dans un environnement distribué,
-une \textsf{BDD} ne peut être à la fois consistent, disponible et
-résistant au morcellement. Elle ne peut avoir que 2 de ces 3
-propriétés. Ceci n'est qu'un petit rappelle sinon ce théorème est plus
-en détail à l'annexe \ref{cap} du présent
+une \textsf{BDD} ne peut être à la fois consistante, disponible et
+résistante au morcellement. Elle ne peut avoir que 2 de ces 3
+propriétés. Ce théorème est détaillé à l'annexe \ref{cap} du présent
 document. Ce théorème laisse entendre donc
-que le \textsf{NoSQL}, en renonçant la « consistance forte », pourra
+que le \textsf{NoSQL}, en renonçant à la « consistance forte », pourra
 préserver la \textsf{disponibilité} et la \textsf{résistance au
 morcellement} dans un environnement distribué.
 \\
@@ -62,7 +61,7 @@ Ce choix est tout à fait justifié au regard des valeurs défendues par
 la mouvance. Les solutions \textsf{NoSQL} entendent fonctionner dans
 un environnement distribué et utilisent la méthode de réplication des
 données pour résister aux pannes logicielles et machines. Elles ont pour
-vocation d'apporter plus performantes que les \textsf{SGBDR} dans
+vocation d'apporter plus de performance que les \textsf{SGBDR} dans
 l'exécution des opérations simples. Elles ont donc intérêt a choisir
 parmis les trois propriétés, la \textsf{disponibilité} et
 la \textsf{résistance au morcellement}.

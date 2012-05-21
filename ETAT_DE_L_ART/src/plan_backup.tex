@@ -1,0 +1,44 @@
+%%%% Page de titre %%%%
+\input{\DIR/src/title}
+
+%%%%% terminologie %%%%%%%%%%
+\input{\DIR/src/terminologie}
+
+%%%% sommaires, liste des figures, liste des tables %%%%%
+\tableofcontents
+\listoffigures
+%\listoftables
+
+\part{État de l'art}
+      \input{\DIR/src/etat_de_l_art}
+
+                \chapter{Le \textsf{NoSQL}}
+                \input{\DIR/src/noSQL}
+
+                        \section{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
+                        \input{\DIR/src/categorieNoSQL} 
+
+                        \section{Des exemples de \textsf{NoSQL}}
+                        \input{\DIR/src/exempleNoSQL}
+
+                        \section{Les caractéristiques d'une base de données \textsf{NoSQL}}\label{carac}
+                        \input{\DIR/src/caracteristiquesNoSQL}
+                \newpage
+                \chapter{\textsf{SQL} vs \textsf{NoSQL}}
+                \input{\DIR/src/SQLvsNoSQL}
+                \newpage
+                \chapter{Échange entre \textsf{SQL} et \textsf{NoSQL}}
+                \input{\DIR/src/SQLtoNoSQL}
+
+%%%%%% les indexes %%%%%%%%%%%%%%%%
+\printindex
+
+\bibliographystyle{unsrt}
+\bibliography{\DIR/bibliographie}
+
+%%%%%% Liste des annexes %%%%%%%%%%
+\part{Annexes}
+\appendix
+\input{\DIR/src/annexeA}
+\input{\DIR/src/annexeB}
+\input{\DIR/src/annexeC}

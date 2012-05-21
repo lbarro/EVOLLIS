@@ -1,0 +1,21 @@
+Afin de coordonner les interactions entre ses partenaires, \textsf{EVOLLIS}
+échange avec ces dernierts des flux qui constituent de gros volumes de 
+données hétérogènes. Aussi \textsf{EVOLLIS} propose son produit \textsf{uZ'it}
+via une vignette apparaissant sur la fiche produit du distributeur. La plateforme
+d'\textsf{EVOLLIS} fera donc l'objet concourant aux données et d'un fort trafic.
+Sur un site de vente en ligne partenaire d'EVOLLIS, si un client forme un panier et décide de le payer, par le biais d'une vignette EVOLLIS sur laquelle le client pourra ensuite cliquer pour profiter de l'offre \textsf{lizéa}. Le calcul des tarifs de l'offre est effectué  à partir des identifiants des produits dans le panier du client et    
+
+
+Evollis se place entre plusieurs partenaires commerciaux afin de 
+coordonner leurs interactions.
+
+
+Les cash sont volatiles, il faut à chaque les réconstitués. Les cash
+fonctionnent en clé-valeur comme la plupart des gestionnaires NoSQL.
+EVOLLIS veut en lieu et place du système de cash mettre un système de
+hashage persistant apportant les mêmes performances qu'un accès cash.
+Le Benefice étant que cette fois on a un systant persistant. À priori
+le s'est pausé sur MongoDB. En arrière plan MongoDB reste une base
+clef/valeur où la valeur est un document JSON complet. Cependant,
+contrairement aux bases purement clef/valeur, il est possible de
+requêter sur n’importe quel élément du document ou sous document.

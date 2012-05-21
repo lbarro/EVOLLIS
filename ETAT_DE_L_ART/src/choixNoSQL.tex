@@ -1,0 +1,12 @@
+Comme je l'ai mentionné dans le coxtexte à la section \ref{contexte}, Evollis utilise actuellement une
+BDDR classique, PGSQL. Il utilise également un système de cache, le \textsf{Memcached}.Un peu plus au dessus
+du present document à la section \ref{membase}, j'ai aussi parlé de Membase qui peut être vue comme une amélioration
+de memcached, en ce sens qu'il est compatible avec toutes les applications memcached avec des fonctionnalités
+supplémentaires telles que la persistance, le réplication et le clustering.  
+Avec le système clé-valeur simple, le système n'est pas conscient de la structure de la valeur.
+Evollis veut tester une autre solution NoSQL qui est MongoDB. MongoDB utilise la techno clé-valeur
+mais rend le système conscient de la structure de la valeur stockée dans le but de permettre un champ
+opérationnelle plus large sur la base de données.
+
+En raisons du nombre de solutions \textsf{NoSQL} existants, il fallait opérer un choix. Je m'intéresserai donc uniquement
+aux deux solutions membase et MongoDB pour les mêmes raisons mentionnées précédemment.  

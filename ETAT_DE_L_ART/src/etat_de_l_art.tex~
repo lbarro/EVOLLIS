@@ -1,0 +1,17 @@
+Avant de rentrer dans le vif du sujet, il est fondamental dans un
+premier temps de s'imprégner des différentes notions qui le détermine.
+Ainsi dans l'état de l'art vais-je aborder la notion clé du contexte de
+mon stage qui est le \textsf{NoSQL}. Il s'agit en effet d'une nouvelle
+famille de gestionnaire de \textsf{BDD}. Il en existe plusieurs réparties 
+par catégories. Je prendrai le soin de parler de ces différentes
+catégories avec des exemples à l'appui. 
+Je termine l'étude sur la notion \textsf{NoSQL} en définissant clairement les
+caractéristiques des gestionnaires \textsf{NoSQL} qui sont en quelque
+sorte un ensemble de propriétés qu'ils ont en commun. D'un premier
+abord, le \textsf{NoSQL} est considéré comme une alternative
+au \textsf{SQL}. Je ferai donc un rapprochement de ces deux
+familles en mettant en évidence ce qui les distingue. Ensuite je termine
+sur l'étude en abordant la problématique d'échange entre 
+les deux familles
+\textsf{SQL} et \textsf{NoSQL}.
+

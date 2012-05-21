@@ -1,0 +1,114 @@
+%%%% Page de titre %%%%
+\input{\DIR/src/title}
+
+%%%% Notice analytique %%%%
+\input{\DIR/src/noticeAnalytique}
+
+%%%% resume %%%%%%%%%
+%\begin{abstract}
+\input{\DIR/src/resume}
+%\end{abstract}
+
+%%%%% terminologie %%%%%%%%%%
+\input{\DIR/src/terminologie}
+
+%%%% sommaires, liste des figures, liste des tables %%%%%
+\tableofcontents
+\listoffigures
+%\listoftables
+
+%%%% remerciement %%%%%%%
+\addcontentsline{toc}{chapter}{Remerciements}
+\input{\DIR/src/remerciement}
+
+%%%%% Plan du rapport %%%%%%%%%
+\addcontentsline{toc}{chapter}{Introduction}
+\input{\DIR/src/introduction}
+
+\part{Présentation du cadre de mon stage}
+
+      \chapter{Présentation de l'organisme d'acceuil: {\sf EVOLLIS}}
+                \input{\DIR/src/evollis}
+
+      \chapter{Présentation du projet \textsf{ZéNoSQL}}
+      
+                \section{Le contexte}\label{contexe}
+                \input{\DIR/src/contexte}
+
+                \section{L'environnement de travail}
+
+                \section{L'équipe de travail}
+
+\part{Déroulement de mon stage}
+
+      \chapter{État de l'art}
+      \input{\DIR/src/etat_de_l_art}
+
+                \section{Le \textsf{NoSQL}}
+                \input{\DIR/src/noSQL}
+
+                        \subsection{Les différents types de bases de données \textsf{NoSQL}}\label{categorie} 
+                        \input{\DIR/src/categorieNoSQL} 
+
+                        \subsection{Des exemples de \textsf{NoSQL}}
+                        \input{\DIR/src/exempleNoSQL}
+
+                        \subsection{Les caractéristiques d'une base de données \textsf{NoSQL}}\label{carac}
+                        \input{\DIR/src/caracteristiquesNoSQL}
+                \newpage
+                \section{\textsf{SQL} vs \textsf{NoSQL}}
+                \input{\DIR/src/SQLvsNoSQL}
+                \newpage
+                \section{Échange entre \textsf{SQL} et \textsf{NoSQL}}
+                \input{\DIR/src/SQLtoNoSQL}
+                \newpage
+%%                \section{Système de Rootage intelligent entre \textsf{SQL} et \textsf{NoSQL}}
+%%                \input{\DIR/src/rootage}
+
+      \chapter{Choix des solutions à étudier}
+      \input{\DIR/src/choixNoSQL}
+     
+                \section{Le \textsf{NoSQL Couchbase}}\label{couchbase}
+                \input{\DIR/src/couchbase}
+
+                \section{Le \textsf{NoSQL mongoDB}}\label{mongodb}
+                \input{\DIR/src/mongoDB}
+
+                %\section{Le \textsf{cube} du laboratoire \textsf{LaBRI}}\label{cube}
+                %\input{\DIR/src/cube}
+
+                %\section{Bilan}
+                %\input{\DIR/src/bilanChoixNoSQL}
+
+      \chapter{Les tests de charge}
+
+                \section{Tests de charge sur \textsf{MongoDB}}
+
+                \section{Tests de charge sur \textsf{Couchbase}}
+     
+                \section{Le choix final de la solution \textsf{NoSQL}}
+
+      \chapter{Pilote pour \textsf{EVOLLIS} de la solution \textsf{NoSQL} retenue}
+
+      \addcontentsline{toc}{chapter}{Conclusion}
+      \input{\DIR/src/conclusion}
+
+%%%%%% les indexes %%%%%%%%%%%%%%%%
+\printindex
+
+%%%%% la bibliographie %%%%%%%%%%%%
+\nocite{cassandra2}
+\nocite{cassandra}
+\nocite{NoSQLCmp}
+\nocite{NoSQLeurope}
+\nocite{NoSQLvsSQL}
+\bibliographystyle{unsrt}
+\bibliography{\DIR/bibliographie}
+
+%%%%%% Liste des annexes %%%%%%%%%%
+\part{Annexes}
+\appendix
+\input{\DIR/src/annexeA}
+\input{\DIR/src/annexeB}
+\input{\DIR/src/annexeC}
+\input{\DIR/src/TODO}

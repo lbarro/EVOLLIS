@@ -27,20 +27,39 @@ Le mécanisme est illustré par le schéma ci-dessous.
 	\label{sqoop}
   \end {figure}    
 \noindent
-Sur un site de vente en ligne partenaire d'EVOLLIS, si un client forme un panier et décide de le payer, par le biais d'une vignette EVOLLIS sur laquelle le client pourra ensuite cliquer pour profiter de l'offre \textsf{lizéa}. Le calcul des tarifs de l'offre est effectué  à partir des identifiants des produits dans le panier du client et    
+Avec l'apparition du \textsf{web 2.0} dans les années $2000$, le nombre d'internautes 
+a considérablement augmenté. Les sites de commerce rencontrent deux problèmes majeurs
+qui sont d'une part la taille et l'hétérogénéité des données stockées en base et d'autre part
+le temps de réponse. Dans le cadre du stage \textsf{EVOLLIS} est intéressé par une solution
+qui optimiserait la gestion des vignettes. À l'appel du \textsf{Web Service} de génération
+de vignette, les deux entités table en base « \textsf{cat\_ligne} » et cache entrent en jeu 
+conformément au mécanisme de génération de vignette défini plus haut. Les solutions non 
+relationnelles de gestions des données connues sous la dénomination « \textsf{NoSQL} » 
+proposent de nouvelles alternatives d'organisations physiques des données. L'idée ici du stage 
+étant de voir comment tenir compte de celles-ci afin de fusionner la table en base 
+« \textsf{cat\_ligne} » et le cache en une seule entité pour meilleure gestion des vignettes comme
+l'illustre le schéma ci-dessous. 
+
+\subsection{Étude du gain de la fusion}
+
+%%Evollis sera plus tenté par la solution NoSQL qui gère efficacement le stockage des vignettes.
+%%Dans un premier temps dans le cadre du stage, il s'agit de faire un état de l'art, de faire
+%%des tests de charges et d'en retenir la solution qui  
+
+%% Sur un site de vente en ligne partenaire d'EVOLLIS, si un client forme un panier et décide de le payer, par le biais d'une vignette EVOLLIS sur laquelle le client pourra ensuite cliquer pour profiter de l'offre \textsf{lizéa}. Le calcul des tarifs de l'offre est effectué  à partir des identifiants des produits dans le panier du client et    
 
 
-Evollis se place entre plusieurs partenaires commerciaux afin de 
-coordonner leurs interactions.
+%% Evollis se place entre plusieurs partenaires commerciaux afin de 
+%% coordonner leurs interactions.
 
 
-Les cash sont volatiles, il faut à chaque les réconstitués. Les cash
-fonctionnent en clé-valeur comme la plupart des gestionnaires NoSQL.
-EVOLLIS veut en lieu et place du système de cash mettre un système de
-hashage persistant apportant les mêmes performances qu'un accès cash.
-Le Benefice étant que cette fois on a un systant persistant. À priori
+%% Les cash sont volatiles, il faut à chaque les réconstitués. Les cash
+%% fonctionnent en clé-valeur comme la plupart des gestionnaires NoSQL.
+%% EVOLLIS veut en lieu et place du système de cash mettre un système de
+%% hashage persistant apportant les mêmes performances qu'un accès cash.
+%% Le Benefice étant que cette fois on a un systant persistant. À priori
 
-le s'est pausé sur MongoDB. En arrière plan MongoDB reste une base
-clef/valeur où la valeur est un document JSON complet. Cependant,
-contrairement aux bases purement clef/valeur, il est possible de
-requêter sur n’importe quel élément du document ou sous document.
+%% le s'est pausé sur MongoDB. En arrière plan MongoDB reste une base
+%% clef/valeur où la valeur est un document JSON complet. Cependant,
+%% contrairement aux bases purement clef/valeur, il est possible de
+%% requêter sur n’importe quel élément du document ou sous document.

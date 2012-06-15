@@ -1,1 +1,7 @@
- 
+Les systèmes de gestion clé/valeur comme memcached propose une mise en cache rapide des données. 
+Il est utilisé par de nombreux sites tels Facebook et LiveJournal. t=The catch is that this 
+application has got two significant shortcomings. First it is a memory-only database. That means
+if the power goes out, all the data is lost. Second, you can't actually search for datas using 
+memcached; you can only request specific keys. Firs and foremost, memcached is written to solve 
+a specific problem. Memcached is not intended to be the permanent data store, but only to 
+provide a caching layer to your existing database.

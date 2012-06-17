@@ -1,0 +1,63 @@
+\chapter{Les propriétés \textsf{ACID}}\label{acid}
+Les propriétés \textsf{ACID} permettent à un \textsf{SGBD} d'effectuer
+des transactions. Par transaction, il faut comprendre une suite
+d'opérations qui font passer la \textsf{BDD} d'un état antérieur à un
+état postérieur. Les états intermédiaires entre les états avant la
+transaction et après la transaction ne sont pas visibles. Ses
+propriétés sont les suivantes:
+
+\paragraph{Atomicité:} la suite d'opérations constituant une transaction 
+est indivisible. La transaction est entièrement effectuée ou pas du tout. 
+Il y a annulation de toute la transaction lorsqu'une des opérations échoue.
+S'il est question de modifier une série de valeurs et qu'une modification
+échoue alors toutes les valeurs déjà modifiées reprennent leurs anciennes
+valeurs. 
+
+\paragraph{Cohérence:} quelque soit l'opération effectuée, la base doit garder
+un état cohérent. Toute transaction qui viole par exemple une règle d'intégrité 
+échoue. Après la fusion de deux tables, les entrées doivent toutes 
+avoir des identités différentes. Si ce n'est pas le cas alors la fusion n'est 
+pas effectuée.
+
+\paragraph{Isolation:} chaque transaction est isolée de sorte à ce qu'elle est 
+seule peut voir les modifications pendant son exécution. Toute
+transaction enclenchée en parallèle d'une autre voit la version des
+données antérieure à celle-ci.  Il existe 4 niveaux d'isolation
+définis dans le standard \textsf{ANSI/ISO SQL}:
+\begin{enumerate}
+\item \textsf{Uncommited read ou lectures des données non validées}.
+  Ce niveau est le niveau d'isolation le plus léger. Avec un tel
+  niveau d'isolation le système se comporte comme s'il n'y en avait
+  pas. Les modifications apportées par une transaction non validée
+  sont visibles.
+
+\item \textsf{Commited read ou lecture des seules données
+  validées}. Les modifications lors d'une transaction ne sont visibles
+  que lorsqu'elle termine.  Cependant lors d'une transaction une
+  donnée peut changer sans que la transaction en cours en soit
+  responsable. Ceci peut arriver, par exemple, lorsqu'une transaction
+  en parallèle termine et que ses modifications sont validées.
+
+\item \textsf{Repeatable read ou lecture répétée}. Ce niveau
+  fonctionne comme le niveau précédent à la seule différence que
+  durant son exécution, une transaction ne voit pas les mises à jour
+  effectuées par d'éventuelles transactions qui se sont exécutées en
+  parallèle. D'où « \textsf{repeatable read} » pour souligner que pendant une
+  transaction, une donnée aura toujours la même valeur en
+  lecture si elle n'est pas modifiée par la transaction elle-même.
+  Cependant tout nouveau rajout validé de données au système par une
+  transaction qui a terminé est visible par toute autre transaction en
+  cours.
+
+\item \textsf{Serializable ou sérialisable}. Ce niveau est le niveau
+  d'isolation le plus poussé. Le système se comporte comme s'il n'y
+  avait qu'une transaction à la fois. Pendant son exécution une
+  transaction ne voit ni les mises à jour, ni les rajouts de données
+  au système des autres transactions. D'où « \textsf{serializable} » pour
+  mettre en relief le caractère d'exécution en série des transactions
+  plutôt qu'en parallèle.
+\end{enumerate}
+
+\paragraph{Durabilité:} dès lors qu'une transaction est validée, aucune défaillance
+du système ne pourra conduire à l'annulation de celle-ci. Les modifications liées à
+une transaction validée perdurent et ne sont jamais remises en cause.

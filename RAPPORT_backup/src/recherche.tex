@@ -1,0 +1,9 @@
+Partitionnement horizontale: consiste à partitionner une table par ligne.
+Les lignes sont stockées dans de tables différentes. Une vue de l'unionde toutes
+les partitions permet d'avoir une vue d'ensemble de toutes les données. 
+
+Partitionnement verticale: consiste à partitionner une table par colonne.
+Généralement on stocke les colonnes qui sont statics dans une table et les
+colonnes qui changent dans une autre. La création d'une vue pour la table en 
+entier diminue la performance mais des analyses statics sur les colonnes
+se feront très rapidement.

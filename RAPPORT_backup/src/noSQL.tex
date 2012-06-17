@@ -1,0 +1,78 @@
+Le \textsf{NoSQL} signifiant littéralement « \textsf{Not only SQL} »
+est une dénomination désignant une nouvelle catégorie de gestionnaires
+de bases de données massives non relationnelles. Le \textsf{NoSQL} est une nouvelle
+mouvance dans la gestion des données qui se départit du relationnel 
+pour rechercher plus de performance et de scalabilité\cite{RickCattell}. Dans une
+base de données relationnelle, les données sont structurées dans des
+tables à deux dimensions selon un modèle permettant de dresser une
+relation entre elles, basée sur la théorie des ensembles et la logique
+mathématique\cite{BDDR}. Les \textsf{BDDR} classiques ont toujours cherché à
+implémenter les propriétés \textsf{ACID}\footnote{Pour plus de détails, voir annexe
+  \ref{acid}}\index{ACID}\cite{DanielBartholomew} qui sont nécessaires à la gestion des
+transactions.  
+\\ 
+\\ 
+Pour certains cas d'utilisations comme la gestion des réseaux sociaux,
+un gestionnaire n'a pas forcement besoin des
+propriétés \textsf{ACID}. Le
+\textsf{MySQL} en est la preuve par sa popularité. Ce dernier est un \textsf{SGBDR} qui n'est toujours  
+pas transactionnel en septembre $2010$ avec sa version $5.5.6$\cite{MySQLACID}. Cependant il est la \textsf{BDD} \textsf{Open Source} la
+plus utilisée avec plus de $65,000$ téléchargements par
+jour\cite{siteMySQL}. Les utilisateurs de \textsf{BDD} n'ont pas
+forcement pour intention de gérer des transactions. Pour cette raison,
+les gestionnaires \textsf{NoSQL} optent pour la simplicité, la
+performance et la scalabilité au détriment des propriétés
+\textsf{ACID} et du modèle relationnel pour mieux parer la montée en
+charge dans des situations où les propriétés transactionnelles ne sont
+pas exigées. Celles-ci sont à l'origine d'\textit{overhead}, temps
+consacré par un système à se gérer lui-même plutôt que d'effectuer le
+travail proprement dit. D'après \textsf{Michael Stonebraker}, pionnier
+des \textsf{SGBD} et selon des travaux menés dans le laboratoire
+de \textsf{MIT}, << 96\% [des cycles machines de \textsf{MySQL} est] de
+l’\textit{overhead} » partagé entre la gestion de \textsf{buffer}, les
+verrous au niveau enregistrement, l’écriture des \textsf{logs} et
+le \textsf{multi-threading}. Donc seulement << 4\% [...] consacré au
+travail en lui-même »\cite{MichaelStonebraker}.
+\\ 
+\\ 
+Les \textsf{SGBD} non-relationnels existent depuis
+le début de l'histoire des bases de données dans les années $60$
+notamment avec les systèmes de gestion de fichiers plus ou moins
+sophistiqués\cite{BDDR}. Ils sont de nos jours rependus sur les mainframes et les
+logiciels d'annuaire. Il sont plus anciens que les \textsf{SGBD}
+relationnels qui ont quant à eux fait leur apparition à partir de 1970\cite{BDDR}. Les
+\textsf{SGBD} non-relationnels ont connu une nouvelle jeunesse avec la
+mouvance \textsf{NoSQL}. La conférence meet-up de 2009
+à \textsf{San-Francisco} est considérée comme l'inauguration de la
+communauté des développeurs de logiciels \textsf{NoSQL}. Ce retour aux
+non-relationnels est essentiellement motivé par les nouvelles demandes
+de performance et de scalabilité face à la montée en charge des sites
+web de grande audience apparus à partir des années $2000$. La plupart des
+logiciels \textsf{NoSQL} sont ainsi destinés à être utilisés dans les
+dispositifs en répartition de charge des services \textsf{Internet}.
+\\ 
+\\ 
+Les leaders de la communauté \textsf{NoSQL} sont issus
+des \textsf{start-up} internet pour lesquels la simplicité et le
+gratuité des \textsf{SGBD} sont un critère de choix important quite à
+risquer l'intégrité des données. Il est important de noter que la
+communauté
+\textsf{NoSQL} a effectivement mis en place des produits capables de
+manipuler de très grandes quantités de données qui se mesurent en
+centaines de \texttt{Téraoctets} et offrent une meilleure scalabilité
+mais force est de remarquer que les solutions \textsf{NoSQL} sont
+seulement adaptées pour certains besoins comme ceux des applications
+\texttt{Web 2.0} qui ne nécessitent pas de manoeuvres critiques comme
+les transactions dans la gestion des données.  En effet le \textsf{Web
+2.0} désigne l'ensemble des fonctionnalités nouvelles et usages
+nouveaux du \textsf{World Wide Web} permettant aux internautes ayant
+peu de connaissances techniques d’être actif sur la toile, à l’image
+des réseaux sociaux.
+\\
+\\ 
+Il y a une autre mouvance plus récente, le
+\textsf{NewSQL}\index{NewSQL}, qui contrairement au \textsf{NoSQL}
+tente de conserver la structure classique relationnelle tout en
+faisant appel à différents procédés dans le but de conserver la
+rapidité, même sur de larges volumes\cite{newSQL}. Ces derniers ne
+font pas l'objet du présent document.
